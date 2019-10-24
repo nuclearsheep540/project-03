@@ -1,2 +1,3 @@
 # project-03
-GA Project 3 - Full Stack Web Application
+Lydia 
+GA Project 3 - Full Stack Web Application 
