@@ -1,0 +1,25 @@
+{
+  "name": "project-03",
+  "version": "1.0.0",
+  "description": "matt davey GA Project 3 - Full Stack Web Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuclearsheep540/project-03.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nuclearsheep540/project-03/issues"
+  },
+  "homepage": "https://github.com/nuclearsheep540/project-03#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0"
+  }
+}
