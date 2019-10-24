@@ -1,12 +1,9 @@
 # project-03
-matt davey 
 GA Project 3 - Full Stack Web Application 
 Shani McDonald
+Matt Davey
+Lydia Dalrymple 
 
-
-This is confusing but I am getting my head around it slowly 
-
-MORE CHANGES
 
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #3: A MERN Stack App
 ​
