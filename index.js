@@ -4,7 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const logger = require('./lib/logger')
-// const router = require('./config/router')
+const router = require('./config/router')
 // const errorHandler = require('./lib/errorHandler')
 
 
@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 app.use(logger)
 
-// app.use('/api', router)
+app.use('/api', router)
 
 // app.use(errorHandler)
 
