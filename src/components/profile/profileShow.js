@@ -59,6 +59,14 @@ export default class ProfileShow extends React.Component {
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err))
   }
+  render() {
+    return (
+      <div>
+        <h1>THIS IS THE SHOW PAGE</h1>
+  
+      </div>
 
+    )
+  }
 
 }

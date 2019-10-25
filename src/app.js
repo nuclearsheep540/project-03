@@ -7,6 +7,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Home from './components/common/Home'
 import ProfileNew from './components/profile/ProfileNew'
+import ProfileShow from './components/profile/profileShow'
 // REMEMBER TO IMPORT PROFILE EDIT TO SOMEHWERE VIA A LINK
 
 import './style.scss'
@@ -23,6 +24,7 @@ const App = () => (
       </nav>
       <Switch>
         <Route path='/profile/new' component={ProfileNew} />
+        <Route path='/profile/show' component={ProfileShow} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
         <Route exact path='/' component={Home} />

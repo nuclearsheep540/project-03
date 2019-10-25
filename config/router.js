@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const users = require('../controllers/auth')
 const secureRoute = require('../lib/secureRoute')
+const profile = require('../controllers/profile')
 
 router.route('/register')
   .post(users.register)
@@ -8,9 +9,11 @@ router.route('/register')
 router.route('/login')
   .post(users.login)
 
-
 router.route('/profile')
   .get(secureRoute, users.profile)
+
+router.route('/profile/new')
+  .post(profile.create)
 
 // we wont need an id placeholder here because we can getAuth to retrieve the loggedin user token, and check against users on our database
 

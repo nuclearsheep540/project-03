@@ -18,7 +18,8 @@ function login(req, res) {
         return res.status(401).json({ message: 'Bad input' })
       }
       const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '6h' })
-      res.status(202).json({ name: `${user.username}`, message: 'Welcome back', token })
+      res.status(202).json({ name: `${user.username}`, message: 'Welcome back', newUser: `${user.newUser}`, token })
+      console.log(user)
     })
     .catch(() => {
       res.status(401).json({ message: 'catch error' })
@@ -26,9 +27,8 @@ function login(req, res) {
     })
 }
 
-// function logged(req, res) {
-//   User.findOne({  })
-// }
+
+
 
 // PROFILE ROUTE / PROFILE 
 function profile(req, res) {

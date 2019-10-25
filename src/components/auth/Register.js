@@ -13,7 +13,8 @@ export default class Register extends React.Component {
         username: '',
         email: '',
         password: '',
-        passwordConfirmation: ''
+        passwordConfirmation: '',
+        newUser: true
       }
     }
     this.handleChange = this.handleChange.bind(this)
@@ -30,9 +31,14 @@ export default class Register extends React.Component {
     axios.post('/api/register', this.state.data)
       .then(res => {
         console.log(res)
-        this.props.history.push('/login')
+        this.profileNew()
+        
       })
       .catch(err => console.log(err))
+  }
+  profileNew(){
+    axios.post('/api/profile/new', this.state.data.firstname, this.state.data.lastName)
+      .then(this.props.history.push('/login'))
   }
 
   render() {
