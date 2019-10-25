@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
+import Auth from '../../lib/auth'
 
 class Login extends React.Component {
   constructor() {
@@ -25,9 +26,9 @@ class Login extends React.Component {
     console.log(e)
     Axios.post('/api/login', this.state.data)
       .then(res => {
-        //set token
-        //set name
-        //set state of name to name
+        Auth.setToken(res.data.token)
+        Auth.setName(res.data.name)
+        this.setState({ name: res.data.name })
         this.props.history.push('/profile')
         console.log(this.state.name)
         console.log('res = ', res)
