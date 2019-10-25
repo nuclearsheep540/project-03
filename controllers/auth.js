@@ -1,6 +1,6 @@
 const User = require('../models/User')
-const jwt = require('jsonwebtoken')
-const { secret } = ('../config/environment')
+// const jwt = require('jsonwebtoken')
+// const { secret } = ('../config/environment')
 
 
 // REGISTER ROUTE - /register
@@ -20,12 +20,14 @@ function login(req, res) {
         return res.status(401).json({ message: 'Unauthorized' })
       }
       // const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '2h' })
-      res.status(202).json({ message: `Welcome back ${user.username}`,  })
+      res.status(202).json({ message: `Welcome back ${user.username}`  })
+      //add token
       
     })
     .catch(() => res.status(401).json({ message: 'Unauthorized' }
     ))
 }
+
 
 module.exports = {
   register,
