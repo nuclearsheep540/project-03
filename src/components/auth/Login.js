@@ -17,7 +17,7 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleChange({ target: { name, value } }) {
-    
+
     const data = { ...this.state.data, [name]: value }
     this.setState({ data })
   }
@@ -41,32 +41,45 @@ class Login extends React.Component {
     return (
       <section className="section">
         <div className="container">
+
+
           <form onSubmit={this.handleSubmit}>
             <h2 className="title">Login</h2>
-            <div className="field">
-              <label className="label">Username</label>
-              <div className="control">
-                <input
-                  className="input"
-                  name="username"
-                  placeholder="username"
-                  onChange={this.handleChange}
-                />
+
+            <div className="wrapper-two">
+              <div className='container-half'>
+
+                <div className="input-area">
+                  <label className="">Username</label>
+                  <div className="">
+                    <input
+                      className="u-full-width"
+                      name="username"
+                      type='text'
+                      placeholder="Username"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+
+
+                <div className="input-area">
+                  <label className="label">Password</label>
+                  <div className="input">
+                    <input
+                      className="u-full-width"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.handleChange}>
+                    </input>
+                  </div>
+                </div>
               </div>
+
+              <button type="submit" className="button is-light">Login</button>
+
             </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <button type="submit" className="button is-light">Login</button>
           </form>
         </div>
       </section>

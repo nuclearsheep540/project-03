@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-//import auth
+import Auth from '../../lib/auth'
 
 export default class ProfileShow extends React.Component {
   constructor() {
@@ -61,10 +61,11 @@ export default class ProfileShow extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h1>THIS IS THE SHOW PAGE</h1>
-  
-      </div>
+      <section className='section'>
+        <div className='container'>
+          <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
+        </div>
+      </section>
 
     )
   }

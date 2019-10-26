@@ -27,9 +27,6 @@ function login(req, res) {
     })
 }
 
-
-
-
 // PROFILE ROUTE / PROFILE 
 function profile(req, res) {
   User.findById(req.currentUser._id)

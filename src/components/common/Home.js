@@ -2,18 +2,26 @@ import React from 'react'
 
 const Home = () => (
   <div className='container-full'>
-    <div className='hero is-fullheight has-text-is-danger'>
-      <h1 className='level-item is-size-1'>WELCOME TO SKILLSWAP </h1>
+    <div className='center head'>
+      <h1>Skill Swap </h1>
     </div>
-    <section className='rows pri'>
-      <h2> Things! </h2>
-     
-    </section>
-    <section className='rows alt'>
 
-      <h2> And more things!</h2>
+    <section className='rows'>
+      <div className='content'>
+        <h2 className='center'> Things! </h2>
+        <p className='center'> All about the things we&apos;re doing </p>
+      </div>
     </section>
-    <footer>
+
+    <section className='rows'>
+      <div className='content'>
+        <h2 className='center'> More Things! </h2>
+        <p className='center'> Why all the things are awesome </p>
+      </div>
+    </section>
+
+
+    <footer className='center bottom'>
       Made with &lt;3 by Matt Davey, Lydia Dalrymple, Shani MCDonald @ GA London 2019
     </footer>
   </div>

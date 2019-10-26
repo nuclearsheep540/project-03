@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileForm from './profileForm'
+import ProfileForm from './ProfileForm'
 import axios from 'axios'
 import Auth from '../../lib/auth'
 
@@ -23,7 +23,7 @@ class ProfileNew extends React.Component {
       },
       profileNew: ''
     }
-    
+
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -40,23 +40,25 @@ class ProfileNew extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        axios.put(`/api/user/${res.data._id}`, { newUser: false }) 
+        axios.put(`/api/user/${res.data._id}`, { newUser: false })
         console.log(this.state)
         this.props.history.push(`/profile/show/${res.data._id}`)
       })
   }
-  
+
 
   render() {
     return (
-      <div>
-        <h1>MAKE A PROFILE</h1>
-        <ProfileForm
-          profileData={this.state.profileData}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-      </div>
+      <section className='section'>
+        <div className='container'>
+          <h2 className="title">Your Profile</h2>
+          <ProfileForm
+            profileData={this.state.profileData}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
+      </section>
     )
   }
 }
