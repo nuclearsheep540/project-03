@@ -47,7 +47,7 @@ class ProfileNew extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        console.log('new profile = ', res.data)
+        console.log('new user = ', res.data)
         this.makeProfile()
       })
   }

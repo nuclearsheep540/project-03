@@ -10,9 +10,11 @@ const profileSchema = new mongoose.Schema({
   skills: { type: [String] },
   languages: { type: [String] },
   frameworks: { type: [String] },
-  qualifications: { type: [String] }
+  qualifications: { type: [String] },
+  user: { type: String }
 }, {
   timestamps: true
+
 })
 
 profileSchema.plugin(require('mongoose-unique-validator'))

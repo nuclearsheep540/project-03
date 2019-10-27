@@ -189,11 +189,51 @@ mongoose.connect(
           },
           {
               
-            title: 'CakePHP help',
-            framework: 'CakePHP',
+            title: 'Help with Flexbox',
+            framework: 'none',
+            language: 'CSS',
+            description: 'I am requesting help on the CSS front.  I have been looking up flexbox but I\'m struggling when it comes to putting it into practice.  Has anyone ever worked with flexbox before?',
+            user: users[0]
+          },
+          {
+              
+            title: 'Vanilla Javascript',
+            framework: 'none',
+            language: 'Javascript',
+            description: 'Does anyone reccommend a place for tutorials on vanilla Javascript?  I would like to practice array methods in particular, but other basics too. I would like to learn but in a more interactive way as opposed to just reading.  Many thanks ',
+            user: users[1]
+          },
+          {
+              
+            title: 'Bulma',
+            framework: 'Bulma',
+            language: 'CSS',
+            description: 'I dont know about other people, but I REALLY struggle with CSS.  I\'ve heard about Bulma but I\'m struggling with how to link it to my project.  Does anyone have time to help me out?',
+            user: users[2]
+          },
+          {
+              
+            title: 'Routing with React',
+            framework: 'React',
+            language: 'Javascript',
+            description: 'Can anybody help me out with Routing with React.  I cannot seem to get the correct pages to render when I try',
+            user: users[4]
+          },
+          {
+              
+            title: 'Intro to Python',
+            framework: 'none',
+            language: 'Python',
+            description: 'Hello all, I\'m extremely new to coding and I was advised that Python is a \'simple\' language to learn but I believe I would learn better If I was face to face with someone.  Is there anyone studying Python that would like to study together?',
+            user: users[5]
+          },
+          {
+              
+            title: 'How to populate items to a page like Netflix',
+            framework: 'none',
             language: 'none',
-            description: 'I was wondering if anyone who uses CakePHP could help me out.  I have never used it before and I think it could be super helpful',
-            user: users[14]
+            description: 'Hello, I am currently teaching myself how to code and I\'m starting with Javascript.  Is a site like Netflix something that can be achieved with Javascript? Or, would I need to use a framework',
+            user: users[6]
           }
             
         ])

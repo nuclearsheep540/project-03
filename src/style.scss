@@ -1,6 +1,6 @@
 
 // --- pallet --- // 
-$bright: rgba(37, 206, 209, 1);
+$bright: #25ced1;
 $grey: rgba(89, 96, 96, 1);
 $dark: rgba(64, 99, 122, 1);
 $neutral: rgba(247, 247, 255, 1);
@@ -95,7 +95,7 @@ nav {
   text-align: center;
   vertical-align: middle;
   transform: translateY(12px);
-  border-bottom: 5px solid rgba(255, 255, 255, 1);
+  border-bottom: 5px solid rgba(255, 255, 255, 0);
 }
 .nav-item:hover {
   border-bottom: 5px solid $bright;
@@ -194,11 +194,11 @@ border-radius: 4px;
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
-  position: relative;
+  // position: relative;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box; }
 .column,
 .columns {

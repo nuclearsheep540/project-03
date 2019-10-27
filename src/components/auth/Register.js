@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Auth from '../../lib/auth'
 
 
 export default class Register extends React.Component {
@@ -30,16 +31,18 @@ export default class Register extends React.Component {
     e.preventDefault()
     axios.post('/api/register', this.state.data)
       .then(res => {
-        console.log(res)
-        this.profileNew()
-
+        console.log(res),
+        this.props.history.push('/login')
       })
       .catch(err => console.log(err))
   }
-  profileNew() {
-    axios.post('/api/profile/new', this.state.data.firstname, this.state.data.lastName)
-      .then(this.props.history.push('/login'))
-  }
+  // profileNew() {
+  //   axios.post('/api/profile/new', this.state.data.firstname, this.state.data.lastName,
+  //     {
+  //       headers: { Authorization: `Bearer ${Auth.getToken()}` }
+  //     })
+ 
+  // }
 
   render() {
     console.log(this.state.data, 're-render')

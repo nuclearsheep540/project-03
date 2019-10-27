@@ -23,7 +23,9 @@ class Login extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    Axios.post('/api/login', this.state.data)
+    Axios.post('/api/login', this.state.data, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` } 
+    })
       .then(res => {
         Auth.setToken(res.data.token)
         Auth.setName(res.data.name)

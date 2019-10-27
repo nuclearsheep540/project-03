@@ -31,7 +31,7 @@ router.route('/profile/new')
   .post(secureRoute, profile.create)
 
 router.route('/profile/show/:id')
-  .get(profile.show)
+  .get(secureRoute, profile.show)
 
 router.route('/users/:id')
   .get(users.profile)
