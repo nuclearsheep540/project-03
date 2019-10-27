@@ -68,14 +68,27 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 5px;
-  min-height: 30px;
+  min-height: 35px;
   background-color: $dark;
   border-bottom: 1px solid rgb(41, 64, 79);
 }
+.left{
+  left: 0px;
+  position: fixed;
+  max-width: 25%;
+  display: flex;
+  min-height: 35px;
+}
+.right{
+  right: 0px;
+  position: fixed;
+  max-width: 75%;
+  display: flex;
+}
 
 .nav-item {
-  width: 180px;
-  min-width: 90px;
+  width: 100px;
+  min-width: 70px;
   padding: 0px;
   margin: 0 10px;
   text-align: center;
@@ -116,7 +129,7 @@ nav {
 .wrapper-two {
   display: flex;
   flex-wrap: wrap;
-  min-width: 100%;
+  min-width: 100vw;
   min-height: 100%;
 }
 .container-half {

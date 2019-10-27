@@ -1,4 +1,5 @@
 const Profile = require('../models/Profile')
+const User = require('../models/User')
 
 
 
@@ -22,6 +23,21 @@ function create(req, res, next) {
   Profile.create(req.body)
     .then(profile => res.status(201).json(profile))
     .catch(next)
+}
+
+function show (req, res) {
+  // req.body.user = req.currentUser
+  //find the user
+  //find the profile that belongs to the user
+  console.log('show function params=',req.body.currentUser) //this is the user
+
+
+  Profile.findById(req.params.id)
+    .then(elem => {
+      console.log('element =',elem)
+      res.status(200).json(elem)
+    })
+    .catch(err => console.log(err))
 }
 
 //show route of /user/:id
@@ -62,5 +78,6 @@ function create(req, res, next) {
 
 
 module.exports = {
-  create
+  create,
+  show
 }
