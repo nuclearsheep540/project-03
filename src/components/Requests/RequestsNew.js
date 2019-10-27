@@ -33,6 +33,7 @@ const RequestNew = () => (
           <option value="Option 11">Typescript</option>
           <option value="Option 12">C++</option>
           <option value="Option 13">PHP</option>
+          <option value="Option 14">CSS</option>
 
         </select>
       </div>
@@ -54,6 +55,10 @@ const RequestNew = () => (
           <option value="Option 12">Express</option>
           <option value="Option 13">Vue.js</option>
           <option value="Option 14">CakePHP</option>
+          <option value="Option 15">Bootstrap</option>
+          <option value="Option 16">Bulma</option>
+
+
 
         </select>
       </div>

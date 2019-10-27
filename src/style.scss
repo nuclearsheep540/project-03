@@ -65,17 +65,18 @@ body {
 
 nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  padding-top: 5px;
+  padding-top: 0px;
   min-height: 35px;
   background-color: $dark;
   border-bottom: 1px solid rgb(41, 64, 79);
 }
 .left{
+  display: flex;
+  width: 100%;
   left: 0px;
   position: fixed;
-  max-width: 25%;
   display: flex;
   min-height: 35px;
 }
@@ -93,8 +94,8 @@ nav {
   margin: 0 10px;
   text-align: center;
   vertical-align: middle;
-  transform: translateY(7px);
-  border-bottom: 5px solid rgba(255, 255, 255, 0);
+  transform: translateY(12px);
+  border-bottom: 5px solid rgba(255, 255, 255, 1);
 }
 .nav-item:hover {
   border-bottom: 5px solid $bright;

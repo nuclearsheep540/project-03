@@ -135,54 +135,69 @@ mongoose.connect(
 
         ])
       })
-      .then(users => console.log(`${'users'.repeat(users.length)} created`))
-      // .finally(() => mongoose.connection.close())
-    return Request.create([
-      {
-        title: 'React Help needed',
-        framework: 'ReactJs',
-        language: 'none',
-        description: 'I need to complete a project for class which requires React.  I am having trouble with rendering components to the page.  Can anybody help me?'
-      },
-      {
-        title: 'Building a Wordpress website',
-        framework: 'none',
-        language: 'PHP',
-        description: 'I would like to create a Wordpress website for my portfolio which I understand requires knowledge of PHP.  I have never used it before.  I’d like to request some help with going through the basics and/or recommend any frameworks that work well.  If anyone can help me that would be great!'
-      },
-      {
-        title: 'Creating a snake game',
-        framework: 'none',
-        language: 'Javascript',
-        description: 'I have been tasked with creating a snake game which I have a week to complete.  The requirement is that I’m to only use vanilla Javascript which I don’t really know much about.  Has anyone done anything similar before and would be able to help me? Thanks in advance'
-      },
-      {
-        title: 'Learning ASP.NET',
-        framework: 'ASP.NET',
-        language: 'none',
-        description: 'Help needed!  I have been teaching myself C# over the past couple of months and I have been advised that to progress in an interview for a job that I would like to go for, I need to have a a basic understanding of how ASP.NET works.  Does anyone recommend any tutorials or have a working knowledge to help me out?'
-      },
-      {
-        title: 'Has anyone ever used Phoenix?',
-        framework: 'Pheonix',
-        language: 'none',
-        description: 'My upcoming bootcamp includes using Phoenix  and learning about handles multiple users?  Has anyone on here ever used it? Asking for a friend'
-      },
-      {
-        title: 'Spring Help',
-        framework: 'Spring',
-        language: 'none',
-        description: 'Hi all, I’m a junior developer where we use Java as a language.  I  believe that we’ll be using Spring as opposed to JSF and was wondering if anyone had time to sit down and go through some basics.  Hopefully just one meet up for a couple of hours should get me on track.  Thank you in advance.'
-      },
-      {
-          
-        title: 'CakePHP help',
-        framework: 'CakePHP',
-        language: 'none',
-        description: 'I was wondering if anyone who uses CakePHP could help me out.  I have never used it before and I think it could be super helpful'
-      }
-         
-    ])
+      .then(users => {
+        console.log(`${'users'.repeat(users.length)} created`)
+        return Request.create([
+          {
+            title: 'React Help needed',
+            framework: 'ReactJs',
+            language: 'none',
+            description: 'I need to complete a project for class which requires React.  I am having trouble with rendering components to the page.  Can anybody help me?',
+            user: users[3]
+          },
+          {
+            title: 'Building a Wordpress website',
+            framework: 'none',
+            language: 'PHP',
+            description: 'I would like to create a Wordpress website for my portfolio which I understand requires knowledge of PHP.  I have never used it before.  I’d like to request some help with going through the basics and/or recommend any frameworks that work well.  If anyone can help me that would be great!',
+            user: users[1]
+          },
+          {
+            title: 'Creating a snake game',
+            framework: 'none',
+            language: 'Javascript',
+            description: 'I have been tasked with creating a snake game which I have a week to complete.  The requirement is that I’m to only use vanilla Javascript which I don’t really know much about.  Has anyone done anything similar before and would be able to help me? Thanks in advance',
+            user: users[8]
+          },
+          {
+            title: 'Learning ASP.NET',
+            framework: 'ASP.NET',
+            language: 'none',
+            description: 'Help needed!  I have been teaching myself C# over the past couple of months and I have been advised that to progress in an interview for a job that I would like to go for, I need to have a a basic understanding of how ASP.NET works.  Does anyone recommend any tutorials or have a working knowledge to help me out?',
+            user: users[9]
+          },
+          {
+            title: 'Has anyone ever used Phoenix?',
+            framework: 'Pheonix',
+            language: 'none',
+            description: 'My upcoming bootcamp includes using Phoenix  and learning about handles multiple users?  Has anyone on here ever used it? Asking for a friend',
+            user: users[10]
+          },
+          {
+            title: 'Spring Help',
+            framework: 'Spring',
+            language: 'none',
+            description: 'Hi all, I’m a junior developer where we use Java as a language.  I  believe that we’ll be using Spring as opposed to JSF and was wondering if anyone had time to sit down and go through some basics.  Hopefully just one meet up for a couple of hours should get me on track.  Thank you in advance.',user: users[6]
+          },
+          {
+              
+            title: 'CakePHP help',
+            framework: 'CakePHP',
+            language: 'none',
+            description: 'I was wondering if anyone who uses CakePHP could help me out.  I have never used it before and I think it could be super helpful',
+            user: users[14]
+          },
+          {
+              
+            title: 'CakePHP help',
+            framework: 'CakePHP',
+            language: 'none',
+            description: 'I was wondering if anyone who uses CakePHP could help me out.  I have never used it before and I think it could be super helpful',
+            user: users[14]
+          }
+            
+        ])
+      })
       .then(requests => { 
         console.log(`${'👱'.repeat(requests.length)} requests created`)
         return Profile.create([
@@ -654,11 +669,7 @@ mongoose.connect(
             frameworks: ['React', 'node'],
             qualifications: ['self taught']
           }
-      
-
-        
-        ]
-        )
+        ])
       })
       .then(profiles => console.log(`${'profiles'.repeat(profiles.length)} created`))
       .catch(err => console.log(err))
