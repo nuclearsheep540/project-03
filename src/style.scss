@@ -32,12 +32,18 @@ $yellow: rgba(255, 222, 124, 1);
 }
 
 // --- global styles --- //
+section {
+  margin: 20px;
+}
+
 h1, .logo {
   font-family: 'Pacifico', cursive;
 }
+
 p, h2, a {
   font-family: 'Ubuntu', sans-serif;
 }
+
 a {
   text-decoration: none;
   margin: 0px 10px;
@@ -74,7 +80,7 @@ nav {
   margin: 0 10px;
   text-align: center;
   vertical-align: middle;
-  transform: translateY(5px);
+  transform: translateY(7px);
   border-bottom: 5px solid rgba(255, 255, 255, 0);
 }
 .nav-item:hover {
@@ -84,6 +90,8 @@ nav {
     color: $bright;
   }
 }
+// --- end of generic styles --- //
+
 .home-button{
   a {
     color: white;
@@ -101,7 +109,6 @@ nav {
   color: white;
 }
 
-
 .container-full {
   min-width: 100%;
   min-height: 100%px;
@@ -117,13 +124,9 @@ nav {
   min-width: 45%;
   min-height: 100%;
 }
-
-
-
 .rows{
     width: 100vw;
 }
-
 .content {
   max-width: 900px;
   min-height: 200px;
@@ -132,11 +135,6 @@ nav {
   border: 1px rgba(167, 154, 154, 0.2) solid;
   border-radius: 4px;
 }
-
-section {
-  margin: 20px;
-}
-
 .input-area {
 background-color:rgba(255, 255, 255, 0.5);
 width: 380px;
@@ -145,17 +143,10 @@ padding: 10px;
 border: 1px rgba(167, 154, 154, 0.2) solid;
 border-radius: 4px;
 }
-
-
-
-// section.rows.pri {
-//   background-color: red;
-
-// }
-
-
-
 // *** END CUSTOM *** //
+
+
+
 
 // *** SKELETON STYLING *** //
 /*

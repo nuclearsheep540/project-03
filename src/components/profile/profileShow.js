@@ -13,19 +13,23 @@ export default class ProfileShow extends React.Component {
     //binds
   }
 
-  componentDidMount() { //get the profile, specifically from the token logged in
-    console.log('fetching profile...')
-    axios.get('/api/profile', {
-      // headers: { Authorization: `Bearer ${Auth.getToken()}` }
-    })
-      .then(res => {
-        this.setState({ user: res.data })
-        const profileName = this.state.data.username
-        this.props.history.push(`/profile/${profileName}`)
-        this.getPosts()
-      })
-      .catch(err => console.log(err))
+  componentDidMount() { 
+  
+
+    //get the profile, specifically from the token logged in
+    // console.log('fetching profile...')
+    // axios.get('/api/profile', {
+    //   // headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    // })
+    //   .then(res => {
+    //     this.setState({ user: res.data })
+    //     const profileName = this.state.data.username
+    //     this.props.history.push(`/profile/${profileName}`)
+    //     this.getPosts()
+    //   })
+    //   .catch(err => console.log(err))
   }
+  
   getPosts(){ //get the data in requests, and call 
     console.log('finding user posts...')
     axios.get('/api/requests')

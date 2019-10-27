@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const logger = require('./lib/logger')
 const router = require('./config/router')
 // const errorHandler = require('./lib/errorHandler')
-
+mongoose.set('useFindAndModify', false)
 
 
 

@@ -21,7 +21,10 @@ class ProfileNew extends React.Component {
         frameworks: '',
         qualifications: ''
       },
-      profileNew: ''
+      userData: {
+        newUser: false
+      }
+
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -35,15 +38,39 @@ class ProfileNew extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state.data)
-    axios.post('/api/profile/new', this.state.data, {
+    console.log('props are ', this.props.match)
+    console.log('auth user is ', Auth.getPayLoad())
+    const user = Auth.getPayLoad()
+    console.log('state is ', this.state)
+    axios.put('/api/login', this.state.userData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        axios.put(`/api/user/${res.data._id}`, { newUser: false })
-        console.log(this.state)
-        this.props.history.push(`/profile/show/${res.data._id}`)
+        console.log('response = ', res.data)
+        axios.post('/api/profile', this.state.profileData, {
+          headers: { Authorization: `Bearer ${Auth.getToken()}` }
+        })
+        this.props.history.push('/profile/show')
       })
+
+
+
+    // console.log('this id = ', )
+    // console.log(this.state.data)
+    // const userId = Auth.getPayLoad().sub
+    // axios.post('/api/profile/new/', this.state.data, {
+    //   headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    // })
+    //   .then(res => {
+    //     console.log('axios post to profile/new = ', res)
+    //     axios.put('/api/profile/new/', this.state.newUser)
+    //     console.log('axios post to user id ',res.data._id)
+    //     console.log('data posted to user is ',this.state)
+    //     this.props.history.push('/profile/show/')
+    //   })
+    //   .then(res => {
+    //     console.log('axois put = ',res)
+    //   })
   }
 
 

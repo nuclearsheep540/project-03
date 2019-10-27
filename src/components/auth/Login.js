@@ -23,14 +23,21 @@ class Login extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    console.log(e)
     Axios.post('/api/login', this.state.data)
       .then(res => {
         Auth.setToken(res.data.token)
         Auth.setName(res.data.name)
         this.setState({ name: res.data.name })
-        res.data.newUser ? this.props.history.push('/profile/new') : this.props.history.push('/profile/show')
-        console.log('response data from user log in = ', res)
+        console.log('new user? ',res.data.newUser)
+        if (res.data.newUser === 'true'){
+          console.log('its a newbie')
+          this.props.history.push('/profile/new')
+        } else {
+          console.log('its an old timer')
+          this.props.history.push('/profile/show')
+        } 
+
+        console.log('response data from /login  = ', res.data)
       })
       .catch(err => console.log(err))
     console.log('login submitted')

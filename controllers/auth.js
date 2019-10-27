@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const { secret } = require('../config/environment')
 
 
+
 // REGISTER ROUTE - /register
 function register(req, res) {
   User.create(req.body) 
@@ -34,8 +35,24 @@ function profile(req, res) {
     .catch(err => res.json(err))
 }
 
+
+// USER UPDATE (FOR STATE.NEWUSER = FALSE)
+function notNew(req, res, next) {
+  req.body.user = req.currentUser
+  User.findByIdAndUpdate(req.currentUser._id, req.body )
+    .then(elem => {
+      console.log( req.currentUser._id )
+      if (!elem) return res.status(404).json({ message: 'There are no users here' })
+      if (!elem._id.equals(req.currentUser._id)) return res.status(401).json({ message: 'You\'re not the Authorized user for this task!' })
+      res.status(202).json(elem)
+    })
+    .catch(next)
+}
+
+
 module.exports = {
   register,
   login,
-  profile
+  profile,
+  notNew
 }
