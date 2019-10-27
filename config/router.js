@@ -10,6 +10,11 @@ router.route('/requests')
   .get(requests.index)
   .post(secureRoute, requests.create) //add secure route here
 
+router.route('/requests/:id')
+  .get(requests.show)
+  .put(secureRoute, requests.edit)
+  .delete(secureRoute, requests.removeRoute)
+
 router.route('/register')
   .post(users.register)
 

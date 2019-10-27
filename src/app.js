@@ -5,10 +5,17 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+
 import Home from './components/common/Home'
+import Navbar from './components/common/Navbar'
+
 import ProfileNew from './components/profile/ProfileNew'
 import ProfileShow from './components/profile/ProfileShow'
-import Navbar from './components/common/Navbar'
+
+import RequestsIndex from './components/requests/RequestsIndex'
+
+
+
 
 // REMEMBER TO IMPORT PROFILE EDIT TO SOMEHWERE VIA A LINK
 
@@ -23,6 +30,7 @@ const App = () => (
     <main>
       <Navbar />
       <Switch>
+        <Route path='/requests' component={RequestsIndex} />
         <Route path='/profile/new' component={ProfileNew} />
         <Route path='/profile/show' component={ProfileShow} />
         <Route path='/register' component={Register} />
