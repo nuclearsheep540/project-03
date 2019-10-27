@@ -5,6 +5,7 @@ const Request = require('../models/Request')
 function index(req, res) {
   Request
     .find()
+    .populate('User')
     .then(elem => res.status(200).json(elem))
     .catch(() => res.status(404).json({ message: 'Not found' }))
 
@@ -24,7 +25,7 @@ function create(req, res, next) {
 function show(req, res) {
   Request
     .findById(req.params.id)
-    // populate the user
+    .populate('User')
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not found' })
       res.status(200).json(request)
