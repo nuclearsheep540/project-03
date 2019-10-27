@@ -20,18 +20,19 @@ const RequestNew = () => (
       <div className="six columns">
         <label name="exampleRecipientInput">Languages</label>
         <select className="u-full-width" id="exampleRecipientInput">
-          <option value="Option 1">Javascript</option>
-          <option value="Option 2">C#</option>
-          <option value="Option 3">Python</option>
-          <option value="Option 4">Java</option>
-          <option value="Option 5">Rust</option>
-          <option value="Option 6">Go</option>
-          <option value="Option 7">Elixr</option>
-          <option value="Option 8">Ruby</option>
-          <option value="Option 9">Kotlin</option>
-          <option value="Option 10">Typescript</option>
-          <option value="Option 11">C++</option>
-          <option value="Option 12">PHP</option>
+          <option value="Option 1">none</option>
+          <option value="Option 2">Javascript</option>
+          <option value="Option 3">C#</option>
+          <option value="Option 4">Python</option>
+          <option value="Option 5">Java</option>
+          <option value="Option 6">Rust</option>
+          <option value="Option 7">Go</option>
+          <option value="Option 8">Elixr</option>
+          <option value="Option 9">Ruby</option>
+          <option value="Option 10">Kotlin</option>
+          <option value="Option 11">Typescript</option>
+          <option value="Option 12">C++</option>
+          <option value="Option 13">PHP</option>
 
         </select>
       </div>
@@ -39,19 +40,20 @@ const RequestNew = () => (
       <div className="six columns">
         <label name="exampleRecipientInput">Frameworks</label>
         <select className="u-full-width" id="exampleRecipientInput">
-          <option value="Option 1">Angular Js</option>
-          <option value="Option 2">Django</option>
-          <option value="Option 3">Ruby on Rails</option>
-          <option value="Option 4">ASP.NET</option>
-          <option value="Option 5">Meteor</option>
-          <option value="Option 6">Flask</option>
-          <option value="Option 7">ReactJS</option>
-          <option value="Option 8">Pheonix</option>
-          <option value="Option 9">Spring</option>
-          <option value="Option 10">PLAY</option>
-          <option value="Option 11">Express</option>
-          <option value="Option 12">Vue.js</option>
-          <option value="Option 13">CakePHP</option>
+          <option value="Option 1">none</option>
+          <option value="Option 2">Angular Js</option>
+          <option value="Option 3">Django</option>
+          <option value="Option 4">Ruby on Rails</option>
+          <option value="Option 5">ASP.NET</option>
+          <option value="Option 6">Meteor</option>
+          <option value="Option 7">Flask</option>
+          <option value="Option 8">ReactJS</option>
+          <option value="Option 9">Pheonix</option>
+          <option value="Option 10">Spring</option>
+          <option value="Option 11">PLAY</option>
+          <option value="Option 12">Express</option>
+          <option value="Option 13">Vue.js</option>
+          <option value="Option 14">CakePHP</option>
 
         </select>
       </div>
