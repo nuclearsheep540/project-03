@@ -26,6 +26,7 @@ function show(req, res) {
   Request
     .findById(req.params.id)
     .populate('user')
+    .populate('comments.user')
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not found' })
       res.status(200).json(request)
@@ -41,7 +42,7 @@ function edit(req, res) {
     .findById(req.params.id)
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not found' })
-      // if (!request.user.equals(req.currentUSer._id)) return res.status(401).json({ message: 'Unauthorized' })
+      // if (!request.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
       return request.set(req.body)
     })
     .then(request => request.save())
