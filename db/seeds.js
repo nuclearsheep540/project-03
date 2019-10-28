@@ -234,6 +234,14 @@ mongoose.connect(
             language: 'none',
             description: 'Hello, I am currently teaching myself how to code and I\'m starting with Javascript.  Is a site like Netflix something that can be achieved with Javascript? Or, would I need to use a framework',
             user: users[6]
+          },
+          {
+              
+            title: 'SecureRouting',
+            framework: 'react',
+            language: 'none',
+            description: 'I was wondering if anyone could help me.  I\'m working on a project and I\'m trying to make sure that my secure route is working but I don\'t feel confident in taking this on by myself.  Does anyone have any time spare to help me out?' ,
+            user: users[7]
           }
             
         ])
