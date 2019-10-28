@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 
-class RequestForm extends React.component {
+class RequestForm extends React.Component {
   constructor() {
     super()
 
@@ -71,23 +71,25 @@ class RequestForm extends React.component {
   handleSubmit(e) {
     e.preventDefault()
     console.log('submitting this form')
-    console.table(this.state)
+    
   }
 
 
   render () {
     console.log(this.state.formData)
+    console.log(this.props.requestFormData, 'propss')
     return (
       <div>
         <form>
           <div className="row">
-            <div className="six columns">
+            <div className="field six-columns">
               <label name="exampleRecipientInput" type='text'>Title</label>
               <input
                 className="u-full-width"
                 placeholder="Title"
-                type='text'
                 name='title'
+                // value={this.props.requestFormData.title}
+                onChange={this.handleChange}
               >
               </input>
             </div>
@@ -97,9 +99,10 @@ class RequestForm extends React.component {
               <label className="label">Framework</label>
               <div className="control">
                 <Select 
-                  options={this.frameworks}
+                  options={this.state.frameworks}
                   isMulti
                   onChange={this.handleMultiSelect}
+                  // value={this.props.requestFormData.framework}
                 />
               </div>
             </div>
@@ -109,15 +112,22 @@ class RequestForm extends React.component {
               <label name="exampleRecipientInput">Languages</label>
               <div className="control">
                 <Select 
-                  options={this.languages}
+                  options={this.state.languages}
                   isMulti
                   onChange={this.handleMultiSelect}
+                  // value={this.props.requestFormData.language}
                 />
               </div>
             </div>
           
             <label name="exampleMessage">Description</label>
-            <textarea className="u-full-width" placeholder="Description" name="description" id="exampleMessage"></textarea>
+            <textarea 
+              className="u-full-width" 
+              placeholder="Description" 
+              name="description"
+              // value={this.props.requestFormData.description} 
+              onChange={this.handleChange}>
+            </textarea>
           </div>
           <button type='submit'>Send request</button>
         </form>

@@ -15,6 +15,7 @@ import ProfileShow from './components/profile/ProfileShow'
 import RequestsIndex from './components/requests/RequestsIndex'
 import RequestShow from './components/requests/RequestShow'
 import RequestEdit from './components/requests/RequestEdit'
+import RequestsNew from './components/requests/RequestsNew'
 
 
 
@@ -32,6 +33,7 @@ const App = () => (
     <main>
       <Navbar />
       <Switch>
+        <Route path='/requests/new' component={RequestsNew} />
         <Route path='/requests/:id/edit' component={RequestEdit} />
         <Route path='/requests/:id' component={RequestShow} />
         <Route path='/requests' component={RequestsIndex} />
