@@ -7,46 +7,20 @@ export default class ProfileShow extends React.Component {
     super()
     this.state = {
       data: {},
-      user: {},
-      mine: []
+      user: {}
     }
     //binds
   }
 
   componentDidMount() { 
     console.log('fetching profile...')
-    const userId = Auth.getPayLoad().sub
-    console.log('userId = ', userId)
-    axios.get(`/api/profile/show/${userId}`, {
+    axios.get('/api/profile/', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        // this.setState({ data: res.data })
-        console.log('profile data recieved: ',res.data)
+        this.setState({ data: res.data, user: res.data.userProfile })
+        console.log('profile data recieved: ', this.state)
       })
-    //   .catch(err => console.log(err))
-  }
-  
-  // getPosts(){ //get the data in requests, and call 
-  //   console.log('finding user posts...')
-  //   axios.get('/api/requests')
-  //     .then(res => {
-  //       this.setState({ data: res.data })
-  //       this.displayOwnership()
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-  // displayOwnership() {
-  //   const mine = this.state.user.filter(princess => {
-  //     return Auth.getPayLoad().sub === princess.user._id
-  //   })
-  //   this.setState({ mine })
-  //   // console.log('all princesses = ', myPrincesses)
-  //   console.log('mine = ',this.state.mine)
-  // }
-
-  getApi() {
-    // custom call for grabbing api data
   }
 
   isOwner() {
@@ -60,24 +34,26 @@ export default class ProfileShow extends React.Component {
       .catch(err => console.log(err))
   }
   render() {
-    if (!this.state) return null
-    const profile = this.state.data
+    if (!this.state.data) return null
+    if (!this.state.user) return null
+    const data = this.state.data
+    const user = this.state.user
     console.log('rendering profile...')
     return (
       <section className='section'>
         <div className='container'>
           <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
-          <small>Member since {profile.createdAt}</small>
-          <p>first name: {profile.firstName}</p>
-          <p>last name: {profile.lastName}</p>
+          <small>Member since {data.createdAt}</small>
+          <p>first name: {data.firstName}</p>
+          <p>last name: {data.lastName}</p>
           <p>image: </p>
-          <p>age: {profile.age}</p>
-          <p>location: {profile.location}</p>
-          <p>industry: {profile.fieldIndustry}</p>
-          <p>skills: {!profile.skills ? '' : profile.skills.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
-          <p>languages: {!profile.languages ? '' : profile.languages.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
-          <p>frameworks: {!profile.frameworks ? '' : profile.frameworks.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
-          <p>qualifications: {!profile.qualifications ? '' : profile.qualifications.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
+          <p>age: {user.age} </p>
+          <p>location: {user.location}</p>
+          <p>industry: {user.fieldIndustry}</p>
+          <p>skills: {!user.skills ? '' : user.skills.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
+          <p>languages: {!user.languages ? '' : user.languages.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
+          <p>frameworks: {!user.frameworks ? '' : user.frameworks.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
+          <p>qualifications: {!user.qualifications ? '' : user.qualifications.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
         </div>
       </section>
 

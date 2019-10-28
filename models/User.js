@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   newUser: { type: Boolean },
-  user: { type: String }
+  userProfile: { type: mongoose.Schema.ObjectId, ref: 'Profile', default: null }
 },
 {
   timestamps: true
@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
 userSchema.set('toJSON', {
   transform(doc, json) {
     delete json.email
+    delete json.password
     delete json.__v
     return json
   }

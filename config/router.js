@@ -27,16 +27,16 @@ router.route('/register')
 router.route('/login')
   .post(users.login)
   .get(secureRoute, users.profile)
-  .put(secureRoute, users.notNew)
+  .put(secureRoute, users.update)
 
 router.route('/profile')
   .get(secureRoute, users.profile)
-  .put(secureRoute, users.notNew)
+  .post(secureRoute, users.createProfile)
 
-router.route('/profile/new')
-  .post(secureRoute, profile.create)
+// router.route('/profile/new')
+//   .put(secureRoute, users.update)
 
-router.route('/profile/show/:id')
+router.route('/profile/show/')
   .get(secureRoute, profile.show)
 
 router.route('/users/:id')

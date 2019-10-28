@@ -9,7 +9,7 @@ export default class Register extends React.Component {
 
     this.state = {
       data: {
-        firstname: '',
+        firstName: '',
         lastName: '',
         username: '',
         email: '',

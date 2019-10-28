@@ -17,20 +17,17 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleChange({ target: { name, value } }) {
-
     const data = { ...this.state.data, [name]: value }
     this.setState({ data })
   }
   handleSubmit(e) {
     e.preventDefault()
-    Axios.post('/api/login', this.state.data, {
-      headers: { Authorization: `Bearer ${Auth.getToken()}` } 
-    })
+    Axios.post('/api/login', this.state.data)
       .then(res => {
         Auth.setToken(res.data.token)
         Auth.setName(res.data.name)
-        this.setState({ name: res.data.name })
-        console.log('new user? ',res.data.newUser)
+        this.setState({ username: res.data.name })
+        console.log('new user? ',res.data)
         if (res.data.newUser === 'true'){
           console.log('its a newbie')
           this.props.history.push('/profile/new')
