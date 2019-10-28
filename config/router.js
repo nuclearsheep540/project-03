@@ -15,6 +15,12 @@ router.route('/requests/:id')
   .put(secureRoute, requests.edit)
   .delete(secureRoute, requests.removeRoute)
 
+router.route('/requests/:id/comments')
+  .post(secureRoute, requests.commentCreate)
+
+router.route('/requests/:id/comments/:commentId')
+  .delete(secureRoute, requests.commentDelete)
+
 router.route('/register')
   .post(users.register)
 

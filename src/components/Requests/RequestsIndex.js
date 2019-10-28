@@ -39,6 +39,7 @@ class RequestsIndex extends React.Component {
               <h3><Link className="link" to={`/requests/${request._id}`}>{request.title}</Link></h3>
               <p>{request.framework} * {request.language}</p>
               <p>{request.description}</p>
+              {/* <p>{request.user}</p> */}
             </div>
           ))}
 

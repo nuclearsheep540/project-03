@@ -3,13 +3,16 @@ import axios from 'axios'
 import Auth from '../../lib/auth'
 import { Link } from 'react-router-dom'
 
+// NEED TO ADD SECURE ROUTE FOR EDIT AND DELETE
+
 
 class RequestShow extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      requestData: []
+      requestData: [],
+      user: ''
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -22,15 +25,19 @@ class RequestShow extends React.Component {
       .catch(err => console.log(err))
   }
 
-  isOwner() {
-    return Auth.getPayload().sub === this.state.requestData.user
-  }
+  // isOwner() {
+  //   return Auth.getPayload().sub === this.state.requestData.user
+  // }
 
+  // AT THE MOMENT UNAUTHORIZED TO DELETE. NEED TO ADD A NEW REQUEST BUTTON / FILE
+  // THEN IMPORT SHANI FORM TO THE EDIT AND NEW PAGES - TEST THEM 
+  // SORT OUT ADDING COMMENTS IN FRONT END 
+  // AND DELETING COMMENTS 
   handleDelete(){
     const requestId = this.props.match.params.id
-    axios.delete(`/api/requests/${requestId}`), {
+    axios.delete((`/api/requests/${requestId}`), {
       Headers: { Authorization: `Bearer ${Auth.getToken()}` }
-    }
+    })
       .then(() => this.props.history.push('/requests'))
       .catch(err => console.log(err))
   }
@@ -38,7 +45,7 @@ class RequestShow extends React.Component {
 
   render() {
     console.log(this.state.requestData._id, 'user!')
-    console.log(this.state.requestData, 'reponse saved')
+    console.log(this.state.requestData.user, 'reponse saved')
     if (!this.state.requestData) return null
     return (
       <div>
@@ -49,13 +56,11 @@ class RequestShow extends React.Component {
             <p>{this.state.requestData.framework}</p>
             <p>{this.state.requestData.language}</p>
             <p>{this.state.requestData.description}</p>
-            <p>{this.state.requestData.user}</p>
-            {this.isOwner() &&
-                <>
-                  <Link to={`/requests/${this.state.requestData._id}/edit`}>Edit</Link>
-                  <button onClick={this.handleDelete} className="button is-danger">Delete Request</button>
-                </>
-            }
+            {/* {this.state.requestData.user.map(user => {
+              <p>{user.username}</p>
+            })} */}
+            <Link to={`/requests/${this.state.requestData._id}/edit`}><button>Edit</button></Link>
+            <button onClick={this.handleDelete}>Delete</button>
           </div> 
         </section>    
       </div>
@@ -64,3 +69,13 @@ class RequestShow extends React.Component {
 }
 
 export default RequestShow
+
+
+
+// {this.isOwner() &&
+//   <>
+//     <Link to={`/requests/${this.state.requestData._id}/edit`}>Edit</Link>
+//     <button onClick={this.handleDelete}>Delete Request</button>
+//   </>
+// }
+

@@ -5,7 +5,7 @@ const Request = require('../models/Request')
 function index(req, res) {
   Request
     .find()
-    .populate('User')
+    .populate('user')
     .then(elem => res.status(200).json(elem))
     .catch(() => res.status(404).json({ message: 'Not found' }))
 
@@ -25,7 +25,7 @@ function create(req, res, next) {
 function show(req, res) {
   Request
     .findById(req.params.id)
-    // .populate('User')
+    .populate('user')
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not found' })
       res.status(200).json(request)
@@ -62,6 +62,34 @@ function removeRoute(req,res) {
     .catch(err => res.staus(400).json(err))
 }
 
+function commentCreate(req, res) {
+  req.body.user = req.currentUser
+  Request
+    .findById(req.params.id)
+    .then(request => {
+      if (!request) return res.status(404).json({ message: 'Not Found' })
+      request.comments.push(req.body)
+      return request.save()
+    })
+    .then(request => res.status(200).json(request))
+    .catch(err => res.json(err))
+
+}
+
+function commentDelete(req, res) {
+  req.body.user = req.currentUser 
+  Request 
+    .findById(req.params.id)
+    .then(request => {
+      if (!request) return res.status(404).json({ message: 'Not found' })
+      const comment = request.comments.id(req.params.commentId)
+      comment.remove()
+      return request.save()
+    })
+    .then(request => res.status(202).json(request))
+    .catch(err => console.log(err))
+}
+
 
 
 
@@ -72,5 +100,7 @@ module.exports = {
   create,
   show,
   edit,
-  removeRoute
+  removeRoute,
+  commentCreate,
+  commentDelete
 }
