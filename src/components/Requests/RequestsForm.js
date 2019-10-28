@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 
-class RequestForm extends React.component {
+class RequestForm extends React.Component {
   constructor() {
     super()
 

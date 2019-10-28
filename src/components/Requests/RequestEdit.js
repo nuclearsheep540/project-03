@@ -1,4 +1,5 @@
 import React from 'react'
+import RequestForm from './RequestsForm'
 
 class RequestEdit extends React.Component {
   constructor() {
@@ -11,7 +12,13 @@ class RequestEdit extends React.Component {
 
   render() {
     return (
-      <h1>EDIT PAGE </h1>
+      <div>
+        <h2 className="title">EDIT PAGE</h2>
+        <RequestForm />
+
+
+      </div>
+     
     )
   }
 }
