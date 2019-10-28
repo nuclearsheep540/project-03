@@ -20,12 +20,12 @@ function create(req, res, next) {
     .catch(next)
 }
 
-// SHOW ROUTE - /requests/id
+// SHOW ROUTE - /requests/:id
 
 function show(req, res) {
   Request
     .findById(req.params.id)
-    .populate('User')
+    // .populate('User')
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not found' })
       res.status(200).json(request)
@@ -34,7 +34,7 @@ function show(req, res) {
 
 }
 
-// EDIT ROUTE - /requests/id
+// EDIT ROUTE - /requests/:id
 
 function edit(req, res) {
   Request

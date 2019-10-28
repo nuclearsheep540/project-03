@@ -32,7 +32,7 @@ class RequestsIndex extends React.Component {
     console.log(this.state.requests, 're render')
     return (
       <section className="section">
-        <div className="container">
+        <div className="container requests">
           <h2 className="title">REQUESTS INDEX PAGE</h2>
           {this.state.requests.map((request, i) => (
             <div key={i}>
