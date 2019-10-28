@@ -23,6 +23,6 @@ app.use('/api', router)
 
 // app.use(errorHandler)
 
-app.get('/*', (req, res) => req.status(404).json({ message: 'Not found' }))
+app.get('/*', (req, res) => res.status(404).json({ message: 'Not found' }))
 
 app.listen(port, () => console.log(`node server running on :${port}`))
