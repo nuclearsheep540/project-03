@@ -2,7 +2,7 @@
 // --- pallet --- // 
 $bright: #25ced1;
 $grey: rgba(89, 96, 96, 1);
-$dark: rgba(64, 99, 122, 1);
+$dark: rgb(34, 90, 143);
 $neutral: rgba(247, 247, 255, 1);
 $yellow: rgba(255, 222, 124, 1);
 
@@ -14,6 +14,24 @@ $yellow: rgba(255, 222, 124, 1);
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 // --- generic style --- //
+
+.hero {
+background-image:url('https://sma.nasa.gov/images/default-source/news/posters/sawg-hero.jpg?sfvrsn=4b79f5f8_0');
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+min-height:60vh;
+text-align:center;
+color:white;
+text-shadow:1px 1px 1px black;
+line-height:60vh;
+}
+
+.heroTitle{
+font-size:89px;
+}
+
 .center {
   margin: auto;
   width: 100%;
@@ -140,6 +158,7 @@ nav {
 }
 .rows{
     width: 100vw;
+    min-height: 600px;
 }
 .content {
   max-width: 900px;
@@ -156,10 +175,6 @@ margin: 10px;
 padding: 10px;
 border: 1px rgba(167, 154, 154, 0.2) solid;
 border-radius: 4px;
-}
-
-.link {
-  color:black
 }
 // *** END CUSTOM *** //
 

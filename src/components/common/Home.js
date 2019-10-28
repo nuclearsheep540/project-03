@@ -2,9 +2,16 @@ import React from 'react'
 
 const Home = () => (
   <div className='container-full'>
-    <div className='center head'>
-      <h1>Skill Swap </h1>
+
+
+    <div className='hero'>
+
+      <p className='logo heroTitle'>Skill Swap </p>
+
     </div>
+
+
+
 
     <section className='rows'>
       <div className='content'>
