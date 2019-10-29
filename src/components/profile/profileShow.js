@@ -33,6 +33,7 @@ export default class ProfileShow extends React.Component {
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err))
   }
+
   render() {
     if (!this.state.data) return null
     if (!this.state.user) return null
@@ -43,17 +44,26 @@ export default class ProfileShow extends React.Component {
       <section className='section'>
         <div className='container'>
           <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
-          <small>Member since {data.createdAt}</small>
-          <p>first name: {data.firstName}</p>
-          <p>last name: {data.lastName}</p>
+          <small>Member since {data.createdAt}</small><br />
+          {/* <button onClick={this.props.history.push('/profile/edit')}>Edit Profile</button> */}
+          <p>first name: {user.firstName}</p>
+          <p>last name: {user.lastName}</p>
           <p>image: </p>
           <p>age: {user.age} </p>
           <p>location: {user.location}</p>
           <p>industry: {user.fieldIndustry}</p>
-          <p>skills: {!user.skills ? '' : user.skills.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
-          <p>languages: {!user.languages ? '' : user.languages.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
-          <p>frameworks: {!user.frameworks ? '' : user.frameworks.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
-          <p>qualifications: {!user.qualifications ? '' : user.qualifications.forEach((elem, i) => <p key={i}>{elem}</p>)}</p>
+          
+          <div>languages: 
+            {!user.languages ? '' : user.languages.map((elem, i) => <span key={i}>{elem} </span>)}
+          </div>
+          
+          <div>frameworks: 
+            {!user.frameworks ? '' : user.frameworks.map((elem, i) => <span key={i}>{elem} </span>)}
+          </div>
+
+          <div>qualifications: 
+            {!user.qualifications ? '' : user.qualifications.forEach((elem, i) => <p key={i}>{elem}</p>)}
+          </div>
         </div>
       </section>
 

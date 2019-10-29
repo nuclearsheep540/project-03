@@ -11,6 +11,7 @@ import Navbar from './components/common/Navbar'
 
 import ProfileNew from './components/profile/ProfileNew'
 import ProfileShow from './components/profile/ProfileShow'
+import ProfileEdit from './components/profile/ProfileEdit'
 
 import RequestsIndex from './components/requests/RequestsIndex'
 import RequestShow from './components/requests/RequestShow'
@@ -39,6 +40,7 @@ const App = () => (
         <Route path='/requests' component={RequestsIndex} />
         <Route path='/profile/new' component={ProfileNew} />
         <Route path='/profile/show' component={ProfileShow} />
+        <Route path='/profile/edit' component={ProfileEdit} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
         <Route exact path='/' component={Home} />
