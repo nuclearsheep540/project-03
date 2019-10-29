@@ -2,85 +2,51 @@ import React from 'react'
 import Select from 'react-select'
 
 
-class RequestForm extends React.Component {
+class RequestsForm extends React.Component {
   constructor() {
     super()
 
-    this.state = {
-
-      formData: {
-        frameworks: [''],
-        languages: ['']
-      },
-
-    
-      languages: [
-        { value: 'javascript', label: 'Javascript' },
-        { value: 'C#', label: 'C#' },
-        { value: 'python', label: 'Python' },
-        { value: 'java', label: 'Java' },
-        { value: 'rust', label: 'Rust' },
-        { value: 'go', label: 'Go' },
-        { value: 'elixr', label: 'Elixr' },
-        { value: 'ruby', label: 'Ruby' },
-        { value: 'kotlin', label: 'Kotlin' },
-        { value: 'typescript', label: 'Typescript' },
-        { value: 'C++', label: 'C++' },
-        { value: 'php', label: 'PHP' },
-        { value: 'css', label: 'CSS' }
-      ],
-      frameworks: [
-        { value: 'angular', label: 'Angular' },
-        { value: 'django', label: 'Django' },
-        { value: 'ruby on rails', label: 'Ruby On Rails' },
-        { value: 'asp.net', label: 'ASP.net' },
-        { value: 'meteor', label: 'Meteor' },
-        { value: 'flask', label: 'Flask' },
-        { value: 'reactjs', label: 'ReactJS' },
-        { value: 'phoenix', label: 'Phoenix' },
-        { value: 'spring', label: 'Spring' },
-        { value: 'play', label: 'Play' },
-        { value: 'express', label: 'Express' },
-        { value: 'vuejs', label: 'Vue.js' },
-        { value: 'cakephp', label: 'CakePHP' },
-        { value: 'bootstrap', label: 'Bootstrap' },
-        { value: 'bulma', label: 'Bulma' }
-      ]
-    }
-    this.handleMultiSelect = this.handleMultiSelect.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-
+    this.languages = [
+      { name: 'languages', value: 'javascript', label: 'Javascript' },
+      { name: 'languages', value: 'C#', label: 'C#' },
+      { name: 'languages', value: 'python', label: 'Python' },
+      { name: 'languages', value: 'java', label: 'Java' },
+      { name: 'languages', value: 'rust', label: 'Rust' },
+      { name: 'languages', value: 'go', label: 'Go' },
+      { name: 'languages', value: 'elixr', label: 'Elixr' },
+      { name: 'languages', value: 'ruby', label: 'Ruby' },
+      { name: 'languages', value: 'kotlin', label: 'Kotlin' },
+      { name: 'languages', value: 'typescript', label: 'Typescript' },
+      { name: 'languages', value: 'C++', label: 'C++' },
+      { name: 'languages', value: 'php', label: 'PHP' },
+      { name: 'languages', value: 'css', label: 'CSS' }
+    ],
+    this.frameworks = [
+      { name: 'frameworks', value: 'angular', label: 'Angular' },
+      { name: 'frameworks', value: 'django', label: 'Django' },
+      { name: 'frameworks', value: 'ruby on rails', label: 'Ruby On Rails' },
+      { name: 'frameworks', value: 'asp.net', label: 'ASP.net' },
+      { name: 'frameworks', value: 'meteor', label: 'Meteor' },
+      { name: 'frameworks', value: 'flask', label: 'Flask' },
+      { name: 'frameworks', value: 'reactjs', label: 'ReactJS' },
+      { name: 'frameworks', value: 'phoenix', label: 'Phoenix' },
+      { name: 'frameworks', value: 'spring', label: 'Spring' },
+      { name: 'frameworks', value: 'play', label: 'Play' },
+      { name: 'frameworks', value: 'express', label: 'Express' },
+      { name: 'frameworks', value: 'vuejs', label: 'Vue.js' },
+      { name: 'frameworks', value: 'cakephp', label: 'CakePHP' },
+      { name: 'frameworks', value: 'bootstrap', label: 'Bootstrap' },
+      { name: 'frameworks', value: 'bulma', label: 'Bulma' }
+    ]
   }
 
-
-  handleMultiSelect(selected) {
-  
-    if (!selected) {
-      return this.setState({ formData: { ...this.state.formData, languages: [], frameworks: [] } })
-    }
-    console.log('what the item input kicks out', selected)
-    const frameWorkSelect = selected.map(item => item.value)
-    const languagesSelect = selected.map(item => item.value)
-    console.log('what i wnat to put in state', languagesSelect)
-    console.log('what i wnat to put in state', frameWorkSelect)
-    
-    const formData = { ...this.state.formData, frameWorkSelect, languagesSelect }
-    this.setState({ formData })
-  }
-
-  handleSubmit(e) {
-    e.preventDefault()
-    console.log('submitting this form')
-    
-  }
 
 
   render () {
-    console.log(this.state.formData)
-    console.log(this.props.requestFormData, 'propss')
+    console.log(this.props)
     return (
       <div>
-        <form>
+        <form onSubmit={this.props.handleSubmit}>
           <div className="row">
             <div className="field six-columns">
               <label name="exampleRecipientInput" type='text'>Title</label>
@@ -88,8 +54,8 @@ class RequestForm extends React.Component {
                 className="u-full-width"
                 placeholder="Title"
                 name='title'
-                // value={this.props.requestFormData.title}
-                onChange={this.handleChange}
+                value={this.props.data.title}
+                onChange={this.props.handleChange}
               >
               </input>
             </div>
@@ -98,11 +64,13 @@ class RequestForm extends React.Component {
             <div className="field">
               <label className="label">Framework</label>
               <div className="control">
-                <Select 
-                  options={this.state.frameworks}
-                  isMulti
-                  onChange={this.handleMultiSelect}
-                  // value={this.props.requestFormData.framework}
+                <Select
+                  key={this.props.data.id}
+                  options={this.frameworks}
+                  isMulti={true}
+                  onChange={this.props.handleFramework}
+                  
+
                 />
               </div>
             </div>
@@ -111,11 +79,11 @@ class RequestForm extends React.Component {
             <div className="six columns">
               <label name="exampleRecipientInput">Languages</label>
               <div className="control">
-                <Select 
-                  options={this.state.languages}
-                  isMulti
-                  onChange={this.handleMultiSelect}
-                  // value={this.props.requestFormData.language}
+                <Select
+                  key={this.props.data.id}
+                  options={this.languages}
+                  isMulti={true}
+                  onChange={this.props.handleLanguage}
                 />
               </div>
             </div>
@@ -125,8 +93,8 @@ class RequestForm extends React.Component {
               className="u-full-width" 
               placeholder="Description" 
               name="description"
-              // value={this.props.requestFormData.description} 
-              onChange={this.handleChange}>
+              value={this.props.data.description} 
+              onChange={this.props.handleChange}>
             </textarea>
           </div>
           <button type='submit'>Send request</button>
@@ -139,4 +107,4 @@ class RequestForm extends React.Component {
 }
   
 
-export default RequestForm
+export default RequestsForm

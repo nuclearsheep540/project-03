@@ -37,7 +37,7 @@ class RequestsIndex extends React.Component {
           {this.state.requests.map((request, i) => (
             <div key={i}>
               <h3><Link className="link" to={`/requests/${request._id}`}>{request.title}</Link></h3>
-              <p>{request.framework} * {request.language}</p>
+              <p>{request.frameworks} * {request.languages}</p>
               <p>{request.description}</p>
               {/* <p>{request.user}</p> */}
             </div>

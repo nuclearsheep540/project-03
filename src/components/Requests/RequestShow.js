@@ -41,10 +41,11 @@ class RequestShow extends React.Component {
   // SORT OUT ADDING COMMENTS IN FRONT END 
   // AND DELETING COMMENTS 
 
-  handleDelete(){
+  handleDelete(e){
+    console.log('submitted')
     const requestId = this.props.match.params.id
     axios.delete((`/api/requests/${requestId}`), {
-      Headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(() => this.props.history.push('/requests'))
       .catch(err => console.log(err))
