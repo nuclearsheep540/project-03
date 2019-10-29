@@ -9,8 +9,8 @@ const commentSchema = new mongoose.Schema({
 
 const RequestSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  framework: { type: [String] },
-  language: { type: [String] },
+  frameworks: { type: [String] },
+  languages: { type: [String] },
   description: { type: String, required: true },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   comments: [ commentSchema ]
