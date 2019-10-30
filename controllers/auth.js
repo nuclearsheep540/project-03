@@ -27,7 +27,7 @@ function login(req, res) {
     })
 }
 
-// PROFILE ROUTE / PROFILE 
+// GET PROFILE ROUTE / PROFILE 
 function profile(req, res) {
   User.findById(req.currentUser._id)
     .populate('userProfile')
@@ -51,16 +51,33 @@ function createProfile(req, res, next) {
     .catch(next)
 }
 
-function update(req, res, next) {
-  User.findById(req.currentUser._id)
-    .then(user => {
-      console.log(req.currentUser)
-      console.log(req.body)
-      return user.set(req.body)
+// function editProfile(req, res, next) {
+//   User
+//     .findById(req.currentUser._id)
+//     .then(user => {
+//       console.log(req.currentUser)
+//       console.log(req.body)
+//       return user.set(req.body)
+//     })
+//     .then(user => user.save())
+//     .then(user => res.status(202).json(user))
+//     .catch(next)
+// }
+
+function editProfile (req, res) {
+  User
+    .findById(req.params.id)
+    .populate('user')
+    .then(profile => {
+      if (!profile) return res.status(404).json({ message: 'Not found 1' })
+      // if (!profile.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
+      return profile.set(req.body)
     })
-    .then(user => user.save())
-    .then(user => res.status(202).json(user))
-    .catch(next)
+    .then(profile => profile.save())
+    .then(profile => res.status(202).json(profile))
+    .catch(err => console.log(err))
+    
+
 }
 
 module.exports = {
@@ -68,5 +85,5 @@ module.exports = {
   login,
   profile,
   createProfile,
-  update
+  editProfile
 }

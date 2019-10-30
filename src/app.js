@@ -10,7 +10,7 @@ import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
 
 import ProfileNew from './components/profile/ProfileNew'
-import ProfileShow from './components/profile/ProfileShow'
+import Show from './components/profile/Show'
 import ProfileEdit from './components/profile/ProfileEdit'
 
 import RequestsIndex from './components/requests/RequestsIndex'
@@ -39,8 +39,8 @@ const App = () => (
         <Route path='/requests/:id' component={RequestShow} /> 
         <Route path='/requests' component={RequestsIndex} />
         <Route path='/profile/new' component={ProfileNew} />
-        <Route path='/profile/show' component={ProfileShow} />
-        <Route path='/profile/edit' component={ProfileEdit} />
+        <Route path='/profile/show' component={Show} />
+        <Route path='/profile/:id/edit' component={ProfileEdit} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
         <Route exact path='/' component={Home} />

@@ -52,11 +52,10 @@ class RequestShow extends React.Component {
   }
 
   
-  handleDelete(e){
+  handleDelete(){
     console.log('submitted')
-    const commentId = e.target.name
     const princessId = this.props.match.params.id
-    axios.delete((`/api/requests/${princessId}/comments/${commentId}`), {
+    axios.delete((`/api/requests/${princessId}/`), {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(() => this.props.history.push('/requests'))
@@ -68,7 +67,7 @@ class RequestShow extends React.Component {
     this.setState({ text: textInput })
   }
 
-  handleComment(e) {
+  handleComment() {
     // e.preventDefault()
     const requestId = this.state.requestData._id
     axios.post(`/api/requests/${requestId}/comments`, { text: this.state.text }, { headers: { Authorization: `Bearer ${Auth.getToken()}` } })

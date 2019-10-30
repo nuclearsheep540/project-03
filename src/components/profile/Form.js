@@ -1,8 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
-const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, langOptions, avatarOptions, handleAvatar, frameOptions, userProfile }) => {
-  
+const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, handleIndustry, cityOptions, langOptions, avatarOptions, indieOptions, handleAvatar, handleCity, frameOptions, userProfile }) => {
   
   return (
     <div>
@@ -65,28 +64,23 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, lan
 
             <div className="input-area"> 
               <label name="exampleRecipientInput" type='text'>City</label>
-              <input
-                className="u-full-width"
-                placeholder="Location"
-                type='text'
+              <Select
+                options={cityOptions}
+                isMulti={false}
+                onChange={handleCity}
                 name='location'
-                value={userProfile.location}
-                onChange={handleChange}
-                
-              >
-              </input>
+              />
             </div>
 
 
-            <div className="input-area"> 
+            <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Industry</label>
-              <input
-                className="u-full-width"
-                placeholder="Industry"
-                type='text'
+              <Select
+                options={indieOptions}
+                isMulti={false}
+                onChange={handleIndustry}
                 name='industry'
-              >
-              </input>
+              />
             </div>
 
 
@@ -124,6 +118,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, lan
                 placeholder="qualifications"
                 type='text'
                 name='qualifications'
+                onChange={handleChange}
+                value={userProfile.qualifications}
               >
               </input>
             </div>

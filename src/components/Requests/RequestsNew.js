@@ -16,36 +16,36 @@ class RequestsNew extends React.Component {
     }
 
     this.languages = [
-      { value: 'javascript', label: 'Javascript' },
+      { value: 'Javascript', label: 'Javascript' },
       { value: 'C#', label: 'C#' },
-      { value: 'python', label: 'Python' },
-      { value: 'java', label: 'Java' },
-      { value: 'rust', label: 'Rust' },
-      { value: 'go', label: 'Go' },
-      { value: 'elixr', label: 'Elixr' },
-      { value: 'ruby', label: 'Ruby' },
-      { value: 'kotlin', label: 'Kotlin' },
-      { value: 'typescript', label: 'Typescript' },
+      { value: 'Python', label: 'Python' },
+      { value: 'Java', label: 'Java' },
+      { value: 'Rust', label: 'Rust' },
+      { value: 'Go', label: 'Go' },
+      { value: 'Elixr', label: 'Elixr' },
+      { value: 'Ruby', label: 'Ruby' },
+      { value: 'Kotlin', label: 'Kotlin' },
+      { value: 'Typescript', label: 'Typescript' },
       { value: 'C++', label: 'C++' },
-      { value: 'php', label: 'PHP' },
-      { value: 'css', label: 'CSS' }
+      { value: 'PHP', label: 'PHP' },
+      { value: 'CSS', label: 'CSS' }
     ],
     this.frameworks = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'django', label: 'Django' },
-      { value: 'ruby on rails', label: 'Ruby On Rails' },
-      { value: 'asp.net', label: 'ASP.net' },
-      { value: 'meteor', label: 'Meteor' },
-      { value: 'flask', label: 'Flask' },
-      { value: 'reactjs', label: 'ReactJS' },
-      { value: 'phoenix', label: 'Phoenix' },
-      { value: 'spring', label: 'Spring' },
-      { value: 'play', label: 'Play' },
-      { value: 'express', label: 'Express' },
-      { value: 'vuejs', label: 'Vue.js' },
-      { value: 'cakephp', label: 'CakePHP' },
-      { value: 'bootstrap', label: 'Bootstrap' },
-      { value: 'bulma', label: 'Bulma' }
+      { value: 'Angular', label: 'Angular' },
+      { value: 'Django', label: 'Django' },
+      { value: 'Ruby on rails', label: 'Ruby On Rails' },
+      { value: 'ASP.net', label: 'ASP.net' },
+      { value: 'Meteor', label: 'Meteor' },
+      { value: 'Flask', label: 'Flask' },
+      { value: 'ReactJS', label: 'ReactJS' },
+      { value: 'Phoenix', label: 'Phoenix' },
+      { value: 'Spring', label: 'Spring' },
+      { value: 'Play', label: 'Play' },
+      { value: 'Express', label: 'Express' },
+      { value: 'Vuejs', label: 'Vue.js' },
+      { value: 'Cakephp', label: 'CakePHP' },
+      { value: 'Bootstrap', label: 'Bootstrap' },
+      { value: 'Bulma', label: 'Bulma' }
     ]
 
     this.handleChange = this.handleChange.bind(this)
@@ -57,13 +57,13 @@ class RequestsNew extends React.Component {
 
   handleLanguage(selected) {
     const languages = selected 
-    const data = { ...this.state.data, languages: languages.value }
+    const data = { ...this.state.data, languages: languages }
     this.setState({ data })
   }
 
   handleFramework(selected) {
     const frameworks = selected 
-    const data = { ...this.state.data, frameworks: frameworks.value }
+    const data = { ...this.state.data, frameworks: frameworks }
     // const data = [ ...frameworks ]
     this.setState({ data })
   }
@@ -75,7 +75,13 @@ class RequestsNew extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/api/requests', this.state.data, {
+    const obj = {
+      title: this.state.data.title,
+      description: this.state.data.description,
+      languages: [this.state.data.languages.value],
+      frameworks: [this.state.data.frameworks.value]
+    }
+    axios.post('/api/requests', obj, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     }) 
       .then(res => {

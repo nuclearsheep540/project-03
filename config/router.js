@@ -27,26 +27,44 @@ router.route('/register')
 router.route('/login')
   .post(users.login)
   .get(secureRoute, users.profile)
-  .put(secureRoute, users.update)
 
 router.route('/profile')
   .get(secureRoute, users.profile)
   .post(secureRoute, users.createProfile)
 
+router.route('/profile/:id/edit')
+  .put(secureRoute, users.editProfile)
+
+
+//good shit up above
+
+
+
+
+
+// router.route('/profile/show/')
+//   .get(secureRoute, profile.show)
+
+
+
+
+
+
+
+
+// router.route('/profile/:id/edit')
+//   .put(secureRoute, profile.edit)
+
+// router.route('/users/:id')
+//   .get(users.profile)
+
 // router.route('/profile/new')
 //   .put(secureRoute, users.update)
 
-router.route('/profile/show/')
-  .get(secureRoute, profile.show)
-
-router.route('/users/:id')
-  .get(users.profile)
 
 
 
 
-
- 
 
 // we wont need an id placeholder here because we can getAuth to retrieve the loggedin user token, and check against users on our database
 
