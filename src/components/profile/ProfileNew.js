@@ -103,7 +103,6 @@ class ProfileNew extends React.Component {
     this.setState({ userProfile: { ...this.state.userProfile, image } })
   }
 
-
   handleSubmit(e) {
     e.preventDefault()
     console.log('props are ', this.props.match)

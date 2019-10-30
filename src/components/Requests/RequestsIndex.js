@@ -35,10 +35,12 @@ class RequestsIndex extends React.Component {
         <div className="container requests">
           <h2 className="title">REQUESTS INDEX PAGE</h2> <Link to='/requests/new'><button>Add Request</button></Link>
           {this.state.requests.map((request, i) => (
-            <div key={i}>
+            <div className="request-card" key={i}>
               <h3><Link className="link" to={`/requests/${request._id}`}>{request.title}</Link></h3>
-              <p>{request.frameworks} * {request.languages}</p>
+              <p>Language: {request.languages}</p>
+              <p>Framework: {request.frameworks}</p>
               <p>{request.description}</p>
+              <p>Posted by: {request.user.firstName} {request.user.lastName}</p>
               {/* <p>{request.user}</p> */}
             </div>
           ))}

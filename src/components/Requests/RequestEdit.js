@@ -3,17 +3,6 @@ import RequestsForm from './RequestsForm'
 import axios from 'axios'
 import Auth from '../../lib/auth'
 
-// mongoose wants strings
-// select wants objects
-
-// axios get = string
-// mounting turns string => object
-// select is happy
-// work with objects
-// axios push, turn objects back to strings
-
-
-
 class RequestEdit extends React.Component {
   constructor() {
     super()
@@ -40,23 +29,23 @@ class RequestEdit extends React.Component {
       { value: 'PHP', label: 'PHP' },
       { value: 'CSS', label: 'CSS' }
     ],
-      this.frameworks = [
-        { value: 'Angular', label: 'Angular' },
-        { value: 'Django', label: 'Django' },
-        { value: 'Ruby on rails', label: 'Ruby On Rails' },
-        { value: 'ASP.net', label: 'ASP.net' },
-        { value: 'Meteor', label: 'Meteor' },
-        { value: 'Flask', label: 'Flask' },
-        { value: 'ReactJS', label: 'ReactJS' },
-        { value: 'Phoenix', label: 'Phoenix' },
-        { value: 'Spring', label: 'Spring' },
-        { value: 'Play', label: 'Play' },
-        { value: 'Express', label: 'Express' },
-        { value: 'Vuejs', label: 'Vue.js' },
-        { value: 'Cakephp', label: 'CakePHP' },
-        { value: 'Bootstrap', label: 'Bootstrap' },
-        { value: 'Bulma', label: 'Bulma' }
-      ]
+    this.frameworks = [
+      { value: 'Angular', label: 'Angular' },
+      { value: 'Django', label: 'Django' },
+      { value: 'Ruby on rails', label: 'Ruby On Rails' },
+      { value: 'ASP.net', label: 'ASP.net' },
+      { value: 'Meteor', label: 'Meteor' },
+      { value: 'Flask', label: 'Flask' },
+      { value: 'ReactJS', label: 'ReactJS' },
+      { value: 'Phoenix', label: 'Phoenix' },
+      { value: 'Spring', label: 'Spring' },
+      { value: 'Play', label: 'Play' },
+      { value: 'Express', label: 'Express' },
+      { value: 'Vuejs', label: 'Vue.js' },
+      { value: 'Cakephp', label: 'CakePHP' },
+      { value: 'Bootstrap', label: 'Bootstrap' },
+      { value: 'Bulma', label: 'Bulma' }
+    ]
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -82,13 +71,13 @@ class RequestEdit extends React.Component {
   }
 
   handleLanguage(selected) {
-    const languages = selected
+    const languages = selected 
     const data = { ...this.state.data, languages: languages }
     this.setState({ data })
   }
 
   handleFramework(selected) {
-    const frameworks = selected
+    const frameworks = selected 
     const data = { ...this.state.data, frameworks: frameworks }
     this.setState({ data })
   }
@@ -101,30 +90,13 @@ class RequestEdit extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const requestId = this.state.data._id
-
-    // console.log('the ID is', requestId)
-    //const the strings of data
-    //map them into { value: elem } objects
-    // const lang = [this.state.data.languages.value]
-    const langs = { languages: [this.state.data.languages.value] }
-    const frames = { frameworks: [this.state.data.frameworks.value] }
-    const stateTitle = this.state.title
-    const stateDescription = this.state.description
-
     const obj = {
       title: this.state.data.title,
       description: this.state.data.description,
       languages: [this.state.data.languages.value],
       frameworks: [this.state.data.frameworks.value]
     }
-
-
-
     console.log('sending to axios...', { obj })
-
-
-
-
     axios.put(`/api/requests/${requestId}`, obj, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
@@ -148,12 +120,8 @@ class RequestEdit extends React.Component {
           frameworks={this.frameworks}
           languages={this.languages}
         />
-
-
       </div>
-
     )
   }
 }
-
 export default RequestEdit
