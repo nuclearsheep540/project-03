@@ -15,6 +15,9 @@ $yellow: rgba(255, 222, 124, 1);
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 // --- generic style --- //
+.avatar {
+  max-width: 256px;
+}
 
 .hero {
 background-image:url('https://sma.nasa.gov/images/default-source/news/posters/sawg-hero.jpg?sfvrsn=4b79f5f8_0');
@@ -184,6 +187,10 @@ border-radius: 4px;
 
 .container.requests {
   background: $yellow;
+}
+
+.request-card {
+  background: $bright;
 }
 
 

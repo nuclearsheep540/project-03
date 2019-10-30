@@ -46,9 +46,12 @@ export default class ProfileShow extends React.Component {
           <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
           <small>Member since {data.createdAt}</small><br />
           {/* <button onClick={this.props.history.push('/profile/edit')}>Edit Profile</button> */}
+          <div>
+            <img className='avatar' src={user.image} /> 
+          </div>
           <p>first name: {user.firstName}</p>
           <p>last name: {user.lastName}</p>
-          <p>image: </p>
+
           <p>age: {user.age} </p>
           <p>location: {user.location}</p>
           <p>industry: {user.fieldIndustry}</p>
