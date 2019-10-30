@@ -6,8 +6,6 @@ import Auth from '../../lib/auth'
 class RequestsNew extends React.Component {
   constructor() {
     super()
-
-
     this.state = {
       data: {
         title: '',
@@ -17,6 +15,39 @@ class RequestsNew extends React.Component {
       }
     }
 
+    this.languages = [
+      { value: 'javascript', label: 'Javascript' },
+      { value: 'C#', label: 'C#' },
+      { value: 'python', label: 'Python' },
+      { value: 'java', label: 'Java' },
+      { value: 'rust', label: 'Rust' },
+      { value: 'go', label: 'Go' },
+      { value: 'elixr', label: 'Elixr' },
+      { value: 'ruby', label: 'Ruby' },
+      { value: 'kotlin', label: 'Kotlin' },
+      { value: 'typescript', label: 'Typescript' },
+      { value: 'C++', label: 'C++' },
+      { value: 'php', label: 'PHP' },
+      { value: 'css', label: 'CSS' }
+    ],
+    this.frameworks = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'django', label: 'Django' },
+      { value: 'ruby on rails', label: 'Ruby On Rails' },
+      { value: 'asp.net', label: 'ASP.net' },
+      { value: 'meteor', label: 'Meteor' },
+      { value: 'flask', label: 'Flask' },
+      { value: 'reactjs', label: 'ReactJS' },
+      { value: 'phoenix', label: 'Phoenix' },
+      { value: 'spring', label: 'Spring' },
+      { value: 'play', label: 'Play' },
+      { value: 'express', label: 'Express' },
+      { value: 'vuejs', label: 'Vue.js' },
+      { value: 'cakephp', label: 'CakePHP' },
+      { value: 'bootstrap', label: 'Bootstrap' },
+      { value: 'bulma', label: 'Bulma' }
+    ]
+
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleLanguage = this.handleLanguage.bind(this)
@@ -24,28 +55,23 @@ class RequestsNew extends React.Component {
 
   }
 
-  handleChange(e) {
-    console.log('e', e.target.value)
-    const data = { ...this.state.data, [e.target.name]: e.target.value }
+  handleLanguage(selected) {
+    const languages = selected 
+    const data = { ...this.state.data, languages: languages.value }
     this.setState({ data })
   }
 
-  handleLanguage(selected) {
-    console.log('language',selected.map(sel => sel.value))
-    console.log('E.TARGET')
-    const languages = selected ?  selected.map(item => item.value) : [''] 
-    const langs = [ ...languages ]
-    this.setState({ data: { ...this.state.data, languages: langs } })
+  handleFramework(selected) {
+    const frameworks = selected 
+    const data = { ...this.state.data, frameworks: frameworks.value }
+    // const data = [ ...frameworks ]
+    this.setState({ data })
   }
 
-  handleFramework(selected){
-    console.log('framework',selected.map(sel => sel.value))
-    const frameworks = selected ? selected.map(item => item.value) : ['']
-    console.log('frameworks accumulating =',frameworks)
-    const frames = [ ...frameworks ]
-    this.setState({ data: { ...this.state.data, frameworks: frames } })
+  handleChange(e) {
+    const data = { ...this.state.data, [e.target.name]: e.target.value }
+    this.setState({ data })
   }
-
 
   handleSubmit(e) {
     e.preventDefault()
@@ -53,7 +79,7 @@ class RequestsNew extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     }) 
       .then(res => {
-        this.props.history.push(`/api/requests/${res.data._id}`)
+        this.props.history.push(`/requests/${res.data._id}`)
       })
       .catch(err => console.log(err)) 
   }
@@ -70,11 +96,10 @@ class RequestsNew extends React.Component {
           handleSubmit={this.handleSubmit}
           handleLanguage={this.handleLanguage}
           handleFramework={this.handleFramework}
+          frameworks={this.frameworks}
+          languages={this.languages}
         />
-
-
       </div>
-      
     )
   }
 }
