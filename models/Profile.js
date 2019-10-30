@@ -12,7 +12,6 @@ const profileSchema = new mongoose.Schema({
   qualifications: { type: [String] }
 }, {
   timestamps: true
-
 })
 
 profileSchema.plugin(require('mongoose-unique-validator'))

@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
-const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, langOptions, frameOptions, userProfile }) => {
+const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, langOptions, avatarOptions, handleAvatar, frameOptions, userProfile }) => {
   
   
   return (
@@ -39,14 +39,13 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, lan
 
 
             <div className="input-area">
-              <label name="exampleRecipientInput" type='text'>Image</label>
-              <input
-                className="u-full-width"
-                placeholder="Profile picture"
-                type='text'
+              <label name="exampleRecipientInput" type='text'>Avatar</label>
+              <Select
+                options={avatarOptions}
+                isMulti={false}
+                onChange={handleAvatar}
                 name='image'
-              >
-              </input>
+              />
             </div>
 
 

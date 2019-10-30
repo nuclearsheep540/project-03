@@ -55,12 +55,24 @@ class ProfileNew extends React.Component {
       { name: 'frameworks', value: 'cakephp', label: 'CakePHP' },
       { name: 'frameworks', value: 'bootstrap', label: 'Bootstrap' },
       { name: 'frameworks', value: 'bulma', label: 'Bulma' }
+    ],
+    this.avatars = [
+      { name: 'man1', value: 'https://i.ibb.co/YksZLhK/man-1.png', label: 'man1' },
+      { name: 'man2', value: 'https://i.ibb.co/GxCXTkp/man-2.png', label: 'man2' },
+      { name: 'woman2', value: 'https://i.ibb.co/xhZkJXG/man-3.png', label: 'woman2' },
+      { name: 'woman1', value: 'https://i.ibb.co/CvBLqBn/man-4.png', label: 'woman1' },
+      { name: 'man', value: 'https://i.ibb.co/XbLnf5G/man.png', label: 'man' },
+      { name: 'girl', value: 'https://i.ibb.co/JFh9Vmc/girl.png', label: 'girl' },
+      { name: 'girl1', value: 'https://i.ibb.co/746XyPn/girl-1.png', label: 'girl1' },
+      { name: 'boy1', value: 'https://i.ibb.co/n0cy8CT/boy-1.png', label: 'boy1' },
+      { name: 'boy', value: 'https://i.ibb.co/18vGfWw/boy.png', label: 'boy' }
     ]
-
+    
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleLanguage = this.handleLanguage.bind(this)
     this.handleFramework = this.handleFramework.bind(this)
+    this.handleAvatar = this.handleAvatar.bind(this)
   }
 
   handleChange({ target: { name, value } }) {
@@ -81,6 +93,14 @@ class ProfileNew extends React.Component {
     console.log('frameworks accumulating =',frameworks)
     const frames = [ ...frameworks ]
     this.setState({ userProfile: { ...this.state.userProfile, frameworks: frames } })
+  }
+
+  handleAvatar(selected){
+    const avatars = selected
+    // console.log(avatars.value.split(' ')[0])
+    const image = avatars.value.split(' ')[0]
+    console.log(image)
+    this.setState({ userProfile: { ...this.state.userProfile, image } })
   }
 
 
@@ -113,9 +133,11 @@ class ProfileNew extends React.Component {
           <Form
             langOptions={this.languages}
             frameOptions={this.frameworks}
+            avatarOptions={this.avatars}
             userProfile={this.state.userProfile}
             handleLanguage={this.handleLanguage}
             handleFramework={this.handleFramework}
+            handleAvatar={this.handleAvatar}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />
