@@ -210,6 +210,7 @@ class ProfileEdit extends React.Component {
     const cities = selected
     const location = cities.value
     this.setState({ userProfile: { ...this.state.userProfile, location } })
+    console.log('state is',{ ...this.state.user })
   }
 
 
@@ -217,9 +218,9 @@ class ProfileEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('props are ', this.props.match)
+    console.log('props are ', this.props)
     const userId = Auth.getPayLoad().sub
-    console.log('updating profile with: ', 'havent putaything here')
+    console.log('updating profile with: ', this.state.userProfile)
     axios.put(`/api/profile/${userId}/edit`, this.state.userProfile , {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
@@ -227,13 +228,7 @@ class ProfileEdit extends React.Component {
         console.log('response updated:', res.data)
         // this.setState({})
         this.props.history.push('/profile/show')
-        this.notNew()
       })
-  }
-  notNew() {
-    axios.put('/api/login', { newUser: 'false' }, {
-      headers: { Authorization: `Bearer ${Auth.getToken()}` }
-    })
   }
 
   render() {

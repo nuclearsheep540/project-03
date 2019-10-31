@@ -27,6 +27,7 @@ router.route('/register')
 router.route('/login')
   .post(users.login)
   .get(secureRoute, users.profile)
+  .put(secureRoute, users.notNew)
 
 router.route('/profile')
   .get(secureRoute, users.profile)

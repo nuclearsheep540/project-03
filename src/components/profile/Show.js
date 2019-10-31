@@ -67,8 +67,8 @@ export default class Show extends React.Component {
           <div>qualifications: {profile.qualifications}
           </div>
          
+          <Link to={`/profile/${profile._id}/edit`}> <button>Edit profile</button> </Link>
         </div>
-        <Link to={`/profile/${profile._id}/edit`}> <button>Edit profile</button> </Link>
       </section>
       
       
