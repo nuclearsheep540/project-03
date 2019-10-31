@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-export default class Show extends React.Component {
+export default class ShowExt extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -13,9 +13,10 @@ export default class Show extends React.Component {
     //binds
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     console.log('fetching profile...')
-    axios.get('/api/profile/', {
+    const showId = this.props.match.params.id
+    axios.get(`/api/profile/show/${showId}`, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
@@ -40,14 +41,14 @@ export default class Show extends React.Component {
     if (!this.state.profile) return null
     const user = this.state.user
     const profile = this.state.profile
+    console.log('this profile=', profile)
     console.log('rendering profile...')
-    console.log('fidning id', this.state.profile._id)
     return (
       <section className='section'>
         <div className='content'>
 
           <div className='container'>
-            <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
+            <h2 className="title">{`${profile.firstName}`}&apos;s Profile</h2>
 
 
             <div className='avatar'>
@@ -70,11 +71,13 @@ export default class Show extends React.Component {
             <p>Qualifications: {profile.qualifications}
             </p>
 
-            <Link to={`/profile/${profile._id}/edit`}> <button>Edit profile</button> </Link>
+           
           </div>
         </div>
       </section>
-      
+
+
+
     )
   }
 

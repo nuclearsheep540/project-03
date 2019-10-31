@@ -44,6 +44,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 isMulti={false}
                 onChange={handleAvatar}
                 name='image'
+                value={userProfile.image}
               />
             </div>
 
@@ -69,6 +70,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 isMulti={false}
                 onChange={handleCity}
                 name='location'
+                value={userProfile.location}
+                
               />
             </div>
 
@@ -80,6 +83,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 isMulti={false}
                 onChange={handleIndustry}
                 name='industry'
+                value={userProfile.fieldIndustry}
               />
             </div>
 
@@ -92,6 +96,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleLanguage}
                   name='languages'
+                  value={userProfile.languages}
                 />
               </div>
             </div>
@@ -106,13 +111,14 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleFramework}
                   name='frameworks'
+                  value={userProfile.frameworks}
                 />
               </div>
             </div>
 
 
             <div className="input-area">
-              <label name="exampleRecipientInput" type='text'>If applicable, enter qualifications</label>
+              <label name="exampleRecipientInput" type='text'>Qualifications</label>
               <input
                 className="u-full-width"
                 placeholder="qualifications"

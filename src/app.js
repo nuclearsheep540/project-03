@@ -11,12 +11,15 @@ import Navbar from './components/common/Navbar'
 
 import ProfileNew from './components/profile/ProfileNew'
 import Show from './components/profile/Show'
+import ShowExt from './components/profile/ShowExt'
 import ProfileEdit from './components/profile/ProfileEdit'
 
 import RequestsIndex from './components/requests/RequestsIndex'
 import RequestShow from './components/requests/RequestShow'
 import RequestEdit from './components/requests/RequestEdit'
 import RequestsNew from './components/requests/RequestsNew'
+
+import UsersIndex from './components/contributors/UsersIndex'
 
 
 
@@ -34,12 +37,14 @@ const App = () => (
     <main>
       <Navbar />
       <Switch>
+        <Route path='/contributors' component={UsersIndex} />
         <Route path='/requests/:id/edit' component={RequestEdit} />
         <Route path='/requests/new' component={RequestsNew} />
         <Route path='/requests/:id' component={RequestShow} /> 
         <Route path='/requests' component={RequestsIndex} />
         <Route path='/profile/new' component={ProfileNew} />
-        <Route path='/profile/show' component={Show} />
+        <Route exact path='/profile/show' component={Show} />
+        <Route path='/profile/show/:id' component={ShowExt}/>
         <Route path='/profile/:id/edit' component={ProfileEdit} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />

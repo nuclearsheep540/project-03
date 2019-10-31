@@ -14,11 +14,10 @@ class ProfileEdit extends React.Component {
       userProfile: {
         firstName: '',
         lastName: '',
-        image: '',
+        image: [],
         age: '',
-        location: '',
-        fieldIndustry: '',
-        skills: '',
+        location: [],
+        fieldIndustry: [],
         languages: [],
         frameworks: [],
         qualifications: ''
@@ -147,31 +146,18 @@ class ProfileEdit extends React.Component {
     axios.get('/api/profile/', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
-      .then(res => console.log('the rez', res.data))
+      .then(res => {
+        const resCopy = { ...res.data }
+        // resCopy.frameworks = resCopy.frameworks.map(elem => {
+        //   return { value: elem, label: elem } //turn everything that's a string, into an object
+        // })
+        // resCopy.languages = resCopy.languages.map(elem => {
+        //   return { value: elem, label: elem }
+        // })
+        this.setState({ data: resCopy })
+      })
       .catch(err => console.log(err))
   }
-
-  // this.setState({ userProfile: res.data, user1: res.data.userProfile })
-  // console.log('profile data recieved: ', this.state.userProfile)
-  
-  //component did mount needs :
-  //    < axios reuqest goes here >
-  //      .then(res => 
-  //       const resCopy = { ...res.data }
-  //       resCopy.frameworks = resCopy.frameworks.map(elem => {
-  //         return { value: elem, label: elem } //turn everything that's a string, into an object
-  //       })
-  //       resCopy.languages = resCopy.languages.map(elem => {
-  //         return { value: elem, label: elem }
-  //       })
-  //       this.setState({ data: resCopy })
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
-
-
-
 
 
   handleChange({ target: { name, value } }) {
@@ -187,9 +173,9 @@ class ProfileEdit extends React.Component {
   }
 
   handleFramework(selected) {
-    console.log('framework', selected.map(sel => sel.value))
+    // console.log('framework', selected.map(sel => sel.value))
     const frameworks = selected ? selected.map(item => item.value) : ['']
-    console.log('frameworks accumulating =', frameworks)
+    // console.log('frameworks accumulating =', frameworks)
     const frames = [...frameworks]
     this.setState({ userProfile: { ...this.state.userProfile, frameworks: frames } })
   }

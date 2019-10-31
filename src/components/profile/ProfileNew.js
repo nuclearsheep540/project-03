@@ -16,7 +16,7 @@ class ProfileNew extends React.Component {
         lastName: '',
         image: '',
         age: '',
-        location: '',
+        location: [],
         fieldIndustry: '',
         skills: '',
         languages: [],
@@ -80,7 +80,7 @@ class ProfileNew extends React.Component {
       { value: 'Education', label: 'Education' },
       { value: 'Transport and Logistics', label: 'Transport & Logistics' }
     ]
-    this.cities = [
+    this.location = [
       { value: 'Bath', label: 'Bath' },
       { value: 'Birmingham', label: 'Birmingham' },
       { value: 'Bradford', label: 'Bradford' },
@@ -222,7 +222,7 @@ class ProfileNew extends React.Component {
             frameOptions={this.frameworks}
             avatarOptions={this.avatars}
             indieOptions={this.industries}
-            cityOptions={this.cities}
+            cityOptions={this.location}
             userProfile={this.state.userProfile}
             handleLanguage={this.handleLanguage}
             handleFramework={this.handleFramework}

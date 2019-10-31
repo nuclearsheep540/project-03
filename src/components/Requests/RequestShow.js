@@ -29,11 +29,11 @@ class RequestShow extends React.Component {
     axios.get(`/api/requests/${requestId}`)
       .then(res => {
         this.setState({ requestData: res.data, text: '' })
-        this.setState({ comments: res.data.comments })  
-      })  
+        this.setState({ comments: res.data.comments })
+      })
       .catch(err => console.log(err))
   }
- 
+
 
   getApi() {
     const princessId = this.props.match.params.id
@@ -51,8 +51,8 @@ class RequestShow extends React.Component {
     return this.state.requestData.user._id === Auth.getPayLoad().sub
   }
 
-  
-  handleDelete(){
+
+  handleDelete() {
     console.log('submitted')
     const princessId = this.props.match.params.id
     axios.delete((`/api/requests/${princessId}/`), {
@@ -76,6 +76,7 @@ class RequestShow extends React.Component {
   }
 
   deleteComment(e) {
+    // WE NEED TO PROGRAM DELETE COMMENT SO IT CAN ONLY DELETE COMMENTS OWNED BY WHO IS LOGGED IN
     // console.log('before',this.state.comments)
     const commentId = e.target.name
     const requestId = this.props.match.params.id
@@ -85,7 +86,10 @@ class RequestShow extends React.Component {
       .then(this.getApi)
       .catch(err => console.log(err))
   }
-      
+  back(){
+    window.history.back()
+  }
+
   render() {
     if (!this.state.requestData) return null
     if (!this.state.comments) return null
@@ -95,42 +99,58 @@ class RequestShow extends React.Component {
     return (
       <div>
         <section className="section">
-          <div className="container">
-            <h2 className="title">REQUESTS SHOW PAGE</h2>
-            <h3>{this.state.requestData.title}</h3>
-            <p>{this.state.requestData.frameworks}</p>
-            <p>{this.state.requestData.languages}</p>
-            <p>{this.state.requestData.description}</p>
-            <p>Post written by: {this.state.requestData.user.username}</p>
-            <p>{this.state.requestData.user.createdAt}</p>
 
-            {this.isOwner() &&
-            <div className='container'>
-              <Link to={`/requests/${this.state.requestData._id}/edit`}><button>Edit</button></Link>
-              <button onClick={this.handleDelete}>Delete</button>
+          <div className="container">
+            <h2 className="title">Request #{this.state.requestData._id}</h2>
+
+            <div className=''>
+              <h5 className='button backToResultsButton' onClick={this.back}>Back to results</h5>
+              {this.isOwner() &&
+                <>
+                  <Link to={`/requests/${this.state.requestData._id}/edit`}><button>Edit</button></Link>
+                  <button onClick={this.handleDelete}>Delete</button>
+                </>
+              }
             </div>
-            }
+
+           
+            <div className='input-area container-full'>
+              <h3>{this.state.requestData.title}</h3>
+              <br />
+              <p className='indexP'>Framework: {this.state.requestData.frameworks}</p>
+              <p>Language: {this.state.requestData.languages}</p>
+              <p>Description:<p>{this.state.requestData.description}</p></p>
+              <p><Link to={`/profile/show/${this.state.requestData.user._id}`}>Post written by: {this.state.requestData.user.username}</Link></p>
+  
+              <p>{this.state.requestData.user.createdAt}</p>
+            </div>
+
+
+
+
 
           </div>
-          <div className="comment-box">
+          <div className="container">
             <h3>Comments</h3>
-            {this.state.requestData.comments[0] && 
+            {this.state.requestData.comments[0] &&
               this.state.requestData.comments.map(comment => (
-                <div key={comment._id}>
-                  <p>{comment.user.firstName} {comment.user.lastName} says: {comment.text} <button onClick={this.deleteComment} name={comment._id}>Delete Comment</button></p> 
+                <div key={comment._id} className='input-area'>
+                  <p><Link to={`/profile/show/${comment.user._id}`}>{comment.user.image}{comment.user.firstName} {comment.user.lastName}</Link> says: {comment.text}
+                    <button className='deleteButton' onClick={this.deleteComment} name={comment._id}>delete comment</button>
+                  </p>
                 </div>
               ))
             }
-            <form id='mainInput'>
+            <form id='mainInput' className='container'>
               <label name="exampleMessage">Add your comment here</label>
-              <input id="mainInput" className="u-full-width" placeholder="Give your input here" name="commentBox" onChange={this.getComment}></input>
+              <input id="mainInput" className="input-area" placeholder="Give your input here" name="commentBox" onChange={this.getComment}></input>
               <button type='submit' onClick={this.handleComment}>Add comment</button>
             </form>
 
           </div>
 
 
-        </section>    
+        </section>
       </div>
     )
   }

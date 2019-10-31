@@ -36,6 +36,12 @@ router.route('/profile')
 router.route('/profile/:id/edit')
   .put(secureRoute, users.editProfile)
 
+router.route('/profile/show/:id')
+  .get(users.showExt)
+
+router.route('/all')
+  .get(users.all)
+
 
 //good shit up above
 

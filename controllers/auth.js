@@ -65,7 +65,6 @@ function createProfile(req, res, next) {
 // }
 
 function editProfile (req, res) {
- 
   User.findById(req.params.id)
     .populate('user')
     .populate('userProfile')
@@ -92,11 +91,28 @@ function notNew(req, res, next) {
     .catch(next)
 }
 
+function showExt(req, res) {
+  User.findById(req.params.id)
+    .populate('userProfile')
+    .then(user => res.status(200).json(user))
+    .catch(err => res.json(err))
+}
+
+function all(req, res) {
+  User.find()
+    .populate('userprofile')
+    .then(user => res.status(200).json(user))
+}
+
+
+
 module.exports = {
   register,
   login,
   profile,
   createProfile,
   editProfile,
-  notNew
+  notNew,
+  showExt,
+  all
 }

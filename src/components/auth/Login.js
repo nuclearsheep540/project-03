@@ -82,10 +82,10 @@ class Login extends React.Component {
                   </div>
                 </div>
               </div>
-
-              <button type="submit" className="button is-light">Login</button>
-
+              <br />
+            
             </div>
+            <button type="submit" className="button is-light">Login</button>
           </form>
         </div>
       </section>
