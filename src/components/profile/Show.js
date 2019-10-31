@@ -7,13 +7,14 @@ export default class Show extends React.Component {
   constructor() {
     super()
     this.state = {
+      requests: [],
       user: {},
       profile: {} // THE PROFILE ID IS STORED IN USER
     }
     //binds
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     console.log('fetching profile...')
     axios.get('/api/profile/', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
@@ -21,11 +22,22 @@ export default class Show extends React.Component {
       .then(res => {
         this.setState({ user: res.data, profile: res.data.userProfile })
         console.log('profile data recieved: ', this.state.profile)
+        this.getPosts()
       })
   }
 
   isOwner() {
     // return Auth get payload, to === the state of profile.user.username
+  }
+  getPosts() {
+    axios.get('/api/requests')
+      .then(res => {
+        this.setState({ requests: res.data })
+        console.log('post before filter', this.state.requests)
+        const userPosts = this.state.requests.filter(post => post.user._id === Auth.getPayLoad().sub)
+        console.log('posts after filter', userPosts)
+        this.setState({ requests: userPosts })
+      })
   }
 
   handleDelete() {
@@ -73,8 +85,16 @@ export default class Show extends React.Component {
             <Link to={`/profile/${profile._id}/edit`}> <button>Edit profile</button> </Link>
           </div>
         </div>
+        <br />
+        <div className='content' >
+          {this.state.requests.map((elem, i) => (
+            <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
+          )
+          )}
+        </div>
+
       </section>
-      
+
     )
   }
 

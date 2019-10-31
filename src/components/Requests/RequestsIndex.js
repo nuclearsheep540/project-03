@@ -18,13 +18,10 @@ class RequestsIndex extends React.Component {
     axios.get('/api/requests')
       .then(res => this.setState({ requests: res.data }))
       .catch(err => console.log(err))
-
-
   }
 
   handleClick(e) {
     console.log(e.target.value)
-
   }
 
   render() {
@@ -36,12 +33,11 @@ class RequestsIndex extends React.Component {
 
           <h2 className="title">Active Requests</h2>
 
-
           <div className=' yellow'>
             <div>
               {/* <h3>Active Requests</h3>   */}
               <span><Link to='/requests/new'><button>Add Request</button></Link></span>
-              <button onClick=''>Search</button>
+              <button>Search</button>
             </div>
 
             <div className='wrapper-two'>
@@ -65,8 +61,6 @@ class RequestsIndex extends React.Component {
             </div>
 
           </div>
-
-
 
           {this.state.requests.map((request, i) => (
             <div className="" key={i}>

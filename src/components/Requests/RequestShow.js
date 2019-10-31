@@ -67,11 +67,13 @@ class RequestShow extends React.Component {
     this.setState({ text: textInput })
   }
 
-  handleComment() {
-    // e.preventDefault()
+  handleComment(e) {
+    e.preventDefault()
     const requestId = this.state.requestData._id
     axios.post(`/api/requests/${requestId}/comments`, { text: this.state.text }, { headers: { Authorization: `Bearer ${Auth.getToken()}` } })
       .then(res => this.setState({ comments: res.data.comments, text: '' }))
+      .then(this.getApi)
+      .then(document.getElementById('mainInput').reset())
       .catch(err => console.log(err))
   }
 
@@ -85,9 +87,6 @@ class RequestShow extends React.Component {
     axios.delete(`/api/requests/${requestId}/comments/${commentId}`, { headers: { Authorization: `Bearer ${Auth.getToken()}` } })
       .then(this.getApi)
       .catch(err => console.log(err))
-  }
-  back(){
-    window.history.back()
   }
 
   render() {
@@ -104,7 +103,7 @@ class RequestShow extends React.Component {
             <h2 className="title">Request #{this.state.requestData._id}</h2>
 
             <div className=''>
-              <h5 className='button backToResultsButton' onClick={this.back}>Back to results</h5>
+              <Link to={'/requests'}><h5 className='button backToResultsButton'>Back to results</h5></Link>
               {this.isOwner() &&
                 <>
                   <Link to={`/requests/${this.state.requestData._id}/edit`}><button>Edit</button></Link>
@@ -114,9 +113,9 @@ class RequestShow extends React.Component {
             </div>
 
            
+            <h3>{this.state.requestData.title}</h3>
             <div className='input-area container-full'>
-              <h3>{this.state.requestData.title}</h3>
-              <br />
+              
               <p className='indexP'>Framework: {this.state.requestData.frameworks}</p>
               <p>Language: {this.state.requestData.languages}</p>
               <p>Description:<p>{this.state.requestData.description}</p></p>
@@ -124,10 +123,6 @@ class RequestShow extends React.Component {
   
               <p>{this.state.requestData.user.createdAt}</p>
             </div>
-
-
-
-
 
           </div>
           <div className="container">
@@ -144,7 +139,7 @@ class RequestShow extends React.Component {
             <form id='mainInput' className='container'>
               <label name="exampleMessage">Add your comment here</label>
               <input id="mainInput" className="input-area" placeholder="Give your input here" name="commentBox" onChange={this.getComment}></input>
-              <button type='submit' onClick={this.handleComment}>Add comment</button>
+              <button type='submit' className='commentButton' onClick={this.handleComment}></button>
             </form>
 
           </div>
@@ -157,13 +152,3 @@ class RequestShow extends React.Component {
 }
 
 export default RequestShow
-
-
-
-// {this.isOwner() &&
-//   <>
-//     <Link to={`/requests/${this.state.requestData._id}/edit`}>Edit</Link>
-//     <button onClick={this.handleDelete}>Delete Request</button>
-//   </>
-// }
-

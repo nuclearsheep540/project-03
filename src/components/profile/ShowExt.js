@@ -7,10 +7,11 @@ export default class ShowExt extends React.Component {
   constructor() {
     super()
     this.state = {
+      requests: [],
       user: {},
       profile: {} // THE PROFILE ID IS STORED IN USER
     }
-    //binds
+    this.getPosts = this.getPosts.bind(this)
   }
 
   componentDidMount() {
@@ -22,6 +23,17 @@ export default class ShowExt extends React.Component {
       .then(res => {
         this.setState({ user: res.data, profile: res.data.userProfile })
         console.log('profile data recieved: ', this.state.profile)
+      })
+      .then(this.getPosts)
+  }
+  getPosts() {
+    axios.get('/api/requests')
+      .then(res => {
+        this.setState({ requests: res.data })
+        console.log('post before filter',this.state.requests)
+        const userPosts = this.state.requests.filter(post => post.user._id === this.props.match.params.id)
+        console.log('posts after filter', userPosts)
+        this.setState({ requests: userPosts })
       })
   }
 
@@ -39,11 +51,15 @@ export default class ShowExt extends React.Component {
   render() {
     if (!this.state.user) return null
     if (!this.state.profile) return null
+    if (!this.state.requests) return null
+
     const user = this.state.user
     const profile = this.state.profile
     console.log('this profile=', profile)
     console.log('rendering profile...')
+    
     return (
+      
       <section className='section'>
         <div className='content'>
 
@@ -74,9 +90,15 @@ export default class ShowExt extends React.Component {
            
           </div>
         </div>
+        <br />
+        <div className='content'>
+          {this.state.requests.map((elem, i) => (
+            <div className='yellowProfile' key={i}>{elem.title} posted on: {elem.createdAt}</div>
+          )
+          )}
+        </div>
+
       </section>
-
-
 
     )
   }
