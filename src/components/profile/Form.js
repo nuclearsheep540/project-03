@@ -2,7 +2,8 @@ import React from 'react'
 import Select from 'react-select'
 
 const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, handleIndustry, cityOptions, langOptions, avatarOptions, indieOptions, handleAvatar, handleCity, frameOptions, userProfile }) => {
-  
+
+
   return (
     <div>
       <section className="section">
@@ -44,7 +45,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 isMulti={false}
                 onChange={handleAvatar}
                 name='image'
-                value={userProfile.image}
+                value={userProfile.image[0]}
               />
             </div>
 
@@ -96,7 +97,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleLanguage}
                   name='languages'
-                  value={userProfile.languages.value}
+                  value={userProfile.languages}
                 />
               </div>
             </div>
@@ -111,7 +112,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleFramework}
                   name='frameworks'
-                  value={userProfile.frameworks.value}
+                  value={userProfile.frameworks}
                 />
               </div>
             </div>

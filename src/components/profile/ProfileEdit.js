@@ -142,20 +142,29 @@ class ProfileEdit extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        const resCopy = { ...res.data }
-        resCopy.frameworks = resCopy.frameworks.map(elem => {
+        console.log('component', res.data)
+        
+        const userProfileCopy = res.data.userProfile
+        userProfileCopy.firstName = res.data.firstName
+        userProfileCopy.lastName = res.data.lastName
+
+        userProfileCopy.frameworks = userProfileCopy.frameworks.map(elem => {
           return { value: elem, label: elem } //turn everything that's a string, into an object
         })
-        resCopy.languages = resCopy.languages.map(elem => {
+        userProfileCopy.languages = userProfileCopy.languages.map(elem => {
           return { value: elem, label: elem }
         })
-        resCopy.location = resCopy.location.map(elem => {
+        userProfileCopy.location = userProfileCopy.location.map(elem => {
           return { value: elem, label: elem }
         })
-        resCopy.fieldIndustry = resCopy.fieldIndustry.map(elem => {
+        userProfileCopy.fieldIndustry = userProfileCopy.fieldIndustry.map(elem => {
           return { value: elem, label: elem }
         })
-        this.setState({ userProfile: resCopy.userProfile })
+
+        userProfileCopy.image = userProfileCopy.image.map(elem => {
+          return { value: elem, label: 'Choose an avatar' }
+        })
+        this.setState({ userProfile: userProfileCopy })
       })
       .catch(err => console.log(err))
   }
@@ -191,12 +200,12 @@ class ProfileEdit extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    console.log('props are ', this.props)
+    console.log('before sending ', this.state.userProfile)
     const userId = Auth.getPayLoad().sub
     const obj = {
       firstName: this.state.userProfile.firstName,
       lastName: this.state.userProfile.lastName,
-      image: [this.state.userProfile.image.value],
+      image: [this.state.userProfile.image],
       age: this.state.userProfile.age,
       location: [this.state.userProfile.location.value],
       fieldIndustry: [this.state.userProfile.fieldIndustry.value],
@@ -215,6 +224,7 @@ class ProfileEdit extends React.Component {
       })
   }
   render() {
+    // console.log(this.state)
     if (!this.state.userProfile) return null
     console.log(this.state.userProfile, 'data profile')
     return (
