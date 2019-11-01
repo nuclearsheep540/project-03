@@ -59,6 +59,7 @@ class RequestEdit extends React.Component {
     axios.get(`/api/requests/${requestId}`) //axios get is string
       .then(res => {
         const resCopy = { ...res.data }
+        console.log('resCopy =',resCopy)
         resCopy.frameworks = resCopy.frameworks.map(elem => {
           return { value: elem, label: elem } //turn everything that's a string, into an object
         })
@@ -69,6 +70,7 @@ class RequestEdit extends React.Component {
       })
       .catch(err => console.log(err))
   }
+  
 
   handleLanguage(selected) {
     const languages = selected 
@@ -104,22 +106,33 @@ class RequestEdit extends React.Component {
       .then(window.history.back())
       .catch(err => console.log(err))
   }
+  back(){
+    window.history.back()
+  }
 
   render() {
     if (!this.state.data) return null
     console.log(this.state.data, 'the dataa')
     return (
       <div>
-        <h1>EDIT PAGE </h1>
-        <RequestsForm
-          data={this.state.data}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          handleLanguage={this.handleLanguage}
-          handleFramework={this.handleFramework}
-          frameworks={this.frameworks}
-          languages={this.languages}
-        />
+        <section className='section'>
+          <div className='container'>
+
+            <h2>Editing... #{this.props.match.params.id} </h2>
+            <h5 className='button' onClick={this.back}>Cancel</h5>
+            <RequestsForm
+              data={this.state.data}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              handleLanguage={this.handleLanguage}
+              handleFramework={this.handleFramework}
+              frameworks={this.frameworks}
+              languages={this.languages}
+            />
+
+
+          </div>
+        </section>
       </div>
     )
   }

@@ -92,19 +92,24 @@ class RequestsNew extends React.Component {
 
   
   render() {
-    console.log('trying to see if langs/frame are being saved',this.state.data)
+    console.log('trying to see if langs/frame are being saved', this.state.data)
     return (
       <div>
-        <h1>NEW REQUEST</h1>
-        <RequestsForm 
-          data={this.state.data}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          handleLanguage={this.handleLanguage}
-          handleFramework={this.handleFramework}
-          frameworks={this.frameworks}
-          languages={this.languages}
-        />
+        <section className='section'>
+          <div className='container'>
+            <h2>New Request</h2>
+            <RequestsForm
+              data={this.state.data}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              handleLanguage={this.handleLanguage}
+              handleFramework={this.handleFramework}
+              frameworks={this.frameworks}
+              languages={this.languages}
+            />
+
+          </div>
+          /</section>
       </div>
     )
   }

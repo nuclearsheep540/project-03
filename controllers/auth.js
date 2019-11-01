@@ -65,25 +65,54 @@ function createProfile(req, res, next) {
 // }
 
 function editProfile (req, res) {
-  User
-    .findById(req.params.id)
+  User.findById(req.params.id)
     .populate('user')
-    .then(profile => {
-      if (!profile) return res.status(404).json({ message: 'Not found 1' })
-      // if (!profile.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
-      return profile.set(req.body)
+    .populate('userProfile')
+    .then(user => {
+      if (!user) return res.status(404).json({ message: 'Not found 1' })
+      user = user.userProfile
+      return user.set(req.body)
     })
-    .then(profile => profile.save())
-    .then(profile => res.status(202).json(profile))
+    .then(user =>{
+      user.save()
+      res.status(202).json(user)
+    })
     .catch(err => console.log(err))
-    
-
 }
+function notNew(req, res, next) {
+  req.body.user = req.currentUser
+  User.findByIdAndUpdate(req.currentUser._id, req.body )
+    .then(elem => {
+      console.log( req.currentUser._id )
+      if (!elem) return res.status(404).json({ message: 'There are no users here' })
+      if (!elem._id.equals(req.currentUser._id)) return res.status(401).json({ message: 'You\'re not the Authorized user for this task!' })
+      res.status(202).json(elem)
+    })
+    .catch(next)
+}
+
+function showExt(req, res) {
+  User.findById(req.params.id)
+    .populate('userProfile')
+    .then(user => res.status(200).json(user))
+    .catch(err => res.json(err))
+}
+
+function all(req, res) {
+  User.find()
+    .populate('userprofile')
+    .then(user => res.status(200).json(user))
+}
+
+
 
 module.exports = {
   register,
   login,
   profile,
   createProfile,
-  editProfile
+  editProfile,
+  notNew,
+  showExt,
+  all
 }

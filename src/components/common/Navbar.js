@@ -28,7 +28,7 @@ class Navbar extends React.Component {
           {Auth.isAuthenticated() && <Link to='/profile/show/'><div className='nav-item'>Profile</div></Link>}
           {Auth.isAuthenticated() && <Link to='/' onClick={this.logout}><div className='nav-item'>Logout {Auth.getName()}</div></Link>}
           <Link to='/requests'> <div className='nav-item'>Requests</div></Link>
-          <Link to='/contribute'> <div className='nav-item'>Contribute</div></Link>
+          <Link to='/contributors'> <div className='nav-item'>Contributors</div></Link>
         </nav>
       </nav>
     )

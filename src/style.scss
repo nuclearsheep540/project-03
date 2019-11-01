@@ -15,6 +15,42 @@ $yellow: rgba(255, 222, 124, 1);
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 // --- generic style --- //
+a {
+  text-decoration: none;
+  color: black;
+}
+.yellow {
+  background-color: $yellow;
+  padding: 5px;
+  margin: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(192, 192, 192, 0.4);
+  padding: 4px;
+  max-height: 120px;
+  width: 100%;
+  margin: 12px 0px;
+  overflow: hidden;
+  text-align: left;
+  justify-content: left;
+  justify-items: left;
+}
+
+.yellowProfile {
+  background-color: $bright;
+  padding: 5px;
+  margin: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(192, 192, 192, 0.4);
+  padding: 4px;
+  max-height: 120px;
+  width: 98.6%;
+  margin: 12px 0px;
+  overflow: hidden;
+  text-align: left;
+  justify-content: left;
+  justify-items: left;
+}
+
 .avatar {
   max-width: 256px;
 }
@@ -65,8 +101,11 @@ h1, .logo {
 p, h2, a {
   font-family: 'Ubuntu', sans-serif;
 }
+h3 {
+  display: inline;
+}
 
-a {
+Nav > a {
   text-decoration: none;
   margin: 0px 10px;
   color: white;
@@ -76,9 +115,28 @@ a {
 }
 
 button {
-  margin: 10px;
-  padding: 10px;
+  margin-right: 10px;
+  // padding: 10px;
   background-color: white;
+  line-height: 34px;
+}
+.backToResultsButton{
+  margin-right: 10px;
+ 
+}
+button.deleteButton{
+  display: block;
+  border-radius: 0px;
+  max-width: 0px;
+  min-width: 12px;
+  max-height: 0px;
+  min-height: 0px;
+  padding: 0px;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+button.commentButton{
+  visibility: hidden;
 }
 
 body {
@@ -90,41 +148,65 @@ nav {
   flex-wrap: nowrap;
   justify-content: center;
   padding-top: 0px;
-  min-height: 35px;
+  min-height: 39px;
   background-color: $dark;
   border-bottom: 1px solid rgb(41, 64, 79);
 }
 .left{
+  top: 0px;
+  position: relative;
   display: flex;
   width: 100%;
   left: 0px;
   position: fixed;
   display: flex;
-  min-height: 35px;
+  min-height: 39px;
+  background-color: $dark;
+  border-bottom: 1px solid $dark(0,0,0,1);
 }
 .right{
+  top: 0px;
+  position: relative;
   right: 0px;
   position: fixed;
-  max-width: 75%;
-  display: flex;
+  max-width: 95%;
+  max-height: 39px;
+  border: none;
+  border-bottom: 1px solid $dark(0,0,0,1);
+  // overflow: hidden;
 }
 
 .nav-item {
   width: 100px;
-  min-width: 70px;
-  padding: 0px;
-  margin: 0 10px;
+  width: 100px;
+  max-height: 24px;
+  max-width: 190px;
+  padding: 5px;
+  margin: 0 20px 0px 0px;
   text-align: center;
   vertical-align: middle;
-  transform: translateY(12px);
-  border-bottom: 5px solid rgba(255, 255, 255, 0);
+  transform: translateY(6px);
+  
+  // border-bottom: 5px solid rgba(255, 255, 255, 0);
 }
 .nav-item:hover {
+  overflow: hidden;
+  z-index: 1;
   border-bottom: 5px solid $bright;
   border-radius: 5px;
   a {
     color: $bright;
   }
+}
+.searchDrops {
+max-width: 290px;
+min-width: 190px;
+}
+
+.indexP {
+  display: block;
+  min-width: 150px;
+  text-align: left;
 }
 // --- end of generic styles --- //
 
@@ -136,7 +218,7 @@ nav {
     color: white;
   }
   left: 40px;
-  top: -5px;
+  top: -2px;
   position: absolute;
   font-family: 'Pacifico', cursive;
   font-size: 28px;
@@ -152,7 +234,7 @@ nav {
 .wrapper-two {
   display: flex;
   flex-wrap: wrap;
-  min-width: 100vw;
+  min-width: 49vw;
   min-height: 100%;
 }
 .container-half {
@@ -162,7 +244,8 @@ nav {
 }
 .rows{
     width: 100vw;
-    min-height: 600px;
+    min-height: 300px;
+    margin-top: 40px;
 }
 .content {
   max-width: 900px;
@@ -171,6 +254,7 @@ nav {
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px rgba(167, 154, 154, 0.2) solid;
   border-radius: 4px;
+  padding: 4px;
 }
 .input-area {
 background-color:rgba(255, 255, 255, 0.5);
@@ -185,14 +269,23 @@ border-radius: 4px;
   color:black
 }
 
-.container.requests {
-  background: $yellow;
-}
-
 .request-card {
-  background: $bright;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid silver;
+  padding: 4px;
+  max-height: 120px;
+  width: 100%;
+  margin: 12px 0px;
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
 }
-
+.commentImage {
+  max-width: 64px;
+  max-height: 64px;
+}
 
 // *** END CUSTOM *** //
 
@@ -379,7 +472,7 @@ input[type="button"] {
   text-align: center;
   font-size: 11px;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 34px;
   letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: none;

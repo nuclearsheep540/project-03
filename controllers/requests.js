@@ -69,6 +69,11 @@ function commentCreate(req, res) {
   req.body.user = req.currentUser
   Request
     .findById(req.params.id)
+    .populate('userProfile')
+    .populate('user')
+    .populate('Profile')
+    .populate('comments.user')
+    .populate('comments.user.userProfile')
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not Found' })
       request.comments.push(req.body)
@@ -81,20 +86,17 @@ function commentCreate(req, res) {
 
 function commentDelete(req, res) {
   req.body.user = req.currentUser 
-  Request 
-    .findById(req.params.id)
+  Request.findById(req.params.id)
     .then(request => {
       if (!request) return res.status(404).json({ message: 'Not found' })
       const comment = request.comments.id(req.params.commentId)
+      if (!comment.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'You didnt make this comment' })
       comment.remove()
       return request.save()
     })
     .then(request => res.status(202).json(request))
     .catch(err => console.log(err))
 }
-
-
-
 
 
 
