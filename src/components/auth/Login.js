@@ -11,7 +11,8 @@ class Login extends React.Component {
         username: '',
         password: ''
       },
-      user: ''
+      user: '',
+      error: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,8 +21,22 @@ class Login extends React.Component {
     const data = { ...this.state.data, [name]: value }
     this.setState({ data })
   }
+
+  errorHandler() {
+    if (this.state.data.username.length < 3)  {
+      console.log('no user')
+      this.setState({ error: true }) 
+      setTimeout(() => {
+        return this.setState({ error: false })
+      }, 3000)
+    } 
+  }
+
+  // SORT LOGIN ERROR HANDLER. SEE CHEESEBORED
+
   handleSubmit(e) {
     e.preventDefault()
+    this.errorHandler()
     Axios.post('/api/login', this.state.data)
       .then(res => {
         Auth.setToken(res.data.token)
@@ -38,7 +53,7 @@ class Login extends React.Component {
 
         console.log('response data from /login  = ', res.data)
       })
-      .catch(err => console.log(err))
+      .catch(error => this.setState({ error }))
     console.log('login submitted')
   }
 
@@ -47,11 +62,9 @@ class Login extends React.Component {
     return (
       <section className="section">
         <div className="container">
-
-
           <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Login</h2>
-
+            <h2 className="title">Login</h2> 
+            <h4 className= {`${this.state.error ? 'invalid-entry' : 'hide'}`}>Invalid Entry, please try again</h4>
             <div className="wrapper-two">
               <div className='container-half'>
 
