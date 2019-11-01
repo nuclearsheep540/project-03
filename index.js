@@ -26,3 +26,5 @@ app.use('/api', router)
 app.get('/*', (req, res) => res.status(404).json({ message: 'Not found' }))
 
 app.listen(port, () => console.log(`node server running on :${port}`))
+
+module.exports = app

@@ -18,8 +18,8 @@ mongoose.connect(
             username: 'sarah125',
             email: 'sarah@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: [0]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Mary',
@@ -27,8 +27,8 @@ mongoose.connect(
             username: 'mm2018',
             email: 'mary@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [1]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Joseph',
@@ -36,8 +36,8 @@ mongoose.connect(
             username: 'jo_tennant',
             email: 'jo@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [2]
+            passwordConfirmation: 'pass'
+
             
           },
           {
@@ -46,8 +46,8 @@ mongoose.connect(
             username: 'harrys101',
             email: 'harry@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [3]
+            passwordConfirmation: 'pass'
+
             
           },
           {
@@ -56,8 +56,8 @@ mongoose.connect(
             username: 'will_is_great',
             email: 'will@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [4]
+            passwordConfirmation: 'pass'
+
             
           },
           {
@@ -66,8 +66,8 @@ mongoose.connect(
             username: 'greggs_pastry',
             email: 'greg@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [5]
+            passwordConfirmation: 'pass'
+
             
           },
           {
@@ -76,8 +76,8 @@ mongoose.connect(
             username: 'taves99',
             email: 'octavia@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [6]
+            passwordConfirmation: 'pass'
+
             
           },
           {
@@ -86,8 +86,8 @@ mongoose.connect(
             username: 'henners95',
             email: 'henry@email',
             password: 'pass',
-            passwordConfirmation: 'pass', 
-            Profile: [7]
+            passwordConfirmation: 'pass' 
+
             
           },
           {
@@ -96,8 +96,8 @@ mongoose.connect(
             username: 'ol_dawg',
             email: 'olly@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [8]
+            passwordConfirmation: 'pass'
+
             
           },
           {
@@ -106,8 +106,8 @@ mongoose.connect(
             username: 'msimpson54',
             email: 'marcus@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [9]
+            passwordConfirmation: 'pass'
+
           
           },
           {
@@ -116,8 +116,8 @@ mongoose.connect(
             username: 'jonorambo',
             email: 'john@email',
             password: 'pass',
-            passwordConfirmation: 'pass', 
-            Profile: [10]
+            passwordConfirmation: 'pass' 
+
           },
           
           {
@@ -126,8 +126,8 @@ mongoose.connect(
             username: 'sal101',
             email: 'sally@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [11]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Bob',
@@ -135,8 +135,8 @@ mongoose.connect(
             username: 'bobby_be_back',
             email: 'bob@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [12]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Tony',
@@ -144,8 +144,8 @@ mongoose.connect(
             username: 'toni-italiano',
             email: 'toni@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [13]
+            passwordConfirmation: 'pass'
+
        
           },
           {
@@ -154,8 +154,8 @@ mongoose.connect(
             username: 'rosie_cheeks',
             email: 'rosie@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [14]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Elienne',
@@ -163,8 +163,8 @@ mongoose.connect(
             username: 'Eyag1',
             email: 'eyagrite@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [15]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Jack',
@@ -172,8 +172,8 @@ mongoose.connect(
             username: 'Frostyj',
             email: 'jfrost@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [16]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Linda',
@@ -181,8 +181,8 @@ mongoose.connect(
             username: 'lindyp',
             email: 'lindyp@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [17]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Mark',
@@ -190,8 +190,8 @@ mongoose.connect(
             username: 'webbym',
             email: 'mweb@hurstemail',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [18]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Suki',
@@ -199,8 +199,8 @@ mongoose.connect(
             username: 'sookee',
             email: 'sookee@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [19]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'James',
@@ -208,8 +208,8 @@ mongoose.connect(
             username: 'jmonroe',
             email: 'jmonroe@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [20]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Mary',
@@ -217,8 +217,8 @@ mongoose.connect(
             username: 'msawyer',
             email: 'msawyer@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [21]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Joseph',
@@ -226,8 +226,8 @@ mongoose.connect(
             username: 'jsmithy',
             email: 'jsmithy@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [22]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Daniel',
@@ -235,8 +235,8 @@ mongoose.connect(
             username: 'dliamson',
             email: 'dliamson@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [23]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Clara',
@@ -244,8 +244,8 @@ mongoose.connect(
             username: 'clarajones',
             email: 'clarajones@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [24]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Sydney',
@@ -253,8 +253,8 @@ mongoose.connect(
             username: 'sydneyparks',
             email: 'sydneyparks@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [25]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Chloe',
@@ -262,8 +262,8 @@ mongoose.connect(
             username: 'chloeeverton',
             email: 'chloe@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [26]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Lois',
@@ -271,8 +271,8 @@ mongoose.connect(
             username: 'lowoods',
             email: 'loiswoods@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [27]
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Lewis',
@@ -280,8 +280,8 @@ mongoose.connect(
             username: 'lewtay',
             email: 'lewtay@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            Profile: [28]
+            passwordConfirmation: 'pass'
+
           }
 
 
@@ -295,20 +295,20 @@ mongoose.connect(
             frameworks: 'ReactJs',
             languages: 'none',
             description: 'I need to complete a project for class which requires React.  I am having trouble with rendering components to the page.  Can anybody help me?',
-            user: users[3]
+            user: users[1]
           },
           {
             title: 'Building a Wordpress website',
             frameworks: 'none',
             languages: 'PHP',
-            description: 'I would like to create a Wordpress website for my portfolio which I understand requires knowledge of PHP.  I have never used it before.  I’d like to request some help with going through the basics and/or recommend any frameworks that work well.  If anyone can help me that would be great!',
+            description: 'I would like to create a Wordpress website for my portfolio which I understand requires knowledge of PHP.  I have never used it before.  I\'d like to request some help with going through the basics and/or recommend any frameworks that work well.  If anyone can help me that would be great!',
             user: users[1]
           },
           {
             title: 'Creating a snake game',
             frameworks: 'none',
             languages: 'Javascript',
-            description: 'I have been tasked with creating a snake game which I have a week to complete.  The requirement is that I’m to only use vanilla Javascript which I don’t really know much about.  Has anyone done anything similar before and would be able to help me? Thanks in advance',
+            description: 'I have been tasked with creating a snake game which I have a week to complete.  The requirement is that I\'m to only use vanilla Javascript which I don\'t really know much about.  Has anyone done anything similar before and would be able to help me? Thanks in advance',
             user: users[8]
           },
           {
@@ -329,18 +329,16 @@ mongoose.connect(
             title: 'Spring Help',
             frameworks: 'Spring',
             languages: 'none',
-            description: 'Hi all, I’m a junior developer where we use Java as a language.  I  believe that we’ll be using Spring as opposed to JSF and was wondering if anyone had time to sit down and go through some basics.  Hopefully just one meet up for a couple of hours should get me on track.  Thank you in advance.',user: users[6]
+            description: 'Hi all, I\'m a junior developer where we use Java as a language.  I  believe that we\'ll be using Spring as opposed to JSF and was wondering if anyone had time to sit down and go through some basics.  Hopefully just one meet up for a couple of hours should get me on track.  Thank you in advance.', user: users[6]
           },
           {
-              
             title: 'CakePHP help',
             frameworks: 'CakePHP',
             languages: 'none',
             description: 'I was wondering if anyone who uses CakePHP could help me out.  I have never used it before and I think it could be super helpful',
             user: users[14]
           },
-          {
-              
+          { 
             title: 'Help with Flexbox',
             frameworks: 'none',
             languages: 'CSS',
