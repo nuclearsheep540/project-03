@@ -73,10 +73,6 @@ font-size:89px;
 text-shadow: 3px 3px 3px black;
 }
 
-.title {
-  text-align: center;
-}
-
 .center {
   margin: auto;
   width: 100%;
@@ -283,7 +279,7 @@ margin: 10px;
 padding: 10px;
 border: 1px rgba(167, 154, 154, 0.2) solid;
 border-radius: 4px;
-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+// box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .news {
@@ -294,7 +290,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   border: 1px rgba(167, 154, 154, 0.2) solid;
   border-radius: 4px;
   background-color: #a9dfe0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
   }
 
 #mainInput {
@@ -317,7 +313,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   justify-content: center;
   justify-items: center;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 
 }
 .commentImage {

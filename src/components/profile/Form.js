@@ -90,7 +90,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleLanguage}
                   name='languages'
-                  value={userProfile.languages.value}
+                  value={userProfile.languages}
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleFramework}
                   name='frameworks'
-                  value={userProfile.frameworks.value}
+                  value={userProfile.frameworks}
                 />
               </div>
             </div>
