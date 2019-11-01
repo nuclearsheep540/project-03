@@ -21,6 +21,7 @@ class ProfileEdit extends React.Component {
         languages: [],
         frameworks: [],
         qualifications: ''
+        
       }
     }
     this.languages = [

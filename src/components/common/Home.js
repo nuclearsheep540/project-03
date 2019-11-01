@@ -26,7 +26,7 @@ class Home extends React.Component {
 
         <section className='rows'>
           <div className='content'>
-            <h2 className='center'> Welcome To SkillSwap </h2>
+            <h2 className='center-welcome'> Welcome To SkillSwap </h2>
             <h4 className='center'> Join The Community! </h4>
             <br />
             <div className='center'>
@@ -46,7 +46,7 @@ class Home extends React.Component {
         <section className='rows'>
           <div className='content'>
             <h2 className='center1'> Tech News! </h2>
-
+            
             <Eventdisplay
             
             />
