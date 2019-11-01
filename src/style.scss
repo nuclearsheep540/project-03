@@ -70,6 +70,11 @@ line-height:60vh;
 
 .heroTitle{
 font-size:89px;
+text-shadow: 3px 3px 3px black;
+}
+
+.title {
+  text-align: center;
 }
 
 .center {
@@ -312,6 +317,8 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   justify-content: center;
   justify-items: center;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 .commentImage {
   max-width: 64px;
@@ -332,6 +339,10 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   display: none;
 }
 
+.search-button {
+  margin-top: 28px;
+}
+
 input.u-full-width.field1 {
   border: 1px solid red;
 }
@@ -345,6 +356,8 @@ input.u-full-width.field1 {
 
   
 }
+
+
 
 
 

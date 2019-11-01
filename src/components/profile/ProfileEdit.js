@@ -2,11 +2,9 @@ import React from 'react'
 import Form from './Form'
 import axios from 'axios'
 import Auth from '../../lib/auth'
-
 class ProfileEdit extends React.Component {
   constructor() {
     super()
-
     this.state = {
       user: {
         newUser: 'false'
@@ -131,8 +129,6 @@ class ProfileEdit extends React.Component {
       { value: 'worcester', label: 'Worcester' },
       { value: 'york', label: 'York' }
     ]
-
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleLanguage = this.handleLanguage.bind(this)
@@ -141,7 +137,6 @@ class ProfileEdit extends React.Component {
     this.handleIndustry = this.handleIndustry.bind(this)
     this.handleCity = this.handleCity.bind(this)
   }
-
   componentDidMount() {
     // const userId = Auth.getPayLoad().sub
     axios.get('/api/profile/', {
@@ -149,75 +144,77 @@ class ProfileEdit extends React.Component {
     })
       .then(res => {
         const resCopy = { ...res.data }
-        // resCopy.frameworks = resCopy.frameworks.map(elem => {
-        //   return { value: elem, label: elem } //turn everything that's a string, into an object
-        // })
-        // resCopy.languages = resCopy.languages.map(elem => {
-        //   return { value: elem, label: elem }
-        // })
-        this.setState({ data: resCopy })
+        resCopy.frameworks = resCopy.frameworks.map(elem => {
+          return { value: elem, label: elem } //turn everything that's a string, into an object
+        })
+        resCopy.languages = resCopy.languages.map(elem => {
+          return { value: elem, label: elem }
+        })
+        resCopy.location = resCopy.location.map(elem => {
+          return { value: elem, label: elem }
+        })
+        resCopy.fieldIndustry = resCopy.fieldIndustry.map(elem => {
+          return { value: elem, label: elem }
+        })
+        this.setState({ userProfile: resCopy.userProfile })
       })
       .catch(err => console.log(err))
   }
-
-
   handleChange({ target: { name, value } }) {
     const userProfile = { ...this.state.userProfile, [name]: value }
     this.setState({ userProfile })
   }
-
+​
   handleLanguage(selected) {
-    console.log('language', selected.map(sel => sel.value))
     const languages = selected ? selected.map(item => item.value) : ['']
-    const langs = [...languages]
-    this.setState({ userProfile: { ...this.state.userProfile, languages: langs } })
+    const userProfile = { ...this.state.userProfile, languages }
+    this.setState({ userProfile })
   }
-
   handleFramework(selected) {
-    // console.log('framework', selected.map(sel => sel.value))
     const frameworks = selected ? selected.map(item => item.value) : ['']
-    // console.log('frameworks accumulating =', frameworks)
-    const frames = [...frameworks]
-    this.setState({ userProfile: { ...this.state.userProfile, frameworks: frames } })
+    const userProfile = { ...this.state.userProfile, frameworks }
+    this.setState({ userProfile })
   }
-
   handleAvatar(selected) {
-    const avatars = selected
-    const image = avatars.value.split(' ')[0]
-    console.log(image)
-    this.setState({ userProfile: { ...this.state.userProfile, image } })
+    const avatar = selected
+    const userProfile = { ...this.state.userProfile, image: avatar }
+    this.setState({ userProfile })
   }
-
   handleIndustry(selected) {
-    const industries = selected
-    const fieldIndustry = industries.value
-    this.setState({ userProfile: { ...this.state.userProfile, fieldIndustry } })
+    const industries = selected 
+    const userProfile = { ...this.state.userProfile, fieldIndustry: industries }
+    this.setState({ userProfile })
   }
   handleCity(selected) {
     const cities = selected
-    const location = cities.value
-    this.setState({ userProfile: { ...this.state.userProfile, location } })
-    console.log('state is',{ ...this.state.user })
+    const userProfile = { ...this.state.userProfile, location: cities }
+    this.setState({ userProfile })
   }
-
-
-
-
   handleSubmit(e) {
     e.preventDefault()
     console.log('props are ', this.props)
     const userId = Auth.getPayLoad().sub
+    const obj = {
+      firstName: this.state.userProfile.firstName,
+      lastName: this.state.userProfile.lastName,
+      image: [this.state.userProfile.image.value],
+      age: this.state.userProfile.age,
+      location: [this.state.userProfile.location.value],
+      fieldIndustry: [this.state.userProfile.fieldIndustry.value],
+      languages: this.state.userProfile.languages,
+      frameworks: this.state.userProfile.frameworks,
+      qualifications: this.state.userProfile.qualifications
+    }
     console.log('updating profile with: ', this.state.userProfile)
-    axios.put(`/api/profile/${userId}/edit`, this.state.userProfile , {
+    axios.put(`/api/profile/${userId}/edit`, obj , {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
         console.log('response updated:', res.data)
-        // this.setState({})
+        this.setState({ userProfile: res.data })
         this.props.history.push('/profile/show')
       })
   }
-
   render() {
     if (!this.state.userProfile) return null
     console.log(this.state.userProfile, 'data profile')
@@ -245,7 +242,4 @@ class ProfileEdit extends React.Component {
     )
   }
 }
-
 export default ProfileEdit
-
-

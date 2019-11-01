@@ -37,7 +37,6 @@ class RequestsIndex extends React.Component {
             <div>
               {/* <h3>Active Requests</h3>   */}
               <span><Link to='/requests/new'><button>Add Request</button></Link></span>
-              <button>Search</button>
             </div>
 
             <div className='wrapper-two'>
@@ -46,7 +45,7 @@ class RequestsIndex extends React.Component {
               <div className='searchDrops'>
                 <label>Framework</label>
                 <select>
-                  <option> </option>
+                  <option>Framework</option>
                   <option>filter not installed yet </option>
                 </select>
               </div>
@@ -54,10 +53,11 @@ class RequestsIndex extends React.Component {
               <div className='searchDrops'>
                 <label>Language</label>
                 <select>
-                  <option> </option>
+                  <option>Language</option>
                   <option>filter not installed yet </option>
                 </select>
               </div>
+              <button className='search-button'>Search</button>
             </div>
 
           </div>
