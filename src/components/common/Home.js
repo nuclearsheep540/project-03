@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Eventdisplay from './Eventdisplay'
+
 const Home = () => (
   <div className='container-full'>
 
@@ -38,6 +40,11 @@ const Home = () => (
       <div className='content'>
         <h2 className='center'> More Things! </h2>
         <p className='center'> Why all the things are awesome </p>
+
+        <Eventdisplay
+          
+        />
+
       </div>
     </section>
 

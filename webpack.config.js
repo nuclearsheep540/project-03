@@ -36,6 +36,10 @@ module.exports = {
       template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env.EVENTBRITE_API_KEY': JSON.stringify(process.env.EEVENTBRITE_API_KEY)
+    }),
+    new webpack.EnvironmentPlugin(['EVENTBRITE_API_KEY'])
   ]
 }
