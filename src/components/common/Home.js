@@ -28,11 +28,15 @@ class Home extends React.Component {
           <div className='content'>
             <h2 className='center'> Welcome To SkillSwap </h2>
             <h4 className='center'> Join The Community! </h4>
+ 
             <br />
             <div className='center'>
               <p>
         Skill swap is an online and face-to-face community for requestors and contributors to collaborate on all things tech!
               </p>
+              <div className='image-wrapper'>
+                <img className='pic' src="https://techcrunch.com/wp-content/uploads/2019/05/GettyImages-1129377183.jpg?w=730&crop=1"></img> <img className='pic' src="http://rafaelnunezaponte.org/wp-content/uploads/2016/07/Creating-great-CSR-campigns.jpg"></img>
+              </div>
               <p>
         Requesters can gain knowledge by posting their language/framework queries or browsing our list of contributors to find someone with the skills that match their query
               </p>
