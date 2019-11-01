@@ -19,7 +19,7 @@ mongoose.connect(
             email: 'sarah@email',
             password: 'pass',
             passwordConfirmation: 'pass',
-            userProfile: [0]
+            Profile: [0]
           },
           {
             firstName: 'Mary',
@@ -536,10 +536,10 @@ mongoose.connect(
           {
             firstName: 'Mary',
             lastName: 'Miller',
-            image: 'https://image.flaticon.com/icons/svg/201/201634.svg',
+            image: ['https://image.flaticon.com/icons/svg/201/201634.svg'],
             age: 25,
-            location: 'London',
-            fieldIndustry: 'Design',
+            location: ['London'],
+            fieldIndustry: ['Design'],
             languages: ['Javascript'],
             frameworks: ['Vue.js'],
             qualifications: ['BA software engineering'],
@@ -548,10 +548,10 @@ mongoose.connect(
           {
             firstName: 'Joseph',
             lastName: 'Tennant',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 30,
-            location: 'London',
-            fieldIndustry: 'Science',
+            location: ['London'],
+            fieldIndustry: ['Science'],
             languages: ['Elixr', 'Kotlin'],
             frameworks: ['Vue.js'],
             qualifications: ['self taught']
@@ -559,10 +559,10 @@ mongoose.connect(
           {
             firstName: 'Harry',
             lastName: 'Smith',
-            image: 'https://i.ibb.co/GxCXTkp/man-2.png',
+            image: ['https://i.ibb.co/GxCXTkp/man-2.png'],
             age: 31,
-            location: 'London',
-            fieldIndustry: 'Engineering',
+            location: ['London'],
+            fieldIndustry: ['Engineering'],
             languages: ['Python', 'Kotlin'],
             frameworks: ['Lavarel'],
             qualifications: ['self taught']
@@ -570,10 +570,10 @@ mongoose.connect(
           {
             firstName: 'Will',
             lastName: 'McCallum',
-            image: 'https://i.ibb.co/YksZLhK/man-1.png',
+            image: ['https://i.ibb.co/YksZLhK/man-1.png'],
             age: 31,
-            location: 'London',
-            fieldIndustry: 'Law',
+            location: ['London'],
+            fieldIndustry: ['Law'],
             languages: ['Go'],
             frameworks: ['Play'],
             qualifications: ['bootcamp']
@@ -581,10 +581,10 @@ mongoose.connect(
           {
             firstName: 'Gregory',
             lastName: 'Dodd',
-            image: 'https://i.ibb.co/XbLnf5G/man.png',
+            image: ['https://i.ibb.co/XbLnf5G/man.png'],
             age: 27,
-            location: 'London',
-            fieldIndustry: 'Media',
+            location: ['London'],
+            fieldIndustry: ['Media'],
             languages: ['Go'],
             frameworks: ['Play'],
             qualifications: ['bootcamp']
@@ -592,10 +592,10 @@ mongoose.connect(
           {
             firstName: 'Octavia',
             lastName: 'Daly',
-            image: 'https://i.ibb.co/JFh9Vmc/girl.png',
+            image: ['https://i.ibb.co/JFh9Vmc/girl.png'],
             age: 22,
-            location: 'London',
-            fieldIndustry: 'Media',
+            location: ['London'],
+            fieldIndustry: ['Media'],
             languages: ['Javascript', 'Java'],
             frameworks: ['React'],
             qualifications: ['BA in Software engineering']
@@ -603,10 +603,10 @@ mongoose.connect(
           {
             firstName: 'Henry',
             lastName: 'Gateway',
-            image: 'https://i.ibb.co/18vGfWw/boy.png',
+            image: ['https://i.ibb.co/18vGfWw/boy.png'],
             age: 28,
-            location: 'London',
-            fieldIndustry: 'Security',
+            location: ['London'],
+            fieldIndustry: ['Security'],
             languages: ['Python', 'Java'],
             frameworks: ['React'],
             qualifications: ['Web development bootcamp', 'self taught']
@@ -614,10 +614,10 @@ mongoose.connect(
           {
             firstName: 'Olly',
             lastName: 'Trant',
-            image: 'https://i.ibb.co/XbLnf5G/man.png',
+            image: ['https://i.ibb.co/XbLnf5G/man.png'],
             age: 28,
-            location: 'London',
-            fieldIndustry: 'Fintech',
+            location: ['London'],
+            fieldIndustry: ['Fintech'],
             languages: ['Python', 'Java'],
             frameworks: ['Django'],
             qualifications: ['Web development bootcamp']
@@ -625,10 +625,10 @@ mongoose.connect(
           {
             firstName: 'Marcus',
             lastName: 'Simpson',
-            image: 'https://i.ibb.co/18vGfWw/boy.png',
+            image: ['https://i.ibb.co/18vGfWw/boy.png'],
             age: 23,
-            location: 'London',
-            fieldIndustry: 'Design',
+            location: ['London'],
+            fieldIndustry: ['Design'],
             languages: ['Ruby', 'Java','Javascript'],
             frameworks: ['React'],
             qualifications: ['Web development bootcamp', 'self taught']
@@ -636,10 +636,10 @@ mongoose.connect(
           {
             firstName: 'John',
             lastName: 'Ramsden',
-            image: 'https://i.ibb.co/GxCXTkp/man-2.png',
+            image: ['https://i.ibb.co/GxCXTkp/man-2.png'],
             age: 34,
-            location: 'London',
-            fieldIndustry: 'Public Services and Administration',
+            location: ['London'],
+            fieldIndustry: ['Public Services and Administration'],
             languages: ['C#','Ruby', 'Java','Javascript'],
             frameworks: ['React','node.js'],
             qualifications: ['Web development bootcamp', 'self taught']
@@ -647,10 +647,10 @@ mongoose.connect(
           {
             firstName: 'Sally',
             lastName: 'Johnston',
-            image: 'https://i.ibb.co/xhZkJXG/man-3.png',
+            image: ['https://i.ibb.co/xhZkJXG/man-3.png'],
             age: 26,
-            location: 'London',
-            fieldIndustry: 'FinTech',
+            location: ['London'],
+            fieldIndustry: ['FinTech'],
             languages: ['Javascript', 'C#'],
             frameworks: ['Node.js'],
             qualifications: ['BA software engineering']
@@ -658,10 +658,10 @@ mongoose.connect(
           {
             firstName: 'Bob',
             lastName: 'Jones',
-            image: 'https://i.ibb.co/XbLnf5G/man.png',
+            image: ['https://i.ibb.co/XbLnf5G/man.png'],
             age: 28,
-            location: 'London',
-            fieldIndustry: 'Education',
+            location: ['London'],
+            fieldIndustry: ['Education'],
             languages: ['C', 'C#'],
             frameworks: ['Phoenix'],
             qualifications: ['BA Software engineering']
@@ -669,10 +669,10 @@ mongoose.connect(
           {
             firstName: 'Tony',
             lastName: 'Morris',
-            image: 'https://i.ibb.co/XbLnf5G/man.png',
+            image: ['https://i.ibb.co/XbLnf5G/man.png'],
             age: 22,
-            location: 'London',
-            fieldIndustry: 'Information Technology',
+            location: ['London'],
+            fieldIndustry: ['Information Technology'],
             languages: ['Python'],
             frameworks: ['Spring', 'flask'],
             qualifications: ['bootcamp']
@@ -680,10 +680,10 @@ mongoose.connect(
           {
             firstName: 'Rosie',
             lastName: 'Jenkins',
-            image: 'https://i.ibb.co/JFh9Vmc/girl.png',
+            image: ['https://i.ibb.co/JFh9Vmc/girl.png'],
             age: 21,
-            location: 'London',
-            fieldIndustry: 'Law',
+            location: ['London'],
+            fieldIndustry: ['Law'],
             languages: ['Javascript', 'C'],
             frameworks: ['Meteor'],
             qualifications: ['self taught']
@@ -691,10 +691,10 @@ mongoose.connect(
           {
             firstName: 'Elienne',
             lastName: 'Yagrite',
-            image: 'https://i.ibb.co/746XyPn/girl-1.png',
+            image: ['https://i.ibb.co/746XyPn/girl-1.png'],
             age: 28,
-            location: 'London',
-            fieldIndustry: 'Design',
+            location: ['London'],
+            fieldIndustry: ['Design'],
             languages: ['Javascript', 'Java'],
             frameworks: ['React'],
             qualifications: ['BA in Software engineering']
@@ -702,10 +702,10 @@ mongoose.connect(
           {
             firstName: 'Jack',
             lastName: 'Frost',
-            image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
+            image: ['https://i.ibb.co/n0cy8CT/boy-1.png'],
             age: 35,
-            location: 'London',
-            fieldIndustry: 'FinTech',
+            location: ['London'],
+            fieldIndustry: ['FinTech'],
             languages: ['Python', 'Java'],
             frameworks: ['React'],
             qualifications: ['Web development bootcamp', 'self taught']
@@ -713,10 +713,10 @@ mongoose.connect(
           {
             firstName: 'Linda',
             lastName: 'Park',
-            image: 'https://i.ibb.co/746XyPn/girl-1.png',
+            image: ['https://i.ibb.co/746XyPn/girl-1.png'],
             age: 28,
-            location: 'London',
-            fieldIndustry: 'Leisure and Tourism',
+            location: ['London'],
+            fieldIndustry: ['Leisure and Tourism'],
             languages: ['Python', 'Java'],
             frameworks: ['React'],
             qualifications: ['self taught']
@@ -724,10 +724,10 @@ mongoose.connect(
           {
             firstName: 'Mark',
             lastName: 'Webhurst',
-            image: 'https://i.ibb.co/YksZLhK/man-1.png',
+            image: ['https://i.ibb.co/YksZLhK/man-1.png'],
             age: 24,
-            location: 'London',
-            fieldIndustry: 'Leisure and Tourism',
+            location: ['London'],
+            fieldIndustry: ['Leisure and Tourism'],
             languages: ['C', 'C#'],
             frameworks: ['ASP.NET'],
             qualifications: ['BA Software engineering']
@@ -735,10 +735,10 @@ mongoose.connect(
           {
             firstName: 'Suki',
             lastName: 'Cattral',
-            image: 'https://i.ibb.co/CvBLqBn/man-4.png',
+            image: ['https://i.ibb.co/CvBLqBn/man-4.png'],
             age: 23,
-            location: 'London',
-            fieldIndustry: 'Marketing, Advertising & PR',
+            location: ['London'],
+            fieldIndustry: ['Marketing, Advertising & PR'],
             languages: ['Javascript', 'C#'],
             frameworks: ['React'],
             qualifications: ['BA Software engineering']
@@ -746,10 +746,10 @@ mongoose.connect(
           {
             firstName: 'James',
             lastName: 'Monroe',
-            image: 'https://i.ibb.co/18vGfWw/boy.png',
+            image: ['https://i.ibb.co/18vGfWw/boy.png'],
             age: 29,
-            location: 'London',
-            fieldIndustry: 'Marketing, Advertising & PR',
+            location: ['London'],
+            fieldIndustry: ['Marketing, Advertising & PR'],
             languages: ['C', 'C#'],
             frameworks: ['ASP.NET'],
             qualifications: ['self taught']
@@ -757,10 +757,10 @@ mongoose.connect(
           {
             firstName: 'Mary',
             lastName: 'Sawyer',
-            image: 'https://i.ibb.co/746XyPn/girl-1.png',
+            image: ['https://i.ibb.co/746XyPn/girl-1.png'],
             age: 29,
-            location: 'London',
-            fieldIndustry: 'Health',
+            location: ['London'],
+            fieldIndustry: ['Health'],
             languages: ['Java', 'C#', 'Javascript'],
             frameworks: ['React', 'Express'],
             qualifications: ['self taught']
@@ -768,10 +768,10 @@ mongoose.connect(
           {
             firstName: 'Joseph',
             lastName: 'Smith',
-            image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
+            image: ['https://i.ibb.co/n0cy8CT/boy-1.png'],
             age: 29,
-            location: 'London',
-            fieldIndustry: 'Information Technology',
+            location: ['London'],
+            fieldIndustry: ['Information Technology'],
             languages: ['C', 'C#'],
             frameworks: ['ASP.NET'],
             qualifications: ['self taught']
@@ -779,10 +779,10 @@ mongoose.connect(
           {
             firstName: 'Daniel',
             lastName: 'Liamson',
-            image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
+            image: ['https://i.ibb.co/n0cy8CT/boy-1.png'],
             age: 29,
-            location: 'London',
-            fieldIndustry: 'Transport and Logistics',
+            location: ['London'],
+            fieldIndustry: ['Transport and Logistics'],
             languages: ['C', 'C#'],
             frameworks: ['ASP.NET'],
             qualifications: ['self taught']
@@ -792,8 +792,8 @@ mongoose.connect(
             lastName: 'Jones',
             image: 'https://i.ibb.co/JFh9Vmc/girl.png',
             age: 27,
-            location: 'London',
-            fieldIndustry: 'Finance',
+            location: ['London'],
+            fieldIndustry: ['Finance'],
             languages: ['C', 'C#'],
             frameworks: ['ASP.NET'],
             qualifications: ['BA software engineering']
@@ -801,10 +801,10 @@ mongoose.connect(
           {
             firstName: 'Sydney',
             lastName: 'Parks',
-            image: 'https://i.ibb.co/xhZkJXG/man-3.png',
+            image: ['https://i.ibb.co/xhZkJXG/man-3.png'],
             age: 31,
-            location: 'London',
-            fieldIndustry: 'Law',
+            location: ['London'],
+            fieldIndustry: ['Law'],
             languages: ['Javascript', 'C++'],
             frameworks: ['Meteor'],
             qualifications: ['self taught']
@@ -812,10 +812,10 @@ mongoose.connect(
           {
             firstName: 'Chloe',
             lastName: 'Everton',
-            image: 'https://i.ibb.co/JFh9Vmc/girl.png',
+            image: ['https://i.ibb.co/JFh9Vmc/girl.png'],
             age: 27,
-            location: 'London',
-            fieldIndustry: 'Media',
+            location: ['London'],
+            fieldIndustry: ['Media'],
             languages: ['Javascript', 'C#'],
             frameworks: ['Meteor'],
             qualifications: ['self taught']
@@ -823,10 +823,10 @@ mongoose.connect(
           {
             firstName: 'Lois',
             lastName: 'Woods',
-            image: 'https://i.ibb.co/CvBLqBn/man-4.png',
+            image: ['https://i.ibb.co/CvBLqBn/man-4.png'],
             age: 23,
-            location: 'London',
-            fieldIndustry: 'Charity',
+            location: ['London'],
+            fieldIndustry: ['Charity'],
             languages: ['Javascript', 'PHP'],
             frameworks: ['React', 'CakePHP'],
             qualifications: ['self taught']
@@ -834,10 +834,10 @@ mongoose.connect(
           {
             firstName: 'Lewis',
             lastName: 'Taylor',
-            image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
+            image: ['https://i.ibb.co/n0cy8CT/boy-1.png'],
             age: 23,
-            location: 'London',
-            fieldIndustry: 'Fintech',
+            location: ['London'],
+            fieldIndustry: ['Fintech'],
             languages: ['Javascript', 'Python'],
             frameworks: ['Django', 'Flask'],
             qualifications: ['self taught']
@@ -845,10 +845,10 @@ mongoose.connect(
           {
             firstName: 'William',
             lastName: 'Ritchley',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 23,
-            location: 'London',
-            fieldIndustry: 'Media',
+            location: ['London'],
+            fieldIndustry: ['Media'],
             languages: ['Python'],
             frameworks: ['Spring', 'flask'],
             qualifications: ['bootcamp']
@@ -856,10 +856,10 @@ mongoose.connect(
           {
             firstName: 'Kenneth',
             lastName: 'Smith',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 23,
-            location: 'London',
-            fieldIndustry: 'Hospitality',
+            location: ['London'],
+            fieldIndustry: ['Hospitality'],
             languages: ['Go'],
             frameworks: ['Spring', 'flask'],
             qualifications: ['bootcamp']
@@ -869,8 +869,8 @@ mongoose.connect(
             lastName: 'Heyworth',
             image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
             age: 26,
-            location: 'London',
-            fieldIndustry: 'Hospitality',
+            location: ['London'],
+            fieldIndustry: ['Hospitality'],
             languages: ['javascript','python'],
             frameworks: ['Spring', 'flask'],
             qualifications: ['self taught']
@@ -878,10 +878,10 @@ mongoose.connect(
           {
             firstName: 'Ethan',
             lastName: 'Nix',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 24,
-            location: 'London',
-            fieldIndustry: 'retail',
+            location: ['London'],
+            fieldIndustry: ['retail'],
             languages: ['python'],
             frameworks: ['Spring', 'flask'],
             qualifications: ['BA software engineering']
@@ -889,10 +889,10 @@ mongoose.connect(
           {
             firstName: 'Raphael',
             lastName: 'Cortez',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 30,
-            location: 'London',
-            fieldIndustry: 'travel',
+            location: ['London'],
+            fieldIndustry: ['travel'],
             languages: ['Kotlin'],
             frameworks: ['flask'],
             qualifications: ['BA software engineering']
@@ -900,10 +900,10 @@ mongoose.connect(
           {
             firstName: 'Tony',
             lastName: 'Sharp',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 31,
-            location: 'London',
-            fieldIndustry: 'wellness',
+            location: ['London'],
+            fieldIndustry: ['wellness'],
             languages: ['Rust'],
             frameworks: ['Phoenix'],
             qualifications: ['BA software engineering']
@@ -911,10 +911,10 @@ mongoose.connect(
           {
             firstName: 'Phil',
             lastName: 'Mathers',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 32,
-            location: 'London',
-            fieldIndustry: 'health',
+            location: ['London'],
+            fieldIndustry: ['health'],
             languages: ['C#'],
             frameworks: ['Express'],
             qualifications: ['self taught']
@@ -922,10 +922,10 @@ mongoose.connect(
           {
             firstName: 'Bill',
             lastName: 'Weatherly',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 29,
-            location: 'London',
-            fieldIndustry: 'finance',
+            location: ['London'],
+            fieldIndustry: ['finance'],
             languages: ['javascript'],
             frameworks: ['React', 'node'],
             qualifications: ['BA software engineering']
@@ -933,10 +933,10 @@ mongoose.connect(
           {
             firstName: 'Michael',
             lastName: 'Rhodes',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 28,
-            location: 'London',
-            fieldIndustry: 'media',
+            location: ['London'],
+            fieldIndustry: ['media'],
             languages: ['javascript'],
             frameworks: ['React', 'node'],
             qualifications: ['BA software engineering']
@@ -944,10 +944,10 @@ mongoose.connect(
           {
             firstName: 'Mitchell',
             lastName: 'Sanders',
-            image: 'https://image.flaticon.com/icons/svg/236/236831.svg',
+            image: ['https://image.flaticon.com/icons/svg/236/236831.svg'],
             age: 21,
-            location: 'London',
-            fieldIndustry: 'education',
+            location: ['London'],
+            fieldIndustry: ['education'],
             languages: ['javascript'],
             frameworks: ['React', 'node'],
             qualifications: ['self taught']
