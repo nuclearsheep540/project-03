@@ -18,18 +18,8 @@ mongoose.connect(
             username: 'sarah125',
             email: 'sarah@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Sarah',
-              lastName: 'Parker',
-              image: 'https://i.ibb.co/746XyPn/girl-1.png',
-              age: 28,
-              location: 'London',
-              fieldIndustry: 'Leisure & Tourism',
-              languages: ['Javascript', 'Java'],
-              frameworks: ['Node.js'],
-              qualifications: ['BA in Software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Mary',
@@ -37,18 +27,8 @@ mongoose.connect(
             username: 'mm2018',
             email: 'mary@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Mary',
-              lastName: 'Miller',
-              image: 'https://i.ibb.co/CvBLqBn/man-4.png',
-              age: 25,
-              location: 'London',
-              fieldIndustry: 'Leisure & Tourism',
-              languages: ['Javascript'],
-              frameworks: ['Node.js'],
-              qualifications: ['BA in Software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Joseph',
@@ -56,18 +36,9 @@ mongoose.connect(
             username: 'jo_tennant',
             email: 'jo@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Joseph',
-              lastName: 'Tennant',
-              image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
-              age: 30,
-              location: 'London',
-              fieldIndustry: 'Science',
-              languages: ['Elixr', 'Kotlin'],
-              frameworks: ['Vue.js'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
+            
           },
           {
             firstName: 'Harry',
@@ -75,18 +46,9 @@ mongoose.connect(
             username: 'harrys101',
             email: 'harry@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Harry',
-              lastName: 'Smith',
-              image: 'https://i.ibb.co/GxCXTkp/man-2.png',
-              age: 31,
-              location: 'London',
-              fieldIndustry: 'Engineering',
-              languages: ['Python', 'Kotlin'],
-              frameworks: ['Lavarel'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
+            
           },
           {
             firstName: 'Will',
@@ -94,18 +56,9 @@ mongoose.connect(
             username: 'will_is_great',
             email: 'will@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Will',
-              lastName: 'McCallum',
-              image: 'https://i.ibb.co/YksZLhK/man-1.png',
-              age: 31,
-              location: 'London',
-              fieldIndustry: 'Law',
-              languages: ['Go'],
-              frameworks: ['Play'],
-              qualifications: ['bootcamp']
-            }
+            passwordConfirmation: 'pass'
+
+            
           },
           {
             firstName: 'Gregory',
@@ -113,18 +66,9 @@ mongoose.connect(
             username: 'greggs_pastry',
             email: 'greg@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Gregory',
-              lastName: 'Dodd',
-              image: 'https://i.ibb.co/XbLnf5G/man.png',
-              age: 27,
-              location: 'London',
-              fieldIndustry: 'Media',
-              languages: ['Go'],
-              frameworks: ['Play'],
-              qualifications: ['bootcamp']
-            }
+            passwordConfirmation: 'pass'
+
+            
           },
           {
             firstName: 'Octavia',
@@ -132,19 +76,9 @@ mongoose.connect(
             username: 'taves99',
             email: 'octavia@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Octavia',
-              lastName: 'Daly',
-              image: 'https://i.ibb.co/JFh9Vmc/girl.png',
-              age: 22,
-              location: 'London',
-              fieldIndustry: 'Media',
-              languages: ['Javascript', 'Java'],
-              frameworks: ['React'],
-              qualifications: ['BA in Software engineering']
+            passwordConfirmation: 'pass'
 
-            }
+            
           },
           {
             firstName: 'Henry',
@@ -152,18 +86,9 @@ mongoose.connect(
             username: 'henners95',
             email: 'henry@email',
             password: 'pass',
-            passwordConfirmation: 'pass', 
-            userProfile: {
-              firstName: 'Henry',
-              lastName: 'Gateway',
-              image: 'https://i.ibb.co/18vGfWw/boy.png',
-              age: 28,
-              location: 'London',
-              fieldIndustry: 'Security',
-              languages: ['Python', 'Java'],
-              frameworks: ['React'],
-              qualifications: ['Web development bootcamp', 'self taught']
-            }
+            passwordConfirmation: 'pass' 
+
+            
           },
           {
             firstName: 'Olly',
@@ -171,18 +96,9 @@ mongoose.connect(
             username: 'ol_dawg',
             email: 'olly@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Olly',
-              lastName: 'Trant',
-              image: 'https://i.ibb.co/XbLnf5G/man.png',
-              age: 28,
-              location: 'London',
-              fieldIndustry: 'FinTech',
-              languages: ['Python', 'Java'],
-              frameworks: ['Django'],
-              qualifications: ['Web development bootcamp']
-            }
+            passwordConfirmation: 'pass'
+
+            
           },
           {
             firstName: 'Marcus',
@@ -190,18 +106,9 @@ mongoose.connect(
             username: 'msimpson54',
             email: 'marcus@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Marcus',
-              lastName: 'Simpson',
-              image: 'https://i.ibb.co/18vGfWw/boy.png',
-              age: 23,
-              location: 'London',
-              fieldIndustry: 'Design',
-              languages: ['Ruby', 'Java','Javascript'],
-              frameworks: ['React'],
-              qualifications: ['Web development bootcamp', 'self taught']
-            }
+            passwordConfirmation: 'pass'
+
+          
           },
           {
             firstName: 'John',
@@ -209,37 +116,18 @@ mongoose.connect(
             username: 'jonorambo',
             email: 'john@email',
             password: 'pass',
-            passwordConfirmation: 'pass', 
-            userProfile: {
-              firstName: 'John',
-              lastName: 'Ramsden',
-              image: 'https://i.ibb.co/GxCXTkp/man-2.png',
-              age: 34,
-              location: 'London',
-              fieldIndustry: 'Public Services and Administration',
-              languages: ['C#','Ruby', 'Java','Javascript'],
-              frameworks: ['React','node.js'],
-              qualifications: ['Web development bootcamp', 'self taught']
-            }
+            passwordConfirmation: 'pass' 
+
           },
+          
           {
             firstName: 'Sally',
             lastName: 'Johnston',
             username: 'sal101',
             email: 'sally@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Sally',
-              lastName: 'Johnston',
-              image: 'https://i.ibb.co/xhZkJXG/man-3.png',
-              age: 26,
-              location: 'London',
-              fieldIndustry: 'FinTech',
-              languages: ['Javascript', 'C#'],
-              frameworks: ['Node.js'],
-              qualifications: ['BA software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Bob',
@@ -247,18 +135,8 @@ mongoose.connect(
             username: 'bobby_be_back',
             email: 'bob@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Bob',
-              lastName: 'Jones',
-              image: 'https://i.ibb.co/XbLnf5G/man.png',
-              age: 28,
-              location: 'London',
-              fieldIndustry: 'Education',
-              languages: ['C', 'C#'],
-              frameworks: ['Phoenix'],
-              qualifications: ['BA Software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Tony',
@@ -266,18 +144,9 @@ mongoose.connect(
             username: 'toni-italiano',
             email: 'toni@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Tony',
-              lastName: 'Morris',
-              image: 'https://i.ibb.co/XbLnf5G/man.png',
-              age: 22,
-              location: 'London',
-              fieldIndustry: 'Information Technology',
-              languages: ['Python'],
-              frameworks: ['Spring', 'flask'],
-              qualifications: ['bootcamp']
-            }
+            passwordConfirmation: 'pass'
+
+       
           },
           {
             firstName: 'Rosie',
@@ -285,18 +154,8 @@ mongoose.connect(
             username: 'rosie_cheeks',
             email: 'rosie@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Rosie',
-              lastName: 'Jenkins',
-              image: 'https://i.ibb.co/JFh9Vmc/girl.png',
-              age: 21,
-              location: 'London',
-              fieldIndustry: 'Law',
-              languages: ['Javascript', 'C'],
-              frameworks: ['Meteor'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Elienne',
@@ -304,18 +163,8 @@ mongoose.connect(
             username: 'Eyag1',
             email: 'eyagrite@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Elienne',
-              lastName: 'Yagrite',
-              image: 'https://i.ibb.co/746XyPn/girl-1.png',
-              age: 28,
-              location: 'London',
-              fieldIndustry: 'Design',
-              languages: ['Javascript', 'Java'],
-              frameworks: ['React'],
-              qualifications: ['BA in Software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Jack',
@@ -323,18 +172,8 @@ mongoose.connect(
             username: 'Frostyj',
             email: 'jfrost@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Jack',
-              lastName: 'Frost',
-              image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
-              age: 35,
-              location: 'London',
-              fieldIndustry: 'FinTech',
-              languages: ['Python', 'Java'],
-              frameworks: ['React'],
-              qualifications: ['Web development bootcamp', 'self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Linda',
@@ -342,18 +181,8 @@ mongoose.connect(
             username: 'lindyp',
             email: 'lindyp@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Linda',
-              lastName: 'Park',
-              image: 'https://i.ibb.co/746XyPn/girl-1.png',
-              age: 28,
-              location: 'London',
-              fieldIndustry: 'Leisure and Tourism',
-              languages: ['Python', 'Java'],
-              frameworks: ['React'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Mark',
@@ -361,18 +190,8 @@ mongoose.connect(
             username: 'webbym',
             email: 'mweb@hurstemail',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Mark',
-              lastName: 'Webhurst',
-              image: 'https://i.ibb.co/YksZLhK/man-1.png',
-              age: 24,
-              location: 'London',
-              fieldIndustry: 'Leisure and Tourism',
-              languages: ['C', 'C#'],
-              frameworks: ['ASP.NET'],
-              qualifications: ['BA Software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Suki',
@@ -380,18 +199,8 @@ mongoose.connect(
             username: 'sookee',
             email: 'sookee@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Suki',
-              lastName: 'Cattral',
-              image: 'https://i.ibb.co/CvBLqBn/man-4.png',
-              age: 23,
-              location: 'London',
-              fieldIndustry: 'Marketing, Advertising & PR',
-              languages: ['Javascript', 'C#'],
-              frameworks: ['React'],
-              qualifications: ['BA Software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'James',
@@ -399,18 +208,8 @@ mongoose.connect(
             username: 'jmonroe',
             email: 'jmonroe@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'James',
-              lastName: 'Monroe',
-              image: 'https://i.ibb.co/18vGfWw/boy.png',
-              age: 29,
-              location: 'London',
-              fieldIndustry: 'Marketing, Advertising & PR',
-              languages: ['C', 'C#'],
-              frameworks: ['ASP.NET'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Mary',
@@ -418,18 +217,8 @@ mongoose.connect(
             username: 'msawyer',
             email: 'msawyer@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Mary',
-              lastName: 'Sawyer',
-              image: 'https://i.ibb.co/746XyPn/girl-1.png',
-              age: 29,
-              location: 'London',
-              fieldIndustry: 'Health',
-              languages: ['Java', 'C#', 'Javascript'],
-              frameworks: ['React', 'Express'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Joseph',
@@ -437,18 +226,8 @@ mongoose.connect(
             username: 'jsmithy',
             email: 'jsmithy@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Joseph',
-              lastName: 'Smith',
-              image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
-              age: 29,
-              location: 'London',
-              fieldIndustry: 'Information Technology',
-              languages: ['C', 'C#'],
-              frameworks: ['ASP.NET'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Daniel',
@@ -456,18 +235,8 @@ mongoose.connect(
             username: 'dliamson',
             email: 'dliamson@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Daniel',
-              lastName: 'Liamson',
-              image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
-              age: 29,
-              location: 'London',
-              fieldIndustry: 'Transport and Logistics',
-              languages: ['C', 'C#'],
-              frameworks: ['ASP.NET'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Clara',
@@ -475,18 +244,8 @@ mongoose.connect(
             username: 'clarajones',
             email: 'clarajones@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Clara',
-              lastName: 'Jones',
-              image: 'https://i.ibb.co/JFh9Vmc/girl.png',
-              age: 27,
-              location: 'London',
-              fieldIndustry: 'Finance',
-              languages: ['C', 'C#'],
-              frameworks: ['ASP.NET'],
-              qualifications: ['BA software engineering']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Sydney',
@@ -494,18 +253,8 @@ mongoose.connect(
             username: 'sydneyparks',
             email: 'sydneyparks@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Sydney',
-              lastName: 'Parks',
-              image: 'https://i.ibb.co/xhZkJXG/man-3.png',
-              age: 31,
-              location: 'London',
-              fieldIndustry: 'Law',
-              languages: ['Javascript', 'C++'],
-              frameworks: ['Meteor'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Chloe',
@@ -513,18 +262,8 @@ mongoose.connect(
             username: 'chloeeverton',
             email: 'chloe@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Chloe',
-              lastName: 'Everton',
-              image: 'https://i.ibb.co/JFh9Vmc/girl.png',
-              age: 27,
-              location: 'London',
-              fieldIndustry: 'Media',
-              languages: ['Javascript', 'C#'],
-              frameworks: ['Meteor'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Lois',
@@ -532,18 +271,8 @@ mongoose.connect(
             username: 'lowoods',
             email: 'loiswoods@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Lois',
-              lastName: 'Woods',
-              image: 'https://i.ibb.co/CvBLqBn/man-4.png',
-              age: 23,
-              location: 'London',
-              fieldIndustry: 'Charity',
-              languages: ['Javascript', 'PHP'],
-              frameworks: ['React', 'CakePHP'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           },
           {
             firstName: 'Lewis',
@@ -551,18 +280,8 @@ mongoose.connect(
             username: 'lewtay',
             email: 'lewtay@email',
             password: 'pass',
-            passwordConfirmation: 'pass',
-            userProfile: {
-              firstName: 'Lewis',
-              lastName: 'Taylor',
-              image: 'https://i.ibb.co/n0cy8CT/boy-1.png',
-              age: 23,
-              location: 'London',
-              fieldIndustry: 'Fintech',
-              languages: ['Javascript', 'Python'],
-              frameworks: ['Django', 'Flask'],
-              qualifications: ['self taught']
-            }
+            passwordConfirmation: 'pass'
+
           }
 
 
@@ -576,20 +295,20 @@ mongoose.connect(
             frameworks: 'ReactJs',
             languages: 'none',
             description: 'I need to complete a project for class which requires React.  I am having trouble with rendering components to the page.  Can anybody help me?',
-            user: users[3]
+            user: users[1]
           },
           {
             title: 'Building a Wordpress website',
             frameworks: 'none',
             languages: 'PHP',
-            description: 'I would like to create a Wordpress website for my portfolio which I understand requires knowledge of PHP.  I have never used it before.  I’d like to request some help with going through the basics and/or recommend any frameworks that work well.  If anyone can help me that would be great!',
+            description: 'I would like to create a Wordpress website for my portfolio which I understand requires knowledge of PHP.  I have never used it before.  I\'d like to request some help with going through the basics and/or recommend any frameworks that work well.  If anyone can help me that would be great!',
             user: users[1]
           },
           {
             title: 'Creating a snake game',
             frameworks: 'none',
             languages: 'Javascript',
-            description: 'I have been tasked with creating a snake game which I have a week to complete.  The requirement is that I’m to only use vanilla Javascript which I don’t really know much about.  Has anyone done anything similar before and would be able to help me? Thanks in advance',
+            description: 'I have been tasked with creating a snake game which I have a week to complete.  The requirement is that I\'m to only use vanilla Javascript which I don\'t really know much about.  Has anyone done anything similar before and would be able to help me? Thanks in advance',
             user: users[8]
           },
           {
@@ -610,18 +329,16 @@ mongoose.connect(
             title: 'Spring Help',
             frameworks: 'Spring',
             languages: 'none',
-            description: 'Hi all, I’m a junior developer where we use Java as a language.  I  believe that we’ll be using Spring as opposed to JSF and was wondering if anyone had time to sit down and go through some basics.  Hopefully just one meet up for a couple of hours should get me on track.  Thank you in advance.',user: users[6]
+            description: 'Hi all, I\'m a junior developer where we use Java as a language.  I  believe that we\'ll be using Spring as opposed to JSF and was wondering if anyone had time to sit down and go through some basics.  Hopefully just one meet up for a couple of hours should get me on track.  Thank you in advance.', user: users[6]
           },
           {
-              
             title: 'CakePHP help',
             frameworks: 'CakePHP',
             languages: 'none',
             description: 'I was wondering if anyone who uses CakePHP could help me out.  I have never used it before and I think it could be super helpful',
             user: users[14]
           },
-          {
-              
+          { 
             title: 'Help with Flexbox',
             frameworks: 'none',
             languages: 'CSS',

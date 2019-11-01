@@ -91,6 +91,7 @@ export default class ShowExt extends React.Component {
           </div>
         </div>
         <br />
+        <h4 className='center'>Dashboard</h4>
         <div className='content'>
           {this.state.requests.map((elem, i) => (
             <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
