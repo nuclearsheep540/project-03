@@ -1,6 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
-
+​
 const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, handleIndustry, cityOptions, langOptions, avatarOptions, indieOptions, handleAvatar, handleCity, frameOptions, userProfile }) => {
   
   return (
@@ -8,7 +8,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
       <section className="section">
         <form onSubmit={handleSubmit}>
           <div className="wrapper-two">
-
+​
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>First name</label>
               <input
@@ -21,8 +21,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               >
               </input>
             </div>
-
-
+​
+​
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Last name</label>
               <input
@@ -35,8 +35,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               >
               </input>
             </div>
-
-
+​
+​
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Avatar</label>
               <Select
@@ -47,8 +47,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 value={userProfile.image}
               />
             </div>
-
-
+​
+​
             <div className="input-area">
               <label name="exampleRecipientInput" type='number'>Age</label>
               <input
@@ -61,8 +61,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               >
               </input>
             </div>
-
-
+​
+​
             <div className="input-area"> 
               <label name="exampleRecipientInput" type='text'>City</label>
               <Select
@@ -74,8 +74,8 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 
               />
             </div>
-
-
+​
+​
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Industry</label>
               <Select
@@ -86,9 +86,9 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 value={userProfile.fieldIndustry}
               />
             </div>
-
-
-            <div className="six columns"> 
+​
+​
+            <div className="input-area"> 
               <label name="exampleRecipientInput">Languages</label>
               <div className="control">
                 <Select
@@ -96,14 +96,14 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleLanguage}
                   name='languages'
-                  value={userProfile.languages}
+                  value={userProfile.languages.value}
                 />
               </div>
             </div>
-
-
-
-            <div className="field">
+​
+​
+​
+            <div className="input-area">
               <label className="label">Framework</label>
               <div className="control">
                 <Select
@@ -111,12 +111,12 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleFramework}
                   name='frameworks'
-                  value={userProfile.frameworks}
+                  value={userProfile.frameworks.value}
                 />
               </div>
             </div>
-
-
+​
+​
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Qualifications</label>
               <input
@@ -130,21 +130,21 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               </input>
             </div>
           </div>
-
-
+​
+​
           <button type='submit' className='center'>Submit</button>
-
+​
         </form>
       </section>
     </div>
   )
-
-
+​
+​
 }
-
-
-
+​
+​
+​
    
-
-
+​
+​
 export default Form
