@@ -130,7 +130,7 @@ class RequestShow extends React.Component {
             {this.state.requestData.comments[0] &&
               this.state.requestData.comments.map(comment => (
                 <div key={comment._id} className='input-area'>
-                  <p><Link to={`/profile/show/${comment.user._id}`}>{comment.user.image}{comment.user.firstName} {comment.user.lastName}</Link> says: {comment.text}
+                  <p><Link to={`/profile/show/${comment.user._id}`}><strong>{comment.user.image}{comment.user.firstName} {comment.user.lastName} </strong> </Link> says: {comment.text}
                     <button className='deleteButton' onClick={this.deleteComment} name={comment._id}>delete comment</button>
                   </p>
                 </div>

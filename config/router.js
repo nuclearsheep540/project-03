@@ -3,7 +3,7 @@ const users = require('../controllers/auth')
 const secureRoute = require('../lib/secureRoute')
 // const profile = require('../controllers/profile')
 const requests = require('../controllers/requests')
-const events = require('../controllers/eventbrite')
+// const events = require('../controllers/eventbrite')
 
 
 
@@ -43,8 +43,8 @@ router.route('/profile/show/:id')
 router.route('/all')
   .get(users.all)
 
-router.route('/events')
-  .get(events.extApi)
+// router.route('/events')
+//   .get(events.extApi)
 
 
 //good shit up above
