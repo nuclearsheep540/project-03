@@ -164,7 +164,7 @@ class ProfileEdit extends React.Component {
     const userProfile = { ...this.state.userProfile, [name]: value }
     this.setState({ userProfile })
   }
-​
+
   handleLanguage(selected) {
     const languages = selected ? selected.map(item => item.value) : ['']
     const userProfile = { ...this.state.userProfile, languages }
