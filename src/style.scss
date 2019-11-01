@@ -70,6 +70,11 @@ line-height:60vh;
 
 .heroTitle{
 font-size:89px;
+text-shadow: 3px 3px 3px black;
+}
+
+.title {
+  text-align: center;
 }
 
 .center {
@@ -78,6 +83,18 @@ font-size:89px;
   text-align: center;
   justify-content: center;
   justify-items: center;
+}
+
+.center-welcome {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 800;
 }
 
 .bottom {
@@ -119,9 +136,12 @@ button {
   // padding: 10px;
   background-color: white;
   line-height: 34px;
+  background-color: #a9dfe0
+
 }
 .backToResultsButton{
   margin-right: 10px;
+  background-color: $yellow
  
 }
 button.deleteButton{
@@ -263,6 +283,22 @@ margin: 10px;
 padding: 10px;
 border: 1px rgba(167, 154, 154, 0.2) solid;
 border-radius: 4px;
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.news {
+  background-color:rgba(255, 255, 255, 0.5);
+  width: 380px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px rgba(167, 154, 154, 0.2) solid;
+  border-radius: 4px;
+  background-color: #a9dfe0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+#mainInput {
+  background-color:rgba(255, 255, 255, 0.5);
 }
 
 .link {
@@ -281,6 +317,8 @@ border-radius: 4px;
   text-align: center;
   justify-content: center;
   justify-items: center;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 .commentImage {
   max-width: 64px;
@@ -301,6 +339,22 @@ border-radius: 4px;
   display: none;
 }
 
+.image-wrapper {
+  display: flex;
+  flex-direction: row;;
+}
+
+img.pic {
+  margin:auto;
+  height: 280px;
+  width: 430px;
+  margin: 5px;
+}
+
+.search-button {
+  margin-top: 28px;
+}
+
 input.u-full-width.field1 {
   border: 1px solid red;
 }
@@ -311,7 +365,11 @@ input.u-full-width.field1 {
   flex-wrap: wrap;
   justify-content: center;
   margin:auto;
+
+  
 }
+
+
 
 
 

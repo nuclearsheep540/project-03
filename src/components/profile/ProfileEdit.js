@@ -19,6 +19,7 @@ class ProfileEdit extends React.Component {
         languages: [],
         frameworks: [],
         qualifications: ''
+        
       }
     }
     this.languages = [
@@ -142,6 +143,7 @@ class ProfileEdit extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
+<<<<<<< HEAD
         console.log('component', res.data)
         
         const userProfileCopy = res.data.userProfile
@@ -165,6 +167,22 @@ class ProfileEdit extends React.Component {
           return { value: elem, label: 'Choose an avatar' }
         })
         this.setState({ userProfile: userProfileCopy })
+=======
+        const resCopy = { ...res.data }
+        resCopy.frameworks = resCopy.frameworks.map(elem => {
+          return { value: elem, label: elem } //turn everything that's a string, into an object
+        })
+        resCopy.languages = resCopy.languages.map(elem => {
+          return { value: elem, label: elem }
+        })
+        resCopy.location = resCopy.location.map(elem => {
+          return { value: elem, label: elem }
+        })
+        resCopy.fieldIndustry = resCopy.fieldIndustry.map(elem => {
+          return { value: elem, label: elem }
+        })
+        this.setState({ userProfile: resCopy.userProfile })
+>>>>>>> development
       })
       .catch(err => console.log(err))
   }

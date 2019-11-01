@@ -23,7 +23,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               </input>
             </div>
 
-
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Last name</label>
               <input
@@ -36,8 +35,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               >
               </input>
             </div>
-
-
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Avatar</label>
               <Select
@@ -48,7 +45,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 value={userProfile.image[0]}
               />
             </div>
-
 
             <div className="input-area">
               <label name="exampleRecipientInput" type='number'>Age</label>
@@ -63,7 +59,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               </input>
             </div>
 
-
             <div className="input-area"> 
               <label name="exampleRecipientInput" type='text'>City</label>
               <Select
@@ -76,7 +71,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               />
             </div>
 
-
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Industry</label>
               <Select
@@ -88,7 +82,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
               />
             </div>
 
-
             <div className="input-area"> 
               <label name="exampleRecipientInput">Languages</label>
               <div className="control">
@@ -97,12 +90,10 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleLanguage}
                   name='languages'
-                  value={userProfile.languages}
+                  value={userProfile.languages.value}
                 />
               </div>
             </div>
-
-
 
             <div className="input-area">
               <label className="label">Framework</label>
@@ -112,11 +103,10 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleFramework}
                   name='frameworks'
-                  value={userProfile.frameworks}
+                  value={userProfile.frameworks.value}
                 />
               </div>
             </div>
-
 
             <div className="input-area">
               <label name="exampleRecipientInput" type='text'>Qualifications</label>
@@ -132,7 +122,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
             </div>
           </div>
 
-
           <button type='submit' className='center'>Submit</button>
 
         </form>
@@ -140,12 +129,6 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
     </div>
   )
 
-
 }
-
-
-
-   
-
 
 export default Form
