@@ -4,7 +4,7 @@
   "description": "matt davey GA Project 3 - Full Stack Web Application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/**/*_spec.js --require test/helper --recursive --exit",
     "serve:back": "nodemon index.js",
     "serve:front": "webpack-dev-server --mode-development",
     "seed": "node db/seeds.js"
@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/nuclearsheep540/project-03#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "supertest": "^4.0.2",
     "babel-eslint": "^10.0.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
