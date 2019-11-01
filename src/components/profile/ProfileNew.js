@@ -16,7 +16,7 @@ class ProfileNew extends React.Component {
         lastName: '',
         image: '',
         age: '',
-        location: '',
+        location: [],
         fieldIndustry: '',
         skills: '',
         languages: [],
@@ -80,7 +80,7 @@ class ProfileNew extends React.Component {
       { value: 'Education', label: 'Education' },
       { value: 'Transport and Logistics', label: 'Transport & Logistics' }
     ]
-    this.cities = [
+    this.location = [
       { value: 'Bath', label: 'Bath' },
       { value: 'Birmingham', label: 'Birmingham' },
       { value: 'Bradford', label: 'Bradford' },
@@ -140,6 +140,13 @@ class ProfileNew extends React.Component {
     this.handleIndustry = this.handleIndustry.bind(this)
     this.handleCity = this.handleCity.bind(this)
   }
+  // componentDidMount(){
+  //   axios.get('/api/login', {
+  //     headers: { Authorization: `Bearer ${Auth.getToken()}` }
+  //   })
+  //     .then(res => this.setState({ user: res.data }))
+  //     .then(console.log('ProfileNew state response', this.state))
+  // }
 
   handleChange({ target: { name, value } }) {
     const userProfile = { ...this.state.userProfile, [name]: value }
@@ -190,14 +197,17 @@ class ProfileNew extends React.Component {
     })
       .then(res => {
         console.log('profile updated:', res.data)
-        this.props.history.push('/profile/show')
         this.notNew()
+        this.props.history.push('/profile/show')
       })
   }
   notNew(){
-    axios.put('/api/login', { newUser: 'false' }, {
+    const userId = this.props.match
+    console.log('userId =',userId)
+    axios.put('/api/login', this.state.user, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
+      .then(res => console.log('notnew res=',res))
   }
 
   render() {
@@ -212,7 +222,7 @@ class ProfileNew extends React.Component {
             frameOptions={this.frameworks}
             avatarOptions={this.avatars}
             indieOptions={this.industries}
-            cityOptions={this.cities}
+            cityOptions={this.location}
             userProfile={this.state.userProfile}
             handleLanguage={this.handleLanguage}
             handleFramework={this.handleFramework}

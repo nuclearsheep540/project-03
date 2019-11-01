@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const users = require('../controllers/auth')
 const secureRoute = require('../lib/secureRoute')
-const profile = require('../controllers/profile')
+// const profile = require('../controllers/profile')
 const requests = require('../controllers/requests')
+const events = require('../controllers/eventbrite')
 
 
 
@@ -27,6 +28,7 @@ router.route('/register')
 router.route('/login')
   .post(users.login)
   .get(secureRoute, users.profile)
+  .put(secureRoute, users.notNew)
 
 router.route('/profile')
   .get(secureRoute, users.profile)
@@ -34,6 +36,15 @@ router.route('/profile')
 
 router.route('/profile/:id/edit')
   .put(secureRoute, users.editProfile)
+
+router.route('/profile/show/:id')
+  .get(users.showExt)
+
+router.route('/all')
+  .get(users.all)
+
+router.route('/events')
+  .get(events.extApi)
 
 
 //good shit up above
