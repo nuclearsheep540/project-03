@@ -85,6 +85,18 @@ text-shadow: 3px 3px 3px black;
   justify-items: center;
 }
 
+.center-welcome {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 800;
+}
+
 .bottom {
   position: fixed;
   bottom: 0px;
@@ -124,9 +136,12 @@ button {
   // padding: 10px;
   background-color: white;
   line-height: 34px;
+  background-color: #a9dfe0
+
 }
 .backToResultsButton{
   margin-right: 10px;
+  background-color: $yellow
  
 }
 button.deleteButton{
@@ -268,6 +283,22 @@ margin: 10px;
 padding: 10px;
 border: 1px rgba(167, 154, 154, 0.2) solid;
 border-radius: 4px;
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.news {
+  background-color:rgba(255, 255, 255, 0.5);
+  width: 380px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px rgba(167, 154, 154, 0.2) solid;
+  border-radius: 4px;
+  background-color: #a9dfe0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+#mainInput {
+  background-color:rgba(255, 255, 255, 0.5);
 }
 
 .link {
@@ -334,6 +365,8 @@ input.u-full-width.field1 {
   flex-wrap: wrap;
   justify-content: center;
   margin:auto;
+
+  
 }
 
 

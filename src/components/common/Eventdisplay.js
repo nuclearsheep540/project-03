@@ -31,7 +31,7 @@ class Eventdisplay extends React.Component {
         
         <div className='center1'>
   
-          {this.state.events.map((elem, i) => <div className='input-area' key={i}><p className='indexP'><img className='avatar' /> {elem.title}</p></div>)}
+          {this.state.events.map((elem, i) => <div className='input-area news' key={i}><a target="_blank " href={elem.url}><p className='indexP'><img className='avatar' /> {elem.title}</p></a></div>)}
 
         </div>
         
