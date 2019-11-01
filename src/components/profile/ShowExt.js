@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class ShowExt extends React.Component {
   constructor() {
@@ -93,7 +93,7 @@ export default class ShowExt extends React.Component {
         <br />
         <div className='content'>
           {this.state.requests.map((elem, i) => (
-            <div className='yellowProfile' key={i}>{elem.title} posted on: {elem.createdAt}</div>
+            <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
           )
           )}
         </div>
