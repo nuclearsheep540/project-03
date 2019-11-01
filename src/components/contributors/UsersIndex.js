@@ -33,16 +33,19 @@ export default class UsersIndex extends React.Component {
         <div className="container requests">
 
           <h2 className="title">Skill Share Contributors</h2>
+          <div className='wrapper-two'>
+            {this.state.everyone.map((elem, i) => (
+              <div key={i} className='container-two'>
+                <div className='input-area'>
 
-          {this.state.everyone.map((elem, i) => (
-            <div key={i} className='input-area'>
-              <Link to={`/profile/show/${elem._id}`}><p>{elem.firstName} {elem.lastName}</p></Link>
-              <small className='indexP'>Memeber since {elem.createdAt}</small>
-            </div>
-          )
-          )}
+                  <Link to={`/profile/show/${elem._id}`}><p>{elem.firstName} {elem.lastName}</p></Link>
+                  <small className='indexP'>Memeber since {elem.createdAt}</small>
 
-
+                </div>
+              </div>
+            )
+            )}
+          </div>
         </div>
       </section>
 

@@ -88,7 +88,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
             </div>
 
 
-            <div className="six columns"> 
+            <div className="input-area"> 
               <label name="exampleRecipientInput">Languages</label>
               <div className="control">
                 <Select
@@ -96,14 +96,14 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleLanguage}
                   name='languages'
-                  value={userProfile.languages}
+                  value={userProfile.languages.value}
                 />
               </div>
             </div>
 
 
 
-            <div className="field">
+            <div className="input-area">
               <label className="label">Framework</label>
               <div className="control">
                 <Select
@@ -111,7 +111,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                   isMulti={true}
                   onChange={handleFramework}
                   name='frameworks'
-                  value={userProfile.frameworks}
+                  value={userProfile.frameworks.value}
                 />
               </div>
             </div>

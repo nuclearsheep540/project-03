@@ -9,7 +9,7 @@ const profileSchema = new mongoose.Schema({
   fieldIndustry: { type: [String] },
   languages: { type: [String] },
   frameworks: { type: [String] },
-  qualifications: { type: [String] }
+  qualifications: { type: String }
 }, {
   timestamps: true
 })
