@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-// import Auth from '../../lib/auth'
+import Auth from '../../lib/auth'
+import { Link } from 'react-router-dom'
+import Navbar from '../common/Navbar'
 
 
 export default class Register extends React.Component {
@@ -85,12 +87,13 @@ export default class Register extends React.Component {
     console.log(this.state, 'error?')
     console.log(this.state.data, 're-render')
     return (
-      <section className="section">
-        <div className="container">
+      <section className="section-register">
+        <Navbar />
+        <div className="container-form">
 
 
-          <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Register</h2>
+          <form onSubmit={this.handleSubmit} className="register-form">
+            <h2 className="register-title">Register</h2>
             <h4 className= {`${this.state.errorUser || this.state.errorPassword ? 'invalid-entry' : 'hide'}`}>Invalid Entry, please try again</h4>
             <div onSubmit={this.handleSubmit} className="wrapper-two">
               <div className='container-half'>
@@ -185,7 +188,7 @@ export default class Register extends React.Component {
              
 
             </div>
-            <button type='submit'>Submit</button>
+            <button className="submit-button" type='submit'>Submit</button>
           </form>
         </div>
       </section>

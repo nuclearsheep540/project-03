@@ -59,39 +59,42 @@ export default class Show extends React.Component {
         <div className='content'>
 
           <div className='container'>
-            <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
+            <div className="profile">
+              <h2 className="title">{`Welcome back, ${Auth.getName()}`}</h2>
 
 
-            <div className='avatar'>
-              <img className='avatar' src={profile.image} />
+              <div className='avatar'>
+                <img className='avatar' src={profile.image} />
+              </div>
+              <small>Member since {user.createdAt}</small>
+              <p className=''>Name: {profile.firstName} {profile.lastName} </p>
+
+              <p className='indexP'>Age {profile.age}, from {profile.location}</p>
+
+              <p>Works in {profile.fieldIndustry}</p>
+
+
+              <div>Languages: {!profile.languages ? '' : profile.languages.map((elem, i) => <span key={i}>{elem} </span>)}
+              </div>
+
+              <div>Frameworks: {!profile.frameworks ? '' : profile.frameworks.map((elem, i) => <span key={i}>{elem} </span>)}
+              </div>
+
+              <p>Qualifications: {profile.qualifications}
+              </p>
+
+              <Link to={`/profile/${profile._id}/edit`}> <button>Edit profile</button> </Link>
             </div>
-            <small>Member since {user.createdAt}</small>
-            <p className=''>Name: {profile.firstName} {profile.lastName} </p>
-
-            <p className='indexP'>Age {profile.age}, from {profile.location}</p>
-
-            <p>Works in {profile.fieldIndustry}</p>
-
-
-            <div>Languages: {!profile.languages ? '' : profile.languages.map((elem, i) => <span key={i}>{elem} </span>)}
-            </div>
-
-            <div>Frameworks: {!profile.frameworks ? '' : profile.frameworks.map((elem, i) => <span key={i}>{elem} </span>)}
-            </div>
-
-            <p>Qualifications: {profile.qualifications}
-            </p>
-
-            <Link to={`/profile/${profile._id}/edit`}> <button>Edit profile</button> </Link>
           </div>
-        </div>
-        <br />
-        <h4 className='center'>Dashboard</h4>
-        <div className='content' >
-          {this.state.requests.map((elem, i) => (
-            <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
-          )
-          )}
+         
+          <div className='content-profile' >
+            <h4 className='center'>Dashboard</h4>
+            <h5>{profile.firstName} {profile.lastName}s activity</h5>
+            {this.state.requests.map((elem, i) => (
+              <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
+            )
+            )}
+          </div>
         </div>
 
       </section>

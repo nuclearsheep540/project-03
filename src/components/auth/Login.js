@@ -1,6 +1,8 @@
 import React from 'react'
 import Axios from 'axios'
 import Auth from '../../lib/auth'
+import { Link } from 'react-router-dom'
+import Navbar from '../common/Navbar'
 
 class Login extends React.Component {
   constructor() {
@@ -60,15 +62,16 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Login</h2> 
+      <section className="section-login">
+        <Navbar />
+        <div className="container-login">
+          <form className="login-form" onSubmit={this.handleSubmit}>
+            <h2 className="login-title">Login</h2> 
             <h4 className= {`${this.state.error ? 'invalid-entry' : 'hide'}`}>Invalid Entry, please try again</h4>
-            <div className="wrapper-two">
-              <div className='container-half'>
+            <div className="wrapper-login">
+              <div className="center-div">
 
-                <div className="input-area">
+                <div className="input-area login-boxes">
                   <label className="">Username</label>
                   <div className="">
                     <input
@@ -82,7 +85,7 @@ class Login extends React.Component {
                 </div>
 
 
-                <div className="input-area">
+                <div className="input-area login-boxes">
                   <label className="label">Password</label>
                   <div className="input">
                     <input
@@ -94,11 +97,12 @@ class Login extends React.Component {
                     </input>
                   </div>
                 </div>
+                <button type="submit" className="login-button is-light">Login</button>
+
               </div>
               <br />
             
             </div>
-            <button type="submit" className="button is-light">Login</button>
           </form>
         </div>
       </section>

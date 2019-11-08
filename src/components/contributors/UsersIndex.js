@@ -30,9 +30,8 @@ export default class UsersIndex extends React.Component {
     console.log(this.state.requests, 're render')
     return (
       <section className="section">
-        <div className="container requests">
-
-          <h2 className="title">Skill Share Contributors</h2>
+        <h2 className="contributors-title">Skill Share Contributors</h2>
+        <div className="container-contributors">
 
           {this.state.everyone.map((elem, i) => (
             <div key={i} className='input-area'>
