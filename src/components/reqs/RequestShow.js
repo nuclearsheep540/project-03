@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
 import { Link } from 'react-router-dom'
+import Navbar from '../common/Navbar'
 
 // NEED TO ADD SECURE ROUTE FOR EDIT AND DELETE
 
@@ -97,10 +98,12 @@ class RequestShow extends React.Component {
     console.log(Auth.getPayLoad().sub, 'person logged in')
     return (
       <div>
+        <Navbar />
         <section className="section">
 
+
           <div className="container">
-            <h2 className="title">Request #{this.state.requestData._id}</h2>
+            <h2 className="show-title">Request #{this.state.requestData._id}</h2>
 
             <div className=''>
               <Link to={'/requests'}><h5 className='button backToResultsButton'>Back to results</h5></Link>
@@ -113,8 +116,9 @@ class RequestShow extends React.Component {
             </div>
 
            
-            <h3>{this.state.requestData.title}</h3>
-            <div className='input-area container-full'>
+            <div className='show-req'>
+              <h3 className="req-title">{this.state.requestData.title}</h3>
+
               
               <p className='indexP'>Framework: {this.state.requestData.frameworks}</p>
               <p>Language: {this.state.requestData.languages}</p>
@@ -143,6 +147,7 @@ class RequestShow extends React.Component {
             </form>
 
           </div>
+          
 
 
         </section>

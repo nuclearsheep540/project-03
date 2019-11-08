@@ -60,44 +60,51 @@ export default class ShowExt extends React.Component {
     
     return (
       
-      <section className='section'>
-        <div className='content'>
-
-          <div className='container'>
-            <h2 className="title">{`${profile.firstName}`}&apos;s Profile</h2>
-
-
-            <div className='avatar'>
-              <img className='avatar' src={profile.image} />
-            </div>
-            <small>Member since {user.createdAt}</small>
-            <p className=''>Name: {profile.firstName} {profile.lastName} </p>
-
-            <p className='indexP'>Age {profile.age}, from {profile.location}</p>
-
-            <p>Works in {profile.fieldIndustry}</p>
+      <section className='section profile-section'>
+        <div className='content-width'>
+          <div className="container">
+            <div className="profile-box">
+              <div className='profile-info'>
+                <h2 className="title">{`${profile.firstName}`}&apos;s Profile</h2>
 
 
-            <div>Languages: {!profile.languages ? '' : profile.languages.map((elem, i) => <span key={i}>{elem} </span>)}
-            </div>
+                <div className='avatar'>
+                  <img className='avatar' src={profile.image} />
+                </div>
+                <small>Member since {user.createdAt}</small>
+                <p className=''>Name:     {profile.firstName} {profile.lastName} </p>
 
-            <div>Frameworks: {!profile.frameworks ? '' : profile.frameworks.map((elem, i) => <span key={i}>{elem} </span>)}
-            </div>
+                <p className='indexP'>Age {profile.age}, from {profile.location}</p>
 
-            <p>Qualifications: {profile.qualifications}
-            </p>
+                <p>Works in {profile.fieldIndustry}</p>
+
+
+                <div>Languages: {!profile.languages ? '' : profile.languages.map((elem, i) => <span key={i}>{elem} </span>)}
+                </div>
+
+                <div>Frameworks: {!profile.frameworks ? '' : profile.frameworks.map((elem, i) => <span key={i}>{elem} </span>)}
+                </div>
+
+                <p>Qualifications: {profile.qualifications}
+                </p>
 
            
+              </div>
+              <div className='content-profile1' >
+                <h4 className='center'>Dashboard</h4>
+                <div className='content-p'>
+                  <h6>{profile.firstName} {profile.lastName}'s activity</h6>
+
+                  {this.state.requests.map((elem, i) => (
+                    <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
+                  )
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <br />
-        <h4 className='center'>Dashboard</h4>
-        <div className='content'>
-          {this.state.requests.map((elem, i) => (
-            <Link to={`../../requests/${elem._id}`} key={i}><div className='yellowProfile'>{elem.title} posted on: {elem.createdAt}</div></Link>
-          )
-          )}
-        </div>
+        
 
       </section>
 

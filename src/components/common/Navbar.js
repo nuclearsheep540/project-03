@@ -20,7 +20,7 @@ class Navbar extends React.Component {
     return (
       <nav className=''>
         <nav className='left'>
-          <Link to='/' className='logo'><div className='home-button'>Home</div></Link>
+          <Link to='/' className='logo'><div className='home-button'>Skill Swap</div></Link>
         </nav>
         <nav className='right'>
           {!Auth.isAuthenticated() && <Link to='/register'><div className='nav-item'>Register</div></Link>}
