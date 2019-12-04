@@ -52,6 +52,7 @@ class Home extends React.Component {
             <h2 className='center1'> Tech News! </h2>
             
             <Eventdisplay
+              // Token={process.env.NEWS_API_KEY}
             
             />
 

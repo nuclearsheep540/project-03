@@ -76,8 +76,6 @@ font-size:89px;
 text-shadow: 3px 3px 3px black;
 }
 
-<<<<<<< HEAD
-=======
 .register-title {
   text-align: center;
   color: white;
@@ -129,7 +127,6 @@ text-shadow: 3px 3px 3px black;
   // color: $bright;
 }
 
->>>>>>> development
 .center {
   margin: auto;
   width: 100%;
@@ -260,7 +257,7 @@ nav {
   margin: 0 20px 0px 0px;
   text-align: center;
   vertical-align: middle;
-  transform: translateY(6px);
+  transform: translateY(5px);
   font-size: 16px;
   font-weight: 800;
   text-shadow:2px 2px 2px black;
@@ -271,7 +268,7 @@ nav {
 .nav-item:hover {
   overflow: hidden;
   z-index: 1;
-  border-bottom: 5px solid $bright;
+  border-bottom: 4px solid $bright;
   border-radius: 5px;
   a {
     color: $bright;

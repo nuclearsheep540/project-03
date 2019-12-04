@@ -2,6 +2,7 @@ import React from 'react'
 import Form from './Form'
 import axios from 'axios'
 import Auth from '../../lib/auth'
+
 class ProfileEdit extends React.Component {
   constructor() {
     super()
@@ -78,7 +79,7 @@ class ProfileEdit extends React.Component {
       { value: 'Education', label: 'Education' },
       { value: 'Transport and Logistics', label: 'Transport & Logistics' }
     ]
-    this.cities = [
+    this.location = [
       { value: 'Bath', label: 'Bath' },
       { value: 'Birmingham', label: 'Birmingham' },
       { value: 'Bradford', label: 'Bradford' },
@@ -144,10 +145,10 @@ class ProfileEdit extends React.Component {
     })
       .then(res => {
         console.log('component', res.data)
-        
         const userProfileCopy = res.data.userProfile
-        userProfileCopy.firstName = res.data.firstName
-        userProfileCopy.lastName = res.data.lastName
+
+        userProfileCopy.firstName = res.data.userProfile.firstName
+        userProfileCopy.lastName = res.data.userProfile.lastName
 
         userProfileCopy.frameworks = userProfileCopy.frameworks.map(elem => {
           return { value: elem, label: elem } //turn everything that's a string, into an object
@@ -163,7 +164,7 @@ class ProfileEdit extends React.Component {
         })
 
         userProfileCopy.image = userProfileCopy.image.map(elem => {
-          return { value: elem, label: 'Choose an avatar' }
+          return { value: elem, label: elem }
         })
         this.setState({ userProfile: userProfileCopy })
       })
@@ -190,28 +191,31 @@ class ProfileEdit extends React.Component {
     this.setState({ userProfile })
   }
   handleIndustry(selected) {
+    console.log('industry is now', selected)
     const industries = selected 
     const userProfile = { ...this.state.userProfile, fieldIndustry: industries }
     this.setState({ userProfile })
   }
   handleCity(selected) {
-    const cities = selected
-    const userProfile = { ...this.state.userProfile, location: cities }
-    this.setState({ userProfile })
+    // const location = selected ? selected.map(item => item.value) : []
+    const location = selected
+    const userProfile = { ...this.state.userProfile, location }
+    this.setState( { userProfile } )
   }
   handleSubmit(e) {
     e.preventDefault()
     console.log('before sending ', this.state.userProfile)
     const userId = Auth.getPayLoad().sub
+    // const userId = this.props.match.params.id
     const obj = {
       firstName: this.state.userProfile.firstName,
       lastName: this.state.userProfile.lastName,
-      image: [this.state.userProfile.image.value],
+      image: this.state.userProfile.image.value,
       age: this.state.userProfile.age,
-      location: [this.state.userProfile.location.value],
-      fieldIndustry: [this.state.userProfile.fieldIndustry.value],
-      languages: this.state.userProfile.languages.value,
-      frameworks: this.state.userProfile.frameworks.value,
+      location: this.state.userProfile.location.value,
+      fieldIndustry: this.state.userProfile.fieldIndustry.value,
+      languages: [this.state.userProfile.languages.value],
+      frameworks: [this.state.userProfile.frameworks.value],
       qualifications: this.state.userProfile.qualifications
     }
     console.log('updating profile with: ', this.state.userProfile)
@@ -219,7 +223,6 @@ class ProfileEdit extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        console.log('response updated:', res.data)
         this.setState({ userProfile: res.data })
         this.props.history.push('/profile/show')
       })
@@ -227,7 +230,7 @@ class ProfileEdit extends React.Component {
   render() {
     // console.log(this.state)
     if (!this.state.userProfile) return null
-    console.log(this.state.userProfile, 'data profile')
+    console.log(this.state, 'data profile')
     return (
       <section className='section'>
         <div className='container'>
@@ -237,7 +240,7 @@ class ProfileEdit extends React.Component {
             frameOptions={this.frameworks}
             avatarOptions={this.avatars}
             indieOptions={this.industries}
-            cityOptions={this.cities}
+            cityOptions={this.location}
             userProfile={this.state.userProfile}
             handleLanguage={this.handleLanguage}
             handleFramework={this.handleFramework}
@@ -253,3 +256,4 @@ class ProfileEdit extends React.Component {
   }
 }
 export default ProfileEdit
+

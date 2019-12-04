@@ -36,7 +36,10 @@ module.exports = {
       template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
-    })
-    
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NEWS_API_KEY': JSON.stringify(process.env.NEWS_API_KEY)
+    }),
+    new webpack.EnvironmentPlugin(['NEWS_API_KEY'])
   ]
 }

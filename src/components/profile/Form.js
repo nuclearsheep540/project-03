@@ -77,7 +77,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 options={indieOptions}
                 isMulti={false}
                 onChange={handleIndustry}
-                name='industry'
+                name='fieldIndustry'
                 value={userProfile.fieldIndustry}
               />
             </div>
