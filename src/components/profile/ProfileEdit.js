@@ -39,21 +39,21 @@ class ProfileEdit extends React.Component {
       { name: 'languages', value: 'CSS', label: 'CSS' }
     ],
     this.frameworks = [
-      { name: 'frameworks', value: 'Angular', label: 'Angular' },
-      { name: 'frameworks', value: 'Django', label: 'Django' },
-      { name: 'frameworks', value: 'Ruby On Rails', label: 'Ruby On Rails' },
-      { name: 'frameworks', value: 'ASP.net', label: 'ASP.net' },
-      { name: 'frameworks', value: 'Meteor', label: 'Meteor' },
-      { name: 'frameworks', value: 'Flask', label: 'Flask' },
-      { name: 'frameworks', value: 'ReactJS', label: 'ReactJS' },
-      { name: 'frameworks', value: 'Phoenix', label: 'Phoenix' },
-      { name: 'frameworks', value: 'Spring', label: 'Spring' },
-      { name: 'frameworks', value: 'Play', label: 'Play' },
-      { name: 'frameworks', value: 'Express', label: 'Express' },
-      { name: 'frameworks', value: 'Vue.js', label: 'Vue.js' },
-      { name: 'frameworks', value: 'CakePHP', label: 'CakePHP' },
-      { name: 'frameworks', value: 'Bootstrap', label: 'Bootstrap' },
-      { name: 'frameworks', value: 'Bulma', label: 'Bulma' }
+      { value: 'Angular', label: 'Angular' },
+      { value: 'Django', label: 'Django' },
+      { value: 'Ruby On Rails', label: 'Ruby On Rails' },
+      { value: 'ASP.net', label: 'ASP.net' },
+      { value: 'Meteor', label: 'Meteor' },
+      { value: 'Flask', label: 'Flask' },
+      { value: 'ReactJS', label: 'ReactJS' },
+      { value: 'Phoenix', label: 'Phoenix' },
+      { value: 'Spring', label: 'Spring' },
+      { value: 'Play', label: 'Play' },
+      { value: 'Express', label: 'Express' },
+      { value: 'Vue.js', label: 'Vue.js' },
+      { value: 'CakePHP', label: 'CakePHP' },
+      { value: 'Bootstrap', label: 'Bootstrap' },
+      { value: 'Bulma', label: 'Bulma' }
     ],
     this.avatars = [
       { name: 'man1', value: 'https://i.ibb.co/YksZLhK/man-1.png', label: 'man1' },
@@ -137,6 +137,8 @@ class ProfileEdit extends React.Component {
     this.handleAvatar = this.handleAvatar.bind(this)
     this.handleIndustry = this.handleIndustry.bind(this)
     this.handleCity = this.handleCity.bind(this)
+
+
   }
   componentDidMount() {
     // const userId = Auth.getPayLoad().sub
@@ -181,7 +183,7 @@ class ProfileEdit extends React.Component {
     this.setState({ userProfile })
   }
   handleFramework(selected) {
-    const frameworks = selected ? selected.map(item => item.value) : ['']
+    const frameworks = selected
     const userProfile = { ...this.state.userProfile, frameworks }
     this.setState({ userProfile })
   }
@@ -206,7 +208,16 @@ class ProfileEdit extends React.Component {
     e.preventDefault()
     console.log('before sending ', this.state.userProfile)
     const userId = Auth.getPayLoad().sub
-    // const userId = this.props.match.params.id
+
+    this.setState({ frameValues: this.state.userProfile.frameworks.map(frame => {
+      delete frame.label
+      return frame
+    })
+    })
+    this.postFrames = this.frameValues.map(frame => (
+      Object.values(frame)[0]
+    ))
+
     const obj = {
       firstName: this.state.userProfile.firstName,
       lastName: this.state.userProfile.lastName,
@@ -214,8 +225,8 @@ class ProfileEdit extends React.Component {
       age: this.state.userProfile.age,
       location: this.state.userProfile.location.value,
       fieldIndustry: this.state.userProfile.fieldIndustry.value,
-      languages: [this.state.userProfile.languages.value],
-      frameworks: [this.state.userProfile.frameworks.value],
+      languages: this.state.userProfile.languages,
+      frameworks: this.postFrames,
       qualifications: this.state.userProfile.qualifications
     }
     console.log('updating profile with: ', this.state.userProfile)

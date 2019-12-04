@@ -37,8 +37,8 @@ class RequestShow extends React.Component {
 
 
   getApi() {
-    const princessId = this.props.match.params.id
-    axios.get(`/api/requests/${princessId}`)
+    const ApiId = this.props.match.params.id
+    axios.get(`/api/requests/${ApiId}`)
       .then(res => {
         // console.log('res from getApi',res)
         this.setState({ requestData: res.data })
@@ -55,8 +55,8 @@ class RequestShow extends React.Component {
 
   handleDelete() {
     console.log('submitted')
-    const princessId = this.props.match.params.id
-    axios.delete((`/api/requests/${princessId}/`), {
+    const deleteId = this.props.match.params.id
+    axios.delete((`/api/requests/${deleteId}/`), {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(() => this.props.history.push('/requests'))

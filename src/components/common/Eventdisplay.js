@@ -15,7 +15,8 @@ class Eventdisplay extends React.Component {
 
 
   componentDidMount() {
-    axios.get('https://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=ba5a6f180a9c4a0b93eabb14aa2946d7')
+    const apiKey = process.env.NEWS_API_KEY
+    axios.get(`https://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=${apiKey}`)
       .then(res => this.setState({ events: [ ...res.data.articles ] }))
       .catch(err => console.log(err))
   }
