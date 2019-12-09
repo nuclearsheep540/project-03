@@ -1,13 +1,13 @@
 import React from 'react'
 import Select from 'react-select'
 
-const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, handleIndustry, cityOptions, langOptions, avatarOptions, indieOptions, handleAvatar, handleCity, frameOptions, userProfile }) => {
+const Form = ({ update, handleChange, handleFramework, handleLanguage, handleSubmit, handleIndustry, cityOptions, langOptions, avatarOptions, indieOptions, handleAvatar, handleCity, frameOptions, userProfile }) => {
 
 
   return (
     <div>
       <section className="section">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={update}>
           <div className="wrapper-two">
 
             <div className="input-area">
@@ -17,7 +17,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 placeholder="First name"
                 type='text'
                 name='firstName'
-                value={userProfile.firstName}
+                value={userProfile.firstName || ''}
                 onChange={handleChange}
               >
               </input>
@@ -30,7 +30,7 @@ const Form = ({ handleChange, handleFramework, handleLanguage, handleSubmit, han
                 placeholder="Last name"
                 type='text'
                 name='lastName'
-                value={userProfile.lastName}
+                value={userProfile.lastName || ''}
                 onChange={handleChange}
               >
               </input>

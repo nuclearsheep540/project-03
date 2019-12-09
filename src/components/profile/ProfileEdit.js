@@ -7,6 +7,9 @@ class ProfileEdit extends React.Component {
   constructor() {
     super()
     this.state = {
+      obj: {},
+      frameString: [],
+      langString: [],
       user: {
         newUser: 'false'
       },
@@ -20,23 +23,23 @@ class ProfileEdit extends React.Component {
         languages: [],
         frameworks: [],
         qualifications: ''
-        
+
       }
     }
     this.languages = [
-      { name: 'languages', value: 'Javascript', label: 'Javascript' },
-      { name: 'languages', value: 'C#', label: 'C#' },
-      { name: 'languages', value: 'Python', label: 'Python' },
-      { name: 'languages', value: 'Java', label: 'Java' },
-      { name: 'languages', value: 'Rust', label: 'Rust' },
-      { name: 'languages', value: 'go', label: 'Go' },
-      { name: 'languages', value: 'elixr', label: 'Elixr' },
-      { name: 'languages', value: 'ruby', label: 'Ruby' },
-      { name: 'languages', value: 'Kotlin', label: 'Kotlin' },
-      { name: 'languages', value: 'Typescript', label: 'Typescript' },
-      { name: 'languages', value: 'C++', label: 'C++' },
-      { name: 'languages', value: 'PHP', label: 'PHP' },
-      { name: 'languages', value: 'CSS', label: 'CSS' }
+      { value: 'Javascript', label: 'Javascript' },
+      { value: 'C#', label: 'C#' },
+      { value: 'Python', label: 'Python' },
+      { value: 'Java', label: 'Java' },
+      { value: 'Rust', label: 'Rust' },
+      { value: 'go', label: 'Go' },
+      { value: 'elixr', label: 'Elixr' },
+      { value: 'ruby', label: 'Ruby' },
+      { value: 'Kotlin', label: 'Kotlin' },
+      { value: 'Typescript', label: 'Typescript' },
+      { value: 'C++', label: 'C++' },
+      { value: 'PHP', label: 'PHP' },
+      { value: 'CSS', label: 'CSS' }
     ],
     this.frameworks = [
       { value: 'Angular', label: 'Angular' },
@@ -78,8 +81,9 @@ class ProfileEdit extends React.Component {
       { value: 'Media', label: 'Media' },
       { value: 'Education', label: 'Education' },
       { value: 'Transport and Logistics', label: 'Transport & Logistics' }
-    ]
+    ],
     this.location = [
+      { value: 'Edinburgh', label: 'Edinburgh' },
       { value: 'Bath', label: 'Bath' },
       { value: 'Birmingham', label: 'Birmingham' },
       { value: 'Bradford', label: 'Bradford' },
@@ -137,7 +141,8 @@ class ProfileEdit extends React.Component {
     this.handleAvatar = this.handleAvatar.bind(this)
     this.handleIndustry = this.handleIndustry.bind(this)
     this.handleCity = this.handleCity.bind(this)
-
+    this.handleUpdateFrames = this.handleUpdateFrames.bind(this)
+    this.handleUpdateLangs = this.handleUpdateLangs.bind(this)
 
   }
   componentDidMount() {
@@ -178,7 +183,7 @@ class ProfileEdit extends React.Component {
   }
 
   handleLanguage(selected) {
-    const languages = selected ? selected.map(item => item.value) : ['']
+    const languages = selected
     const userProfile = { ...this.state.userProfile, languages }
     this.setState({ userProfile })
   }
@@ -194,7 +199,7 @@ class ProfileEdit extends React.Component {
   }
   handleIndustry(selected) {
     console.log('industry is now', selected)
-    const industries = selected 
+    const industries = selected
     const userProfile = { ...this.state.userProfile, fieldIndustry: industries }
     this.setState({ userProfile })
   }
@@ -202,35 +207,66 @@ class ProfileEdit extends React.Component {
     // const location = selected ? selected.map(item => item.value) : []
     const location = selected
     const userProfile = { ...this.state.userProfile, location }
-    this.setState( { userProfile } )
+    this.setState({ userProfile })
   }
-  handleSubmit(e) {
+
+  handleUpdateLangs(e) {
     e.preventDefault()
-    console.log('before sending ', this.state.userProfile)
+    this.setState({
+      ...this.state, langString: this.state.userProfile.languages.map(lang => {
+        delete lang.label
+        return lang
+      })
+    })
+
+    this.setState({
+      ...this.state.userProfile, langString: this.state.userProfile.languages.map(lang => (
+        Object.values(lang)[0])
+      )
+    })
+  
+    setTimeout(() => {
+      this.handleUpdateFrames()
+    }, 100)
+  }
+
+  handleUpdateFrames() {
+    this.setState({
+      ...this.state, frameString: this.state.userProfile.frameworks.map(frame => {
+        delete frame.label
+        console.log('state after setting new frameworks', this.state)
+        return frame
+      })
+    })
+    this.setState({
+      ...this.state.userProfile, frameString: this.state.userProfile.frameworks.map(frame => (
+        Object.values(frame)[0])
+      )
+    })
+
+    setTimeout(() => {
+      this.handleSubmit()
+    }, 100)
+  }
+
+  handleSubmit() {
+
+    this.setState({
+      obj: {
+        firstName: this.state.userProfile.firstName,
+        lastName: this.state.userProfile.lastName,
+        image: this.state.userProfile.image.value,
+        age: this.state.userProfile.age,
+        location: this.state.userProfile.location.value,
+        fieldIndustry: this.state.userProfile.fieldIndustry.value,
+        languages: this.state.langString,
+        frameworks: this.state.frameString,
+        qualifications: this.state.userProfile.qualifications
+      }
+    }) 
     const userId = Auth.getPayLoad().sub
-
-    this.setState({ frameValues: this.state.userProfile.frameworks.map(frame => {
-      delete frame.label
-      return frame
-    })
-    })
-    this.postFrames = this.frameValues.map(frame => (
-      Object.values(frame)[0]
-    ))
-
-    const obj = {
-      firstName: this.state.userProfile.firstName,
-      lastName: this.state.userProfile.lastName,
-      image: this.state.userProfile.image.value,
-      age: this.state.userProfile.age,
-      location: this.state.userProfile.location.value,
-      fieldIndustry: this.state.userProfile.fieldIndustry.value,
-      languages: this.state.userProfile.languages,
-      frameworks: this.postFrames,
-      qualifications: this.state.userProfile.qualifications
-    }
-    console.log('updating profile with: ', this.state.userProfile)
-    axios.put(`/api/profile/${userId}/edit`, obj , {
+   
+    axios.put(`/api/profile/${userId}/edit`, this.state.obj, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
@@ -241,7 +277,7 @@ class ProfileEdit extends React.Component {
   render() {
     // console.log(this.state)
     if (!this.state.userProfile) return null
-    console.log(this.state, 'data profile')
+    console.log('rendering...', this.state)
     return (
       <section className='section'>
         <div className='container'>
@@ -260,6 +296,7 @@ class ProfileEdit extends React.Component {
             handleChange={this.handleChange}
             handleIndustry={this.handleIndustry}
             handleSubmit={this.handleSubmit}
+            update={this.handleUpdateLangs}
           />
         </div>
       </section>

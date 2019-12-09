@@ -8,53 +8,56 @@ class ProfileNew extends React.Component {
     super()
 
     this.state = {
+      obj: {},
+      frameString: [],
+      langString: [],
       user: {
         newUser: 'false'
       },
       userProfile: {
         firstName: '',
         lastName: '',
-        image: '',
+        image: [],
         age: '',
         location: [],
-        fieldIndustry: '',
-        skills: '',
+        fieldIndustry: [],
         languages: [],
         frameworks: [],
         qualifications: ''
+
       }
     }
     this.languages = [
-      { name: 'languages', value: 'Javascript', label: 'Javascript' },
-      { name: 'languages', value: 'C#', label: 'C#' },
-      { name: 'languages', value: 'Python', label: 'Python' },
-      { name: 'languages', value: 'Java', label: 'Java' },
-      { name: 'languages', value: 'Rust', label: 'Rust' },
-      { name: 'languages', value: 'go', label: 'Go' },
-      { name: 'languages', value: 'elixr', label: 'Elixr' },
-      { name: 'languages', value: 'ruby', label: 'Ruby' },
-      { name: 'languages', value: 'Kotlin', label: 'Kotlin' },
-      { name: 'languages', value: 'Typescript', label: 'Typescript' },
-      { name: 'languages', value: 'C++', label: 'C++' },
-      { name: 'languages', value: 'PHP', label: 'PHP' },
-      { name: 'languages', value: 'CSS', label: 'CSS' }
+      { value: 'Javascript', label: 'Javascript' },
+      { value: 'C#', label: 'C#' },
+      { value: 'Python', label: 'Python' },
+      { value: 'Java', label: 'Java' },
+      { value: 'Rust', label: 'Rust' },
+      { value: 'go', label: 'Go' },
+      { value: 'elixr', label: 'Elixr' },
+      { value: 'ruby', label: 'Ruby' },
+      { value: 'Kotlin', label: 'Kotlin' },
+      { value: 'Typescript', label: 'Typescript' },
+      { value: 'C++', label: 'C++' },
+      { value: 'PHP', label: 'PHP' },
+      { value: 'CSS', label: 'CSS' }
     ],
     this.frameworks = [
-      { name: 'frameworks', value: 'Angular', label: 'Angular' },
-      { name: 'frameworks', value: 'Django', label: 'Django' },
-      { name: 'frameworks', value: 'Ruby On Rails', label: 'Ruby On Rails' },
-      { name: 'frameworks', value: 'ASP.net', label: 'ASP.net' },
-      { name: 'frameworks', value: 'Meteor', label: 'Meteor' },
-      { name: 'frameworks', value: 'Flask', label: 'Flask' },
-      { name: 'frameworks', value: 'ReactJS', label: 'ReactJS' },
-      { name: 'frameworks', value: 'Phoenix', label: 'Phoenix' },
-      { name: 'frameworks', value: 'Spring', label: 'Spring' },
-      { name: 'frameworks', value: 'Play', label: 'Play' },
-      { name: 'frameworks', value: 'Express', label: 'Express' },
-      { name: 'frameworks', value: 'Vue.js', label: 'Vue.js' },
-      { name: 'frameworks', value: 'CakePHP', label: 'CakePHP' },
-      { name: 'frameworks', value: 'Bootstrap', label: 'Bootstrap' },
-      { name: 'frameworks', value: 'Bulma', label: 'Bulma' }
+      { value: 'Angular', label: 'Angular' },
+      { value: 'Django', label: 'Django' },
+      { value: 'Ruby On Rails', label: 'Ruby On Rails' },
+      { value: 'ASP.net', label: 'ASP.net' },
+      { value: 'Meteor', label: 'Meteor' },
+      { value: 'Flask', label: 'Flask' },
+      { value: 'ReactJS', label: 'ReactJS' },
+      { value: 'Phoenix', label: 'Phoenix' },
+      { value: 'Spring', label: 'Spring' },
+      { value: 'Play', label: 'Play' },
+      { value: 'Express', label: 'Express' },
+      { value: 'Vue.js', label: 'Vue.js' },
+      { value: 'CakePHP', label: 'CakePHP' },
+      { value: 'Bootstrap', label: 'Bootstrap' },
+      { value: 'Bulma', label: 'Bulma' }
     ],
     this.avatars = [
       { name: 'man1', value: 'https://i.ibb.co/YksZLhK/man-1.png', label: 'man1' },
@@ -81,6 +84,7 @@ class ProfileNew extends React.Component {
       { value: 'Transport and Logistics', label: 'Transport & Logistics' }
     ]
     this.location = [
+      { value: 'Edinburgh', label: 'Edinburgh' },
       { value: 'Bath', label: 'Bath' },
       { value: 'Birmingham', label: 'Birmingham' },
       { value: 'Bradford', label: 'Bradford' },
@@ -139,6 +143,10 @@ class ProfileNew extends React.Component {
     this.handleAvatar = this.handleAvatar.bind(this)
     this.handleIndustry = this.handleIndustry.bind(this)
     this.handleCity = this.handleCity.bind(this)
+    this.handleUpdateFrames = this.handleUpdateFrames.bind(this)
+    this.handleUpdateLangs = this.handleUpdateLangs.bind(this)
+
+
   }
   // componentDidMount(){
   //   axios.get('/api/login', {
@@ -154,45 +162,94 @@ class ProfileNew extends React.Component {
   }
 
   handleLanguage(selected) {
-    console.log('language',selected.map(sel => sel.value))
-    const languages = selected ?  selected.map(item => item.value) : [''] 
-    const langs = [ ...languages ]
-    this.setState({ userProfile: { ...this.state.userProfile, languages: langs } })
+    const languages = selected
+    const userProfile = { ...this.state.userProfile, languages }
+    this.setState({ userProfile })
   }
-
-  handleFramework(selected){
-    console.log('framework',selected.map(sel => sel.value))
-    const frameworks = selected ? selected.map(item => item.value) : ['']
-    console.log('frameworks accumulating =',frameworks)
-    const frames = [ ...frameworks ]
-    this.setState({ userProfile: { ...this.state.userProfile, frameworks: frames } })
+  handleFramework(selected) {
+    const frameworks = selected
+    const userProfile = { ...this.state.userProfile, frameworks }
+    this.setState({ userProfile })
   }
-
-  handleAvatar(selected){
-    const avatars = selected
-    const image = avatars.value.split(' ')[0]
-    console.log(image)
-    this.setState({ userProfile: { ...this.state.userProfile, image } })
+  handleAvatar(selected) {
+    const avatar = selected
+    const userProfile = { ...this.state.userProfile, image: avatar }
+    this.setState({ userProfile })
   }
-
-  handleIndustry(selected){
+  handleIndustry(selected) {
+    console.log('industry is now', selected)
     const industries = selected
-    const fieldIndustry = industries.value
-    this.setState({ userProfile: { ...this.state.userProfile, fieldIndustry } })
+    const userProfile = { ...this.state.userProfile, fieldIndustry: industries }
+    this.setState({ userProfile })
   }
-  handleCity(selected){
-    const cities = selected
-    const location = cities.value
-    this.setState({ userProfile: { ...this.state.userProfile, location } })
+  handleCity(selected) {
+    // const location = selected ? selected.map(item => item.value) : []
+    const location = selected
+    const userProfile = { ...this.state.userProfile, location }
+    this.setState({ userProfile })
   }
+
+
+
+
+  handleUpdateLangs(e) {
+    e.preventDefault()
+    this.setState({
+      ...this.state, langString: this.state.userProfile.languages.map(lang => {
+        delete lang.label
+        return lang
+      })
+    })
+
+    this.setState({
+      ...this.state.userProfile, langString: this.state.userProfile.languages.map(lang => (
+        Object.values(lang)[0])
+      )
+    })
+  
+    setTimeout(() => {
+      this.handleUpdateFrames()
+    }, 100)
+  }
+
+  handleUpdateFrames() {
+    this.setState({
+      ...this.state, frameString: this.state.userProfile.frameworks.map(frame => {
+        delete frame.label
+        return frame
+      })
+    })
+    this.setState({
+      ...this.state.userProfile, frameString: this.state.userProfile.frameworks.map(frame => (
+        Object.values(frame)[0])
+      )
+    })
+
+    setTimeout(() => {
+      this.handleSubmit()
+    }, 100)
+  }
+
+
 
   
-  handleSubmit(e) {
-    e.preventDefault()
-    console.log('props are ', this.props.match)
-    console.log('auth user is ', Auth.getPayLoad())
-    console.log('state is ', this.state)
-    axios.post('/api/profile', this.state.userProfile, {
+  handleSubmit() {
+
+    this.setState({
+      obj: {
+        firstName: this.state.userProfile.firstName,
+        lastName: this.state.userProfile.lastName,
+        image: this.state.userProfile.image.value,
+        age: this.state.userProfile.age,
+        location: this.state.userProfile.location.value,
+        fieldIndustry: this.state.userProfile.fieldIndustry.value,
+        languages: this.state.langString,
+        frameworks: this.state.frameString,
+        qualifications: this.state.userProfile.qualifications
+      }
+    }) 
+
+    axios.post('/api/profile', this.state.obj, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
@@ -231,6 +288,7 @@ class ProfileNew extends React.Component {
             handleChange={this.handleChange}
             handleIndustry={this.handleIndustry}
             handleSubmit={this.handleSubmit}
+            update={this.handleUpdateLangs}
           />
         </div>
       </section>
