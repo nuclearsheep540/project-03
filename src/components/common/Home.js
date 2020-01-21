@@ -35,7 +35,8 @@ class Home extends React.Component {
         Skill swap is an online and face-to-face community for requestors and contributors to collaborate on all things tech!
               </p>
               <div className='image-wrapper'>
-                <img className='pic' src="https://techcrunch.com/wp-content/uploads/2019/05/GettyImages-1129377183.jpg?w=730&crop=1"></img> <img className='pic' src="http://rafaelnunezaponte.org/wp-content/uploads/2016/07/Creating-great-CSR-campigns.jpg"></img>
+                <img className='pic' src="https://techcrunch.com/wp-content/uploads/2019/05/GettyImages-1129377183.jpg?w=730&crop=1"></img> 
+                <img className='pic' src="https://images.readwrite.com/wp-content/uploads/2018/10/annie-spratt-608001-unsplash-825x500.jpg"></img>
               </div>
               <p>
         Requesters can gain knowledge by posting their language/framework queries or browsing our list of contributors to find someone with the skills that match their query
