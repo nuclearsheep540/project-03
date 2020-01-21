@@ -1,10 +1,11 @@
-const { dbURI, port } = require('./config/environment')
+const { dbURI } = require('./config/environment')
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const logger = require('./lib/logger')
 const router = require('./config/router')
+const port = process.env.PORT || 8000
 // const errorHandler = require('./lib/errorHandler')
 mongoose.set('useFindAndModify', false)
 
